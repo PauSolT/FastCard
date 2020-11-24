@@ -11,35 +11,35 @@ public class CardAttack : Card
         AttackOnly,
         AttackWDefense,
         AttackWStatus,
-        AttackWHeal
+        AttackWHeal,
+        AttackWDraw
     }
 
     public AttackType attackType;
-
-    void AttackCard(PlayerFunctions player)
-    {
-        int fullDamage = damage + player.GetStatusDamage();
-        if(fullDamage >= 0)
-            player.TakeDamage(fullDamage);
-    }
 
     //Combined Attacks
     void AttackWithDefense(PlayerFunctions player)
     {
         AttackCard(player);
-        player.AddArmor(armor);
+        DefenseCard(player);
     }
 
     void AttackWithHealing(PlayerFunctions player)
     {
         AttackCard(player);
-        player.Heal(heal);
+        HealCard(player);
     }
 
     void AttackWithStatus(PlayerFunctions player)
     {
         AttackCard(player);
-        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
+        StatusCard(player);
+    }
+
+    void AttackWithDraw(PlayerFunctions player)
+    {
+        AttackCard(player);
+        DrawCard(player);
     }
 
     public override void CardInit()
@@ -59,6 +59,9 @@ public class CardAttack : Card
                 break;
             case AttackType.AttackWStatus:
                 cardUse += AttackWithStatus;
+                break;
+            case AttackType.AttackWDraw:
+                cardUse += AttackWithDraw;
                 break;
         }
     }

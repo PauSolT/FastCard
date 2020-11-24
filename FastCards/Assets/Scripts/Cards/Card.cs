@@ -13,6 +13,7 @@ public abstract class Card : ScriptableObject
         Defense,
         Status,
         Heal,
+        Draw,
         Passive
     }
 
@@ -31,6 +32,7 @@ public abstract class Card : ScriptableObject
     [SerializeField] public int damage;
     [SerializeField] public int armor;
     [SerializeField] public int heal;
+    [SerializeField] public int draw;
 
     [SerializeField] public int statusDamage;
     [SerializeField] public int statusDefense;
@@ -38,7 +40,38 @@ public abstract class Card : ScriptableObject
 
     //Events
     protected Action<PlayerFunctions> cardUse;
-    
+
+    //Basic Events
+    protected void AttackCard(PlayerFunctions player)
+    {
+        int fullDamage = damage + player.GetStatusDamage();
+        if (fullDamage >= 0)
+            player.TakeDamage(fullDamage);
+    }
+
+    public void DefenseCard(PlayerFunctions player)
+    {
+        player.AddArmor(armor);
+    }
+
+    public void HealCard(PlayerFunctions player)
+    {
+        player.Heal(heal);
+    }
+
+    protected void StatusCard(PlayerFunctions player)
+    {
+        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
+    }
+
+    protected void DrawCard(PlayerFunctions player)
+    {
+        for (int i = 0; i < draw; i++)
+        {
+             Deck.DrawCard(player.GetPlayer());
+        }
+    }
+
     //Virtual functions so childs use them
     public virtual void CardInit()
     {

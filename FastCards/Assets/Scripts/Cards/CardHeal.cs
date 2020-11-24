@@ -11,35 +11,35 @@ public class CardHeal : Card
         HealOnly,
         HealWAttack,
         HealWDefense,
-        HealWStatus
+        HealWStatus,
+        HealWDraw
     }
 
     public HealType healType;
 
-    public void HealCard(PlayerFunctions player)
-    {
-        player.Heal(heal);
-    }
-
     //Combined Healings
-    public void HealingWithAttack(PlayerFunctions player)
+    void HealingWithAttack(PlayerFunctions player)
     {
-        player.Heal(heal);
-        int fullDamage = damage + player.GetPlayer().GetStatusDamage();
-        if (fullDamage >= 0)
-            player.TakeDamage(fullDamage);
+        HealCard(player);
+        AttackCard(player);
     }
 
-    public void HealingWithDefense(PlayerFunctions player)
+    void HealingWithDefense(PlayerFunctions player)
     {
-        player.Heal(heal);
-        player.AddArmor(armor);
+        HealCard(player);
+        DefenseCard(player);
     }
 
-    public void HealingWithStatus(PlayerFunctions player)
+    void HealingWithStatus(PlayerFunctions player)
     {
-        player.Heal(heal);
-        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
+        HealCard(player);
+        StatusCard(player);
+    }
+
+    void HealingWithDraw(PlayerFunctions player)
+    {
+        HealCard(player);
+        DrawCard(player);
     }
 
     public override void CardInit()
@@ -59,6 +59,9 @@ public class CardHeal : Card
                 break;
             case HealType.HealWStatus:
                 cardUse += HealingWithStatus;
+                break;
+            case HealType.HealWDraw:
+                cardUse += HealingWithDraw;
                 break;
         }
     }

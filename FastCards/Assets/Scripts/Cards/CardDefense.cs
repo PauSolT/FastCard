@@ -11,35 +11,35 @@ public class CardDefense : Card
         DefenseOnly,
         DefenseWAttack,
         DefenseWStatus,
-        DefenseWHeal
+        DefenseWHeal,
+        DefenseWDraw
     }
 
     public DefenseType defenseType;
 
-    public void DefenseCard(PlayerFunctions player)
-    {
-        player.AddArmor(armor);
-    }
-
     //Combined Defenses
-    public void DefenseWithAttack(PlayerFunctions player)
+    void DefenseWithAttack(PlayerFunctions player)
     {
-        player.AddArmor(armor);
-        int fullDamage = damage + player.GetPlayer().GetStatusDamage();
-        if (fullDamage >= 0)
-            player.TakeDamage(fullDamage);
+        DefenseCard(player);
+        AttackCard(player);
     }
 
-    public void DefenseWithHealing(PlayerFunctions player)
+    void DefenseWithHealing(PlayerFunctions player)
     {
-        player.AddArmor(armor);
-        player.Heal(heal);
+        DefenseCard(player);
+        HealCard(player);
     }
 
-    public void DefenseWithStatus(PlayerFunctions player)
+    void DefenseWithStatus(PlayerFunctions player)
     {
-        player.AddArmor(armor);
-        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
+        DefenseCard(player);
+        StatusCard(player);
+    }
+
+    void DefenseWithDraw(PlayerFunctions player)
+    {
+        DefenseCard(player);
+        DrawCard(player);
     }
 
     public override void CardInit()
@@ -59,6 +59,9 @@ public class CardDefense : Card
                 break;
             case DefenseType.DefenseWStatus:
                 cardUse += DefenseWithStatus;
+                break;
+            case DefenseType.DefenseWDraw:
+                cardUse += DefenseWithDraw;
                 break;
         }
     }

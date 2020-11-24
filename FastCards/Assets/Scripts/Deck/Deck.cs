@@ -18,12 +18,15 @@ public class Deck : MonoBehaviour
 
     public List<Card> playerHand;
 
+    static Deck instance;
+
     public void Init()
     {
         foreach (Card card in Resources.LoadAll<Card>(path))
         {
             playerDeck.Add(card);
         }
+        instance = this;
     }
 
     public void StartCombat()
@@ -65,7 +68,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public static IEnumerator DrawCard(Player player)
+    public static IEnumerator Draw(Player player)
     {
         yield return new WaitForSeconds(0.33f);
         //Draw card
@@ -77,16 +80,21 @@ public class Deck : MonoBehaviour
         player.AddCardToPlayer(drawDeck[0]);
         drawDeck.RemoveAt(0);
     }
+    public static void DrawCard(Player player)
+    {
+        if (CheckIfDrawCardPossible(player))
+            instance.StartCoroutine(Draw(player));
+    }
 
     public void DrawStartingHand(Player player)
     {
         for (int i = 0; i < player.GetDrawSize(); i++)
         {
-            StartCoroutine(DrawCard(player));
+            StartCoroutine(Draw(player));
         }
     }
 
-    public bool CheckIfDrawCardPossible(Player player)
+    public static bool CheckIfDrawCardPossible(Player player)
     {
         bool pos = false;
         if (player.GetCurrentHandSize() < player.GetCurrentMaxHandSize())

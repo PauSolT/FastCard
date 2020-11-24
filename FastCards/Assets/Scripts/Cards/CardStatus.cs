@@ -11,35 +11,35 @@ public class CardStatus : Card
         StatusOnly,
         StatusWAttack,
         StatusWDefense,
-        StatusWHeal
+        StatusWHeal,
+        StatusWDraw
     }
 
     public StatusType statusType;
 
-    public void StatusCard(PlayerFunctions player)
-    {
-        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
-    }
-
     //Combined Status
-    public void StatusWithAttack(PlayerFunctions player)
+    void StatusWithAttack(PlayerFunctions player)
     {
-        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
-        int fullDamage = damage + player.GetPlayer().GetStatusDamage();
-        if (fullDamage >= 0)
-            player.TakeDamage(fullDamage);
+        AttackCard(player);
+        StatusCard(player);
     }
 
-    public void StatusWithDefense(PlayerFunctions player)
+    void StatusWithDefense(PlayerFunctions player)
     {
-        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
-        player.AddArmor(armor);
+        StatusCard(player);
+        DefenseCard(player);
     }
 
-    public void StatusWithHealing(PlayerFunctions player)
+    void StatusWithHealing(PlayerFunctions player)
     {
-        player.ApplyStatus(statusDamage, statusDefense, statusHealing);
-        player.Heal(heal);
+        StatusCard(player);
+        HealCard(player);
+    }
+
+    void StatusWithDraw(PlayerFunctions player)
+    {
+        StatusCard(player);
+        DrawCard(player);
     }
 
     public override void CardInit()
@@ -58,6 +58,9 @@ public class CardStatus : Card
                 break;
             case StatusType.StatusWHeal:
                 cardUse += StatusWithHealing;
+                break;
+            case StatusType.StatusWDraw:
+                cardUse += StatusWithDraw;
                 break;
         }
     }
