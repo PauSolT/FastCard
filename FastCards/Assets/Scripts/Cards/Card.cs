@@ -50,6 +50,11 @@ public abstract class Card : ScriptableObject
         
     }
 
+    public void OneTimeUse()
+    {
+
+    }
+
     public string GetCardName() { return cardName; }
     public void SetCardName(string value) { cardName = value; }
 }

@@ -21,6 +21,6 @@ public class CardPassive : Card
     public override void CardUse()
     {
         CardPassive cardPassive = this;
-        ListTry.passives.Add(cardPassive);
+        Deck.passives.Add(cardPassive);
     }
 }

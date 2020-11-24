@@ -51,13 +51,13 @@ public class CardStatus : Card
                 cardUse += StatusCard;
                 break;
             case StatusType.StatusWAttack:
-                cardUse += StatusCard;
+                cardUse += StatusWithAttack;
                 break;
             case StatusType.StatusWDefense:
-                cardUse += StatusCard;
+                cardUse += StatusWithDefense;
                 break;
             case StatusType.StatusWHeal:
-                cardUse += StatusCard;
+                cardUse += StatusWithHealing;
                 break;
         }
     }

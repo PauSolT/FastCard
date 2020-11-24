@@ -1,20 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 
 public class Deck : MonoBehaviour
 {
+
     string path = "Cards";
 
-    public List<Card> playerDeck = new List<Card>();
+    public static List<Card> playerDeck = new List<Card>();
 
-    public List<Card> combatDeck;
-    public List<Card> drawDeck;
-    public List<Card> pileDeck;
+    public static List<Card> combatDeck;
+    public static List<Card> drawDeck;
+    public static List<Card> pileDeck;
+    public static List<Card> usedDeck;
 
     public static List<CardPassive> passives;
 
+    public List<Card> playerHand;
 
     public void Init()
     {
@@ -22,12 +24,12 @@ public class Deck : MonoBehaviour
         {
             playerDeck.Add(card);
         }
-        drawDeck = new List<Card>(combatDeck.Count);
-        pileDeck = new List<Card>();
     }
 
     public void StartCombat()
     {
+        passives = new List<CardPassive>();
+        AllPasives.Init();
         combatDeck = new List<Card>(playerDeck.Count);
         foreach (Card card in playerDeck)
         {
@@ -35,12 +37,20 @@ public class Deck : MonoBehaviour
         }
         drawDeck = new List<Card>(combatDeck.Count);
         pileDeck = new List<Card>(combatDeck.Count);
-
-        drawDeck = combatDeck;
-        for (int i = 0; i < GameManager.player.GetPlayer().GetCurrentMaxHandSize(); i++)
+        //drawDeck = combatDeck;
+        foreach (Card card in combatDeck)
         {
-            DrawCard(GameManager.player.GetPlayer());
+            drawDeck.Add(card);
         }
+
+        foreach (Card card in drawDeck)
+        {
+            card.CardInit();
+        }
+
+        Shuffle(drawDeck);
+        DrawStartingHand(GameManager.player.GetPlayer());
+
     }
 
     public void Shuffle(List<Card> deck)
@@ -55,24 +65,24 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public IEnumerator DrawCard(Player player)
+    public static IEnumerator DrawCard(Player player)
     {
         yield return new WaitForSeconds(0.33f);
         //Draw card
-        if (drawDeck[0] == null)
+        if (drawDeck.Count <= 0 )
         {
             PileToDraw();
         }
 
         player.AddCardToPlayer(drawDeck[0]);
-        drawDeck[0] = null;
+        drawDeck.RemoveAt(0);
     }
 
     public void DrawStartingHand(Player player)
     {
         for (int i = 0; i < player.GetDrawSize(); i++)
         {
-            DrawCard(player);
+            StartCoroutine(DrawCard(player));
         }
     }
 
@@ -85,11 +95,127 @@ public class Deck : MonoBehaviour
         return pos;
     }
 
-    public void PileToDraw()
+    public static void PileToDraw()
     {
-        
-        drawDeck = pileDeck;
+        foreach (Card card in pileDeck)
+        {
+            drawDeck.Add(card);
+        }
         pileDeck.Clear();
+        Debug.Log("Pile deck to draw deck...");
+    }
+
+    public void UsedCardToPile(Player player, Card card)
+    {
+        //Apply Passives
+        foreach (CardPassive cardp in passives)
+        {
+            cardp.PassiveCard(card);
+        }
+
+        //Use card
+        card.CardUse();
+
+        //Solucionar problema amb no utilitzar carta quan esta afora de la array
+        HandCardToPile(player, card);
+
+        Debug.Log("Used " + card.cardName);
+    }
+
+    public void HandCardToPile(Player player, Card card)
+    {
+        pileDeck.Add(player.GetHand()[player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode()))]);
+        player.GetHand().RemoveAt(player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode())));
+        player.SetCurrentHandSize(player.GetCurrentHandSize() - 1);
+    }
+
+    private void Start()
+    {
+        Init();
+        GameManager.player.Init();
+    }
+
+    void Update()
+    {
+        playerHand = GameManager.player.GetPlayer().GetHand();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            StartCombat();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            GameManager.player.TakeDamage(6);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            int it = GameManager.player.GetPlayer().GetHand().Count;
+            for (int i = 0; i < it; i++)
+            {
+                HandCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
+            }
+
+            DrawStartingHand(GameManager.player.GetPlayer());
+        }
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            PileToDraw();
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            foreach (Card card in GameManager.player.GetPlayer().GetHand())
+            {
+                Debug.Log("Draw " + card.cardName);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && GameManager.player.GetPlayer().GetHand().Count >=1 )
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && GameManager.player.GetPlayer().GetHand().Count >= 2)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[1]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && GameManager.player.GetPlayer().GetHand().Count >= 3)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[2]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4) && GameManager.player.GetPlayer().GetHand().Count >= 4)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[3]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5) && GameManager.player.GetPlayer().GetHand().Count >= 5)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[4]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6) && GameManager.player.GetPlayer().GetHand().Count >= 6)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[5]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7) && GameManager.player.GetPlayer().GetHand().Count >= 7)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[6]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8) && GameManager.player.GetPlayer().GetHand().Count >= 8)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[7]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9) && GameManager.player.GetPlayer().GetHand().Count >= 9)
+        {
+            UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[8]);
+        }
 
     }
 }

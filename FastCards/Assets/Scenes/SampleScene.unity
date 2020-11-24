@@ -260,10 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab37f34263c05446b80c6743132fbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDeck: []
-  combatDeck: []
-  drawDeck: []
-  pileDeck: []
+  playerHand: []
 --- !u!1 &2006537411
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,13 +302,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2006537411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9340b4729945ab4da5746bc164b66ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ab37f34263c05446b80c6743132fbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDeck: []
-  combatDeck: []
-  drawDeck: []
-  pileDeck: []
+  playerHand: []
 --- !u!114 &2006537414
 MonoBehaviour:
   m_ObjectHideFlags: 0
