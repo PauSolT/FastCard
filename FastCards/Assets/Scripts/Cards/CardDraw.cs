@@ -26,7 +26,6 @@ public class CardDraw : Card
 [CustomEditor(typeof(CardDraw))]
 class DrawInspectorEditor : Editor
 {
-
     //cast target
     CardDraw enumScript;
 
@@ -40,6 +39,7 @@ class DrawInspectorEditor : Editor
         enumScript.cost = EditorGUILayout.IntField("Cost", enumScript.cost);
         enumScript.discard = EditorGUILayout.Toggle("Discard", enumScript.discard);
         enumScript.draw = EditorGUILayout.IntField("Nº Cards Draw", enumScript.draw);
+        EditorUtility.SetDirty(target);
     }
 }//end inspectorclass
 

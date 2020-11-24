@@ -21,6 +21,7 @@ MonoBehaviour:
   damage: 0
   armor: 0
   heal: 0
+  draw: 0
   statusDamage: 0
   statusDefense: 0
   statusHealing: 0

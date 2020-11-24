@@ -79,7 +79,6 @@ public class CardDefense : Card
 [CustomEditor(typeof(CardDefense))]
 class DefenseInspectorEditor : Editor
 {
-
     //cast target
     CardDefense enumScript;
 
@@ -114,6 +113,7 @@ class DefenseInspectorEditor : Editor
                 enumScript.statusHealing = EditorGUILayout.IntField("Status Healing", enumScript.statusHealing);
                 break;
         }
+        EditorUtility.SetDirty(target);
     }
 }//end inspectorclass
 

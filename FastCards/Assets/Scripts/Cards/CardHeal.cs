@@ -79,7 +79,6 @@ public class CardHeal : Card
 [CustomEditor(typeof(CardHeal))]
 class HealInspectorEditor : Editor
 {
-
     //cast target
     CardHeal enumScript;
 
@@ -114,6 +113,7 @@ class HealInspectorEditor : Editor
                 enumScript.statusHealing = EditorGUILayout.IntField("Status Healing", enumScript.statusHealing);
                 break;
         }
+        EditorUtility.SetDirty(target);
     }
 }//end inspectorclass
 

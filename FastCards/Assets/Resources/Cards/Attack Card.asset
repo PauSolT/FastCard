@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b80a52f7a396641b47df5d9bee2b2e, type: 3}
   m_Name: Attack Card
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: 0 cost attack
   cardDescription: 
   cost: 0
   discard: 0
   self: 0
   cardType: 0
-  damage: 0
+  damage: 5
   armor: 0
   heal: 0
+  draw: 0
   statusDamage: 0
   statusDefense: 0
   statusHealing: 0

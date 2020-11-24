@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CreateAssetMenu(fileName = "Attack Card", menuName = "Card/Attack Card")]
+
 public class CardAttack : Card
 {
     public enum AttackType
@@ -79,7 +80,6 @@ public class CardAttack : Card
 [CustomEditor(typeof(CardAttack))]
 class AttackInspectorEditor : Editor
 {
-
     //cast target
     CardAttack enumScript;
 
@@ -114,6 +114,7 @@ class AttackInspectorEditor : Editor
                 enumScript.statusHealing = EditorGUILayout.IntField("Status Healing", enumScript.statusHealing);
                 break;
         }
+        EditorUtility.SetDirty(target);
     }
 }//end inspectorclass
 

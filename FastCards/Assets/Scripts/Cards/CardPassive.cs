@@ -31,7 +31,6 @@ public class CardPassive : Card
 [CustomEditor(typeof(CardPassive))]
 class PassiveInspectorEditor : Editor
 {
-
     //cast target
     CardPassive enumScript;
 
@@ -45,6 +44,7 @@ class PassiveInspectorEditor : Editor
         enumScript.cost = EditorGUILayout.IntField("Cost", enumScript.cost);
         enumScript.discard = EditorGUILayout.Toggle("Discard", enumScript.discard);
         enumScript.selectPassive = (AllPasives.PassiveName)EditorGUILayout.EnumPopup(enumScript.selectPassive);
+        EditorUtility.SetDirty(target);
     }
 }//end inspectorclass
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1566c48990d4956439bf99359a498633, type: 3}
   m_Name: Draw Card
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Draw 2 cards
   cardDescription: 
   cost: 0
   discard: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
   damage: 0
   armor: 0
   heal: 0
-  draw: 0
+  draw: 2
   statusDamage: 0
   statusDefense: 0
   statusHealing: 0

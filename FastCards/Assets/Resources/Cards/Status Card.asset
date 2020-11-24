@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bebf7f05ebd085043b9ff1634fc5d813, type: 3}
   m_Name: Status Card
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Buff1everything
   cardDescription: 
   cost: 0
   discard: 0
@@ -21,7 +21,8 @@ MonoBehaviour:
   damage: 0
   armor: 0
   heal: 0
-  statusDamage: 0
-  statusDefense: 0
-  statusHealing: 0
+  draw: 0
+  statusDamage: 1
+  statusDefense: 1
+  statusHealing: 1
   statusType: 0
