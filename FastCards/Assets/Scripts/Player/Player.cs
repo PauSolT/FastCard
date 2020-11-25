@@ -7,54 +7,37 @@ public class Player
 {
     //------Variables------//
     //Name
-    [SerializeField]
-    string name;
+    [SerializeField] string name;
 
     //Health
-    [SerializeField]
-    int startingMaxHealth = 0;
-    [SerializeField]
-    int currentMaxHealth;
-    [SerializeField]
-    int startingHealth = 0;
-    [SerializeField]
-    int currentHealth;
+    [SerializeField] int startingMaxHealth = 0;
+    [SerializeField] int currentMaxHealth;
+    [SerializeField] int startingHealth = 0;
+    [SerializeField] int currentHealth;
 
     //Armor
-    [SerializeField]
-    int startingArmor = 0;
-    [SerializeField]
-    int currentArmor;
+    [SerializeField] int startingArmor = 0;
+    [SerializeField] int currentArmor;
 
 
     //Hand size
-    [SerializeField]
-    int startingMaxHandSize = 0;
-    [SerializeField]
-    int currentMaxHandSize;
+    [SerializeField] int startingMaxHandSize = 0;
+    [SerializeField] int currentMaxHandSize;
     //int startingHandSize;
-    [SerializeField]
-    int currentHandSize;
-    [SerializeField]
-    int drawSize = 0;
+    [SerializeField] int currentHandSize;
+    [SerializeField] int drawSize = 0;
 
     //Status
-    [SerializeField]
-    int statusDamage;
-    [SerializeField]
-    int statusDefense;
-    [SerializeField]
-    int statusHeal;
+    [SerializeField] int statusDamage;
+    [SerializeField] int statusDefense;
+    [SerializeField] int statusHeal;
 
     //Levels
-    [SerializeField]
-    int startingLevel = 0;
-    [SerializeField]
-    int currentLevel;
+    [SerializeField] int startingLevel = 0;
+    [SerializeField] int currentLevel;
 
     //Cards Hand
-    [SerializeField]
-    List<Card> hand = new List<Card>();
+    [SerializeField] List<Card> hand = new List<Card>();
 
     //------Functions------//
     //Health related
@@ -119,5 +102,4 @@ public class Player
         hand.Add(card);
         currentHandSize++;
     }
-
 }

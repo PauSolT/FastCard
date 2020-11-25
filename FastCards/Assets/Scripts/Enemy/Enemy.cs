@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Enemy 
 {
     //------Variables------//
-    //Health
-    int startingMaxHealth = 0;
-    int currentMaxHealth;
-    int startingHealth;
-    int currentHealth;
+    //Name
+    [SerializeField] string name = "";
 
-    int startingArmor = 0;
-    int currentArmor;
+    //Health
+    [SerializeField] int startingMaxHealth = 0;
+    [SerializeField] int startingHealth;
+    [SerializeField] int currentHealth;
+
+    [SerializeField] int startingArmor = 0;
+    [SerializeField] int currentArmor;
 
     //Status
-    int statusDamage;
-    int statusDefense;
-    int statusHeal;
+    [SerializeField] int statusDamage;
+    [SerializeField] int statusDefense;
+    [SerializeField] int statusHeal;
 
     //------Functions------//
     //Health related
     public int GetStartingMaxHealth() { return startingMaxHealth; }
-
-    public int GetCurrentMaxHealth() { return currentMaxHealth; }
-    public void SetCurrentMaxHealth(int value) { currentMaxHealth = value; }
 
     public int GetStartingHealth() { return startingHealth; }
     public void SetStartingHealth(int value) { startingHealth = value; }
@@ -32,11 +32,14 @@ public class Enemy
     public int GetCurrentHealth() { return currentHealth; }
     public void SetCurrentHealth(int value) { currentHealth = value; }
 
-    //Armor
+    //Armor related
     public int GetStartingArmor() { return startingArmor; }
 
     public int GetCurrentArmor() { return currentArmor; }
     public void SetCurrentArmor(int value) { currentArmor = value; }
+
+    //Name related
+    public string GetName() { return name; }
 
     //Status related
     public int GetStatusDamage() { return statusDamage; }

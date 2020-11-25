@@ -20,7 +20,7 @@ public class Deck : MonoBehaviour
     public static List<CardPassive> passives;
 
     [Header("Wtachable lists")]
-    public List<Card> playerHand;
+    public List<Card> seePlayerHand;    
     public List<Card> seeDrawDeck;
     public List<Card> seePileDeck;
     public List<CardPassive> seePassive;
@@ -162,15 +162,9 @@ public class Deck : MonoBehaviour
         player.SetCurrentHandSize(player.GetCurrentHandSize() - 1);
     }
 
-    private void Start()
-    {
-        Init();
-        GameManager.player.Init();
-    }
-
     void Update()
     {
-        playerHand = GameManager.player.GetPlayer().GetHand();
+        seePlayerHand = GameManager.player.GetPlayer().GetHand();
         seeDrawDeck = drawDeck;
         seePileDeck = pileDeck;
         seePassive = passives;

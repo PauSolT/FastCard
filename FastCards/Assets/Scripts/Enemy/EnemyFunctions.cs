@@ -4,33 +4,40 @@ using UnityEngine;
 
 public class EnemyFunctions : Enemy
 {
-    public TextAsset jsonFile;
+    TextAsset jsonFile;
     Enemy enemy;
+
+    string path = "Jsons/EnemyValues";
 
     public void Init()
     {
         enemy = new Enemy();
+        jsonFile = Resources.Load(path) as TextAsset;
         enemy = JsonUtility.FromJson<Enemy>(jsonFile.text);
 
         enemy.SetCurrentHealth(enemy.GetStartingHealth());
 
-        Debug.Log("Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
+        Debug.Log("Enemy Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
 
     public override void TakeDamage(int damage)
     {
         if (enemy.GetCurrentArmor() > 0)
         {
-            if (enemy.GetCurrentArmor() >= damage)
+            int damageHealth = damage - enemy.GetCurrentArmor();
+            if (damageHealth <= 0)
                 enemy.SetCurrentArmor(enemy.GetCurrentArmor() - damage);
-            if (enemy.GetCurrentArmor() < damage)
+            else if (damageHealth > 0)
             {
-                int damageHealth = damage - enemy.GetCurrentArmor();
                 enemy.SetCurrentArmor(0);
-                enemy.SetCurrentHealth(damageHealth);
+                enemy.SetCurrentHealth(enemy.GetCurrentHealth() - damageHealth);
             }
         }
-        Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetCurrentMaxHealth());
+        else
+        {
+            enemy.SetCurrentHealth(enemy.GetCurrentHealth() - damage);
+        }
+        Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
 
         if (enemy.GetCurrentHealth() <= 0)
         {
@@ -44,10 +51,10 @@ public class EnemyFunctions : Enemy
         if (healing >= 0)
             enemy.SetCurrentHealth(enemy.GetCurrentHealth() + healing);
 
-        if (enemy.GetCurrentHealth() >= enemy.GetCurrentMaxHealth())
-            enemy.SetCurrentHealth(enemy.GetCurrentMaxHealth());
+        if (enemy.GetCurrentHealth() >= enemy.GetStartingHealth())
+            enemy.SetCurrentHealth(enemy.GetStartingHealth());
 
-        Debug.Log("Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetCurrentMaxHealth());
+        Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
 
     public override void AddArmor(int armor)
@@ -55,6 +62,8 @@ public class EnemyFunctions : Enemy
         int def = armor + enemy.GetStatusDefense();
         if (def >= 0)
             enemy.SetCurrentArmor(enemy.GetCurrentArmor() + def);
+
+        Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
 
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
@@ -62,5 +71,8 @@ public class EnemyFunctions : Enemy
         enemy.SetStatusDamage(enemy.GetStatusDamage() + damageBuff);
         enemy.SetStatusDefense(enemy.GetStatusDefense() + defenseBuff);
         enemy.SetStatusHeal(enemy.GetStatusHeal() + healingBuff);
+        Debug.Log("Damage Buff: " + enemy.GetStatusDamage() + "Defense Buff: " + enemy.GetStatusDefense() + "Healing Buff " + enemy.GetStatusHeal());
     }
+
+    public Enemy GetEnemy() { return enemy; }
 }

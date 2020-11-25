@@ -46,7 +46,7 @@ public abstract class Card : ScriptableObject
     {
         int fullDamage = damage + player.GetStatusDamage();
         if (fullDamage >= 0)
-            player.TakeDamage(fullDamage);
+            CombatManager.enemy.TakeDamage(fullDamage);
     }
 
     public void DefenseCard(PlayerFunctions player)
