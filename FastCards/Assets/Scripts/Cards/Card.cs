@@ -83,7 +83,7 @@ public abstract class Card : ScriptableObject
         
     }
 
-    public void OneTimeUse()
+    protected void OneTimeUse()
     {
 
     }

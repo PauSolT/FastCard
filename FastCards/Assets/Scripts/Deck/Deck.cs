@@ -7,16 +7,23 @@ public class Deck : MonoBehaviour
 
     string path = "Cards";
 
-    public static List<Card> playerDeck = new List<Card>();
+    public List<Card> playerDeck = new List<Card>();
 
-    public static List<Card> combatDeck;
+    public List<Card> combatDeck;
     public static List<Card> drawDeck;
     public static List<Card> pileDeck;
-    public static List<Card> usedDeck;
+    public List<Card> usedDeck;
+
+    [Header("Exhaust")]
+    public List<Card> unusableDeck;
 
     public static List<CardPassive> passives;
 
+    [Header("Wtachable lists")]
     public List<Card> playerHand;
+    public List<Card> seeDrawDeck;
+    public List<Card> seePileDeck;
+    public List<CardPassive> seePassive;
 
     static Deck instance;
 
@@ -124,16 +131,33 @@ public class Deck : MonoBehaviour
 
         //Use card
         card.CardUse();
-        //Solucionar problema amb no utilitzar carta quan esta afora de la array
-        HandCardToPile(player, card);
+        
+        //After card is used
+        if (card.discard)
+            OneTimeCard(player, card);
+        else if (card.cardType == Card.CardType.Passive)
+            RemoveCardFromHand(player, card);
+        else if (!card.discard)
+            HandCardToPile(player, card);
 
 
         Debug.Log("Used " + card.cardName);
     }
 
+    public void OneTimeCard(Player player, Card card)
+    {
+        unusableDeck.Add(player.GetHand()[player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode()))]);
+        RemoveCardFromHand(player, card);
+    }
+
     public void HandCardToPile(Player player, Card card)
     {
         pileDeck.Add(player.GetHand()[player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode()))]);
+        RemoveCardFromHand(player, card);
+    }
+
+    public void RemoveCardFromHand(Player player, Card card)
+    {
         player.GetHand().RemoveAt(player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode())));
         player.SetCurrentHandSize(player.GetCurrentHandSize() - 1);
     }
@@ -147,6 +171,9 @@ public class Deck : MonoBehaviour
     void Update()
     {
         playerHand = GameManager.player.GetPlayer().GetHand();
+        seeDrawDeck = drawDeck;
+        seePileDeck = pileDeck;
+        seePassive = passives;
 
         if (Input.GetKeyDown(KeyCode.F))
         {
