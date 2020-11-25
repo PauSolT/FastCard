@@ -77,13 +77,14 @@ public class Deck : MonoBehaviour
             PileToDraw();
         }
 
-        player.AddCardToPlayer(drawDeck[0]);
+        if (CheckIfDrawCardPossible(player))
+            player.AddCardToPlayer(drawDeck[0]);
+
         drawDeck.RemoveAt(0);
     }
     public static void DrawCard(Player player)
     {
-        if (CheckIfDrawCardPossible(player))
-            instance.StartCoroutine(Draw(player));
+        instance.StartCoroutine(Draw(player));
     }
 
     public void DrawStartingHand(Player player)
@@ -123,9 +124,9 @@ public class Deck : MonoBehaviour
 
         //Use card
         card.CardUse();
-
         //Solucionar problema amb no utilitzar carta quan esta afora de la array
         HandCardToPile(player, card);
+
 
         Debug.Log("Used " + card.cardName);
     }

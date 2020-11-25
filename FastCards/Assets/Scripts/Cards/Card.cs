@@ -68,7 +68,7 @@ public abstract class Card : ScriptableObject
     {
         for (int i = 0; i < draw; i++)
         {
-             Deck.DrawCard(player.GetPlayer());
+            Deck.DrawCard(player.GetPlayer());
         }
     }
 
