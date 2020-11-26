@@ -9,10 +9,10 @@ public class EnemyFunctions : Enemy
 
     string path = "Jsons/EnemyValues";
 
-    public void Init()
+    public void Init(string pathEnemy)
     {
         enemy = new Enemy();
-        jsonFile = Resources.Load(path) as TextAsset;
+        jsonFile = Resources.Load(path + pathEnemy) as TextAsset;
         enemy = JsonUtility.FromJson<Enemy>(jsonFile.text);
 
         enemy.SetCurrentHealth(enemy.GetStartingHealth());

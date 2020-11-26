@@ -11,6 +11,7 @@ public class CardPassive : Card
     public void PassiveCard(Card card)
     {
         AllPasives.passives[selectPassive].Invoke(card);
+        card.passivesApplied.Add(this);
     }
 
     public override void CardInit()

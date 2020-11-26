@@ -16,7 +16,7 @@ MonoBehaviour:
   cardDescription: 
   cost: 0
   discard: 0
-  self: 0
+  self: 1
   cardType: 0
   damage: 0
   armor: 0
@@ -25,4 +25,5 @@ MonoBehaviour:
   statusDamage: 1
   statusDefense: 1
   statusHealing: 1
+  passivesApplied: []
   statusType: 0

@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CombatManager : MonoBehaviour
+public class CombatManager 
 {
-    public static EnemyFunctions enemy = new EnemyFunctions();
 
-    int combo;
+    public static EnemyFunctions enemy;
     public bool playerTurn = true;
-    //float comboSeconds = 7f;
+    int combo;
+    float comboSeconds =0f;
     //float currentComboSeconds = 0f;
 
-    //float turnSeconds = 30f;
+    float turnSeconds =0f;
     //float currentTurnSeconds = 0f;
 
     public Slider playerSlider;
     public Slider enemySlider;
+    public Slider comboSlider;
+    public Slider turnSlider;
 
     public Text playerHealth;
     public Text enemyHealth;
@@ -25,6 +27,17 @@ public class CombatManager : MonoBehaviour
     public Text playerName;
     public Text enemyName;
 
+    TextAsset jsonFile;
+    string path = "Jsons/CombatValues";
+
+    public void Init(EnemyFunctions combatEnemy)
+    {
+        jsonFile = Resources.Load(path) as TextAsset;
+        GameManager.combatManager = JsonUtility.FromJson<CombatManager>(jsonFile.text);
+        enemy = combatEnemy;
+        GameManager.deck.Init();
+        GameManager.deck.StartCombat();
+    }
 
     void EndPlayerTurn()
     {
@@ -38,30 +51,23 @@ public class CombatManager : MonoBehaviour
 
     void StartPlayerTurn()
     {
+        playerTurn = true;
         GameManager.deck.DrawStartingHand(GameManager.player.GetPlayer());
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameManager.deck.Init();
-        GameManager.deck.StartCombat();
-        enemy.Init();
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void CombatInputs()
     {
-        playerSlider.maxValue = GameManager.player.GetPlayer().GetCurrentMaxHealth();
-        playerSlider.value = GameManager.player.GetPlayer().GetCurrentHealth();
-        enemySlider.maxValue = enemy.GetEnemy().GetStartingMaxHealth();
-        enemySlider.value = enemy.GetEnemy().GetCurrentHealth();
+        //playerSlider.maxValue = GameManager.player.GetPlayer().GetCurrentMaxHealth();
+        //playerSlider.value = GameManager.player.GetPlayer().GetCurrentHealth();
+        //enemySlider.maxValue = enemy.GetEnemy().GetStartingMaxHealth();
+        //enemySlider.value = enemy.GetEnemy().GetCurrentHealth();
 
-        playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + "/" + GameManager.player.GetPlayer().GetCurrentMaxHealth();
-        enemyHealth.text = enemy.GetEnemy().GetCurrentHealth() + "/" + enemy.GetEnemy().GetStartingMaxHealth();
-        playerArmor.text = GameManager.player.GetPlayer().GetCurrentArmor().ToString();
-        enemyArmor.text = enemy.GetCurrentArmor().ToString();
-        playerName.text = GameManager.player.GetPlayer().GetName();
-        enemyName.text = enemy.GetEnemy().GetName();
+        //playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + "/" + GameManager.player.GetPlayer().GetCurrentMaxHealth();
+        //enemyHealth.text = enemy.GetEnemy().GetCurrentHealth() + "/" + enemy.GetEnemy().GetStartingMaxHealth();
+        //playerArmor.text = GameManager.player.GetPlayer().GetCurrentArmor().ToString();
+        //enemyArmor.text = enemy.GetCurrentArmor().ToString();
+        //playerName.text = GameManager.player.GetPlayer().GetName();
+        //enemyName.text = enemy.GetEnemy().GetName();
 
         GameManager.deck.seePlayerHand = GameManager.player.GetPlayer().GetHand();
         GameManager.deck.seeDrawDeck = Deck.drawDeck;
