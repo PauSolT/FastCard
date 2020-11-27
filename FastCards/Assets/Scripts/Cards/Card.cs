@@ -45,19 +45,19 @@ public abstract class Card : ScriptableObject
     //Basic Card Functions
     protected void AttackCard(PlayerFunctions player)
     {
-        int fullDamage = damage + player.GetStatusDamage();
+        int fullDamage = damage + player.GetStatusDamage() + GameManager.combatManager.combo;
         if (fullDamage >= 0)
             CombatManager.enemy.TakeDamage(fullDamage);
     }
 
     public void DefenseCard(PlayerFunctions player)
     {
-        player.AddArmor(armor);
+        player.AddArmor(armor + GameManager.combatManager.combo);
     }
 
     public void HealCard(PlayerFunctions player)
     {
-        player.Heal(heal);
+        player.Heal(heal + GameManager.combatManager.combo);
     }
 
     protected void StatusCard(PlayerFunctions player)
@@ -84,7 +84,8 @@ public abstract class Card : ScriptableObject
 
     public virtual void CardUse()
     {
-        
+        if (GameManager.combatManager.currentComboSeconds > 0f)
+            GameManager.combatManager.BuildCombo();
     }
 
     protected void OneTimeUse()

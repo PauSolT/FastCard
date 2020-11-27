@@ -23,6 +23,7 @@ public class CardPassive : Card
     {
         CardPassive cardPassive = this;
         Deck.passives.Add(cardPassive);
+        base.CardUse();
     }
 }
 

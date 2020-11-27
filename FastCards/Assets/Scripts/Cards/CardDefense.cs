@@ -69,6 +69,7 @@ public class CardDefense : Card
     public override void CardUse()
     {
         cardUse?.Invoke(GameManager.player);
+        base.CardUse();
     }
 }
 

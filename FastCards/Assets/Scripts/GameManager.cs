@@ -14,13 +14,13 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        player.Init();
+        deck = GetComponent<Deck>();
         for (int i = 0; i < 1; i++)
         {
             enemies.Add(new EnemyFunctions());
             enemies[i].Init(i.ToString());
         }
-        player.Init();
-        deck = GetComponent<Deck>();
         combatManager.Init(enemies[0]);
     }
 

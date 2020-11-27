@@ -8,24 +8,27 @@ public class CombatManager
 
     public static EnemyFunctions enemy;
     public bool playerTurn = true;
-    int combo;
-    float comboSeconds =0f;
-    //float currentComboSeconds = 0f;
+    public int combo;
+    float comboSeconds = 5f;
+    public float currentComboSeconds = 0f;
 
-    float turnSeconds =0f;
-    //float currentTurnSeconds = 0f;
 
-    public Slider playerSlider;
-    public Slider enemySlider;
-    public Slider comboSlider;
-    public Slider turnSlider;
+    [SerializeField] float turnSeconds = 10f;
+    float currentTurnSeconds = 0f;
 
-    public Text playerHealth;
-    public Text enemyHealth;
-    public Text playerArmor;
-    public Text enemyArmor;
-    public Text playerName;
-    public Text enemyName;
+    public static Slider playerSlider;
+    public static Slider enemySlider;
+    public static Slider comboSlider;
+    public static Slider turnSlider;
+    public static Slider timeSlider;
+
+
+    public static Text playerHealth;
+    public static Text enemyHealth;
+    public static Text playerArmor;
+    public static Text enemyArmor;
+    public static Text playerName;
+    public static Text enemyName;
 
     TextAsset jsonFile;
     string path = "Jsons/CombatValues";
@@ -34,9 +37,21 @@ public class CombatManager
     {
         jsonFile = Resources.Load(path) as TextAsset;
         GameManager.combatManager = JsonUtility.FromJson<CombatManager>(jsonFile.text);
+
         enemy = combatEnemy;
         GameManager.deck.Init();
         GameManager.deck.StartCombat();
+        playerSlider = GameObject.Find("Canvas/PlayerSlider").GetComponent<Slider>();
+        enemySlider = GameObject.Find("Canvas/EnemySlider").GetComponent<Slider>();
+        timeSlider = GameObject.Find("Canvas/TimeSlider").GetComponent<Slider>();
+        playerHealth = GameObject.Find("Canvas/PlayerHealth").GetComponent<Text>();
+        enemyHealth = GameObject.Find("Canvas/EnemyHealth").GetComponent<Text>();
+        playerArmor = GameObject.Find("Canvas/PlayerArmor").GetComponent<Text>();
+        enemyArmor = GameObject.Find("Canvas/EnemyArmor").GetComponent<Text>();
+        playerName = GameObject.Find("Canvas/PlayerName").GetComponent<Text>();
+        enemyName = GameObject.Find("Canvas/EnemyName").GetComponent<Text>();
+
+        StartPlayerTurn();
     }
 
     void EndPlayerTurn()
@@ -47,32 +62,57 @@ public class CombatManager
             GameManager.deck.HandCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
         }
         playerTurn = false;
+        currentTurnSeconds = 0f;
+        currentComboSeconds = 0f;
+        combo = 0;
     }
 
     void StartPlayerTurn()
     {
         playerTurn = true;
         GameManager.deck.DrawStartingHand(GameManager.player.GetPlayer());
+        GameManager.combatManager.currentTurnSeconds = GameManager.combatManager.turnSeconds;
+        GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
+    }
+
+    public void BuildCombo()
+    {
+        combo++;
     }
 
     public void CombatInputs()
-    {
-        //playerSlider.maxValue = GameManager.player.GetPlayer().GetCurrentMaxHealth();
-        //playerSlider.value = GameManager.player.GetPlayer().GetCurrentHealth();
-        //enemySlider.maxValue = enemy.GetEnemy().GetStartingMaxHealth();
-        //enemySlider.value = enemy.GetEnemy().GetCurrentHealth();
+    {   
+        playerSlider.maxValue = GameManager.player.GetPlayer().GetCurrentMaxHealth();
+        playerSlider.value = GameManager.player.GetPlayer().GetCurrentHealth();
+        enemySlider.maxValue = enemy.GetEnemy().GetStartingMaxHealth();
+        enemySlider.value = enemy.GetEnemy().GetCurrentHealth();
 
-        //playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + "/" + GameManager.player.GetPlayer().GetCurrentMaxHealth();
-        //enemyHealth.text = enemy.GetEnemy().GetCurrentHealth() + "/" + enemy.GetEnemy().GetStartingMaxHealth();
-        //playerArmor.text = GameManager.player.GetPlayer().GetCurrentArmor().ToString();
-        //enemyArmor.text = enemy.GetCurrentArmor().ToString();
-        //playerName.text = GameManager.player.GetPlayer().GetName();
-        //enemyName.text = enemy.GetEnemy().GetName();
+        playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + "/" + GameManager.player.GetPlayer().GetCurrentMaxHealth();
+        enemyHealth.text = enemy.GetEnemy().GetCurrentHealth() + "/" + enemy.GetEnemy().GetStartingMaxHealth();
+        playerArmor.text = GameManager.player.GetPlayer().GetCurrentArmor().ToString();
+        enemyArmor.text = enemy.GetCurrentArmor().ToString();
+        playerName.text = GameManager.player.GetPlayer().GetName();
+        enemyName.text = enemy.GetEnemy().GetName();
 
         GameManager.deck.seePlayerHand = GameManager.player.GetPlayer().GetHand();
         GameManager.deck.seeDrawDeck = Deck.drawDeck;
         GameManager.deck.seePileDeck = Deck.pileDeck;
-        GameManager.deck.seePassive = Deck.passives; 
+        GameManager.deck.seePassive = Deck.passives;
+
+        timeSlider.maxValue = turnSeconds;
+        currentTurnSeconds -= Time.deltaTime;
+        timeSlider.value = currentTurnSeconds;
+
+        currentComboSeconds -= Time.deltaTime;
+
+        Debug.Log(combo);
+
+        if (currentTurnSeconds <= 0f)
+            EndPlayerTurn();
+
+        if (currentComboSeconds <= 0f)
+            combo = 0;
+
 
         if (Input.GetKeyDown(KeyCode.D))
         {
