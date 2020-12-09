@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Enemy 
+public class Enemy
 {
     //------Variables------//
     //Name
-    [SerializeField] string name = "";
+    [SerializeField] string enemyName = "";
 
     //Health
     [SerializeField] int startingMaxHealth = 0;
@@ -21,6 +21,7 @@ public class Enemy
     [SerializeField] int statusDamage;
     [SerializeField] int statusDefense;
     [SerializeField] int statusHeal;
+    [SerializeField] EnemyBehaviour behaviour;
 
     //------Functions------//
     //Health related
@@ -39,7 +40,7 @@ public class Enemy
     public void SetCurrentArmor(int value) { currentArmor = value; }
 
     //Name related
-    public string GetName() { return name; }
+    public string GetName() { return enemyName; }
 
     //Status related
     public int GetStatusDamage() { return statusDamage; }
@@ -50,6 +51,9 @@ public class Enemy
 
     public int GetStatusHeal() { return statusHeal; }
     public void SetStatusHeal(int value) { statusHeal = value; }
+
+    public void SetBehaviour(EnemyBehaviour value) { behaviour = value; }
+    public EnemyBehaviour GetBehaviour() { return behaviour; }
 
     //Combat related
     public virtual void TakeDamage(int damage) { }

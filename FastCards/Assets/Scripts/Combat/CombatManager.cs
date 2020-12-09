@@ -93,6 +93,7 @@ public class CombatManager
         enemyArmor.text = enemy.GetCurrentArmor().ToString();
         playerName.text = GameManager.player.GetPlayer().GetName();
         enemyName.text = enemy.GetEnemy().GetName();
+        enemyArmor.text = enemy.GetEnemy().GetCurrentArmor().ToString();
 
         GameManager.deck.seePlayerHand = GameManager.player.GetPlayer().GetHand();
         GameManager.deck.seeDrawDeck = Deck.drawDeck;
@@ -105,7 +106,7 @@ public class CombatManager
 
         currentComboSeconds -= Time.deltaTime;
 
-        Debug.Log(combo);
+        //Debug.Log(combo);
 
         if (currentTurnSeconds <= 0f)
             EndPlayerTurn();
@@ -124,8 +125,9 @@ public class CombatManager
             EndPlayerTurn();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !playerTurn)
+        if (!playerTurn)
         {
+            enemy.DoOption();
             StartPlayerTurn();
         }
 

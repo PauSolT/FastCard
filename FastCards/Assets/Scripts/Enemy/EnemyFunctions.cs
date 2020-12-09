@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class EnemyFunctions : Enemy
 {
     TextAsset jsonFile;
     Enemy enemy;
 
-    string path = "Jsons/EnemyValues";
+    [SerializeField] string path = "Jsons/EnemyValues";
+
+    [SerializeField] EnemyBehaviour selectedBehaviour = new BasicEnemy();
 
     public void Init(string pathEnemy)
     {
@@ -16,6 +19,8 @@ public class EnemyFunctions : Enemy
         enemy = JsonUtility.FromJson<Enemy>(jsonFile.text);
 
         enemy.SetCurrentHealth(enemy.GetStartingHealth());
+        enemy.SetBehaviour(selectedBehaviour);
+        enemy.GetBehaviour().Init();
 
         Debug.Log("Enemy Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
@@ -75,4 +80,9 @@ public class EnemyFunctions : Enemy
     }
 
     public Enemy GetEnemy() { return enemy; }
+
+    public void DoOption()
+    {
+        selectedBehaviour.ChooseOption();
+    }
 }
