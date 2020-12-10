@@ -6,9 +6,12 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "Defense Card", menuName = "Card/Defense Card")]
 public class CardDefense : Card
 {
+    public int repeatedDefend;
+
     public enum DefenseType
     {
         DefenseOnly,
+        DefenseMultiple,
         DefenseWAttack,
         DefenseWStatus,
         DefenseWHeal,
@@ -16,6 +19,14 @@ public class CardDefense : Card
     }
 
     public DefenseType defenseType;
+
+    void MultipleDefends(PlayerFunctions player)
+    {
+        for (int i = 0; i < repeatedDefend; i++)
+        {
+            DefenseCard(player);
+        }
+    }
 
     //Combined Defenses
     void DefenseWithAttack(PlayerFunctions player)
@@ -50,6 +61,9 @@ public class CardDefense : Card
         {
             case DefenseType.DefenseOnly:
                 cardUse += DefenseCard;
+                break;
+            case DefenseType.DefenseMultiple:
+                cardUse += MultipleDefends;
                 break;
             case DefenseType.DefenseWAttack:
                 cardUse += DefenseWithAttack;
@@ -101,6 +115,9 @@ class DefenseInspectorEditor : Editor
         switch (enumScript.defenseType)
         {
             case CardDefense.DefenseType.DefenseOnly:
+                break;
+            case CardDefense.DefenseType.DefenseMultiple:
+                enumScript.repeatedDefend = EditorGUILayout.IntField("Nº defends", enumScript.repeatedDefend);
                 break;
             case CardDefense.DefenseType.DefenseWAttack:
                 enumScript.damage = EditorGUILayout.IntField("Damage", enumScript.damage);

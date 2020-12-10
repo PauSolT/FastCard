@@ -45,7 +45,7 @@ public abstract class Card : ScriptableObject
     //Basic Card Functions
     protected void AttackCard(PlayerFunctions player)
     {
-        int fullDamage = damage + player.GetStatusDamage() + GameManager.combatManager.combo;
+        int fullDamage = damage + player.GetPlayer().GetStatusDamage() + GameManager.combatManager.combo;
         if (fullDamage >= 0)
             CombatManager.enemy.TakeDamage(fullDamage);
     }

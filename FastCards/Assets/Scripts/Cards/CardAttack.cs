@@ -7,9 +7,11 @@ using UnityEditor;
 
 public class CardAttack : Card
 {
+    public int repeatedAttack;
     public enum AttackType
     {
         AttackOnly,
+        AttackMultiple,
         AttackWDefense,
         AttackWStatus,
         AttackWHeal,
@@ -18,6 +20,14 @@ public class CardAttack : Card
 
     public AttackType attackType;
 
+
+    void MultipleAttacks(PlayerFunctions player)
+    {
+        for (int i = 0; i < repeatedAttack; i++)
+        {
+            AttackCard(player);
+        }
+    }
     //Combined Attacks
     void AttackWithDefense(PlayerFunctions player)
     {
@@ -51,6 +61,9 @@ public class CardAttack : Card
         {
             case AttackType.AttackOnly:
                 cardUse += AttackCard;
+                break;
+            case AttackType.AttackMultiple:
+                cardUse += MultipleAttacks;
                 break;
             case AttackType.AttackWDefense:
                 cardUse += AttackWithDefense;
@@ -102,6 +115,9 @@ class AttackInspectorEditor : Editor
         switch (enumScript.attackType)
         {
             case CardAttack.AttackType.AttackOnly:
+                break;
+            case CardAttack.AttackType.AttackMultiple:
+                enumScript.repeatedAttack = EditorGUILayout.IntField("Nº attacks", enumScript.repeatedAttack);
                 break;
             case CardAttack.AttackType.AttackWDefense:
                 enumScript.armor = EditorGUILayout.IntField("Defense", enumScript.armor);

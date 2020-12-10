@@ -94,6 +94,8 @@ public class Player
     public virtual void Heal(int heal) { }
     public virtual void AddArmor(int armor) { }
     public virtual void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff) { }
+    
+    public virtual void Die() { }
 
     //Hand related
     public List<Card> GetHand() { return hand; }

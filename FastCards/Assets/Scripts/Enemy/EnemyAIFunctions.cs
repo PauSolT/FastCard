@@ -10,7 +10,7 @@ public static class EnemyAIFunctions
         if (fullDamage >= 0)
             GameManager.player.TakeDamage(fullDamage);
 
-        Debug.Log("Enemy attacked for: " + value + " damage");
+        Debug.Log("Enemy attacked for: " + fullDamage + " damage");
     }
 
     public static void Defend(int value)
@@ -19,16 +19,16 @@ public static class EnemyAIFunctions
         if (fullArmor >= 0)
             CombatManager.enemy.AddArmor(fullArmor);
 
-        Debug.Log("Enemy defended for: " + value + " armor");
+        Debug.Log("Enemy defended for: " + fullArmor + " armor");
     }
 
     public static void Heal(int value)
     {
         int fullHealing = value + CombatManager.enemy.GetEnemy().GetStatusHeal();
         if (fullHealing >= 0)
-            CombatManager.enemy.AddArmor(fullHealing);
+            CombatManager.enemy.Heal(fullHealing);
 
-        Debug.Log("Enemy healed for: " + value + " HP");
+        Debug.Log("Enemy healed for: " + fullHealing + " HP");
 
     }
 

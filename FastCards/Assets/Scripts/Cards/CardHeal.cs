@@ -6,9 +6,11 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "Heal Card", menuName = "Card/Heal Card")]
 public class CardHeal : Card
 {
+    public int repeatedHeal;
     public enum HealType
     {
         HealOnly,
+        HealMultiple,
         HealWAttack,
         HealWDefense,
         HealWStatus,
@@ -16,6 +18,13 @@ public class CardHeal : Card
     }
 
     public HealType healType;
+    void MultipleHealing(PlayerFunctions player)
+    {
+        for (int i = 0; i < repeatedHeal; i++)
+        {
+            HealCard(player);
+        }
+    }
 
     //Combined Healings
     void HealingWithAttack(PlayerFunctions player)
@@ -50,6 +59,9 @@ public class CardHeal : Card
         {
             case HealType.HealOnly:
                 cardUse += HealCard;
+                break;
+            case HealType.HealMultiple:
+                cardUse += MultipleHealing;
                 break;
             case HealType.HealWAttack:
                 cardUse += HealingWithAttack;
@@ -101,6 +113,9 @@ class HealInspectorEditor : Editor
         switch (enumScript.healType)
         {
             case CardHeal.HealType.HealOnly:
+                break;
+            case CardHeal.HealType.HealMultiple:
+                enumScript.repeatedHeal = EditorGUILayout.IntField("Nº heals", enumScript.repeatedHeal);
                 break;
             case CardHeal.HealType.HealWAttack:
                 enumScript.damage = EditorGUILayout.IntField("Damage", enumScript.damage);

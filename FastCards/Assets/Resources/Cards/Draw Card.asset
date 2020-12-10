@@ -25,3 +25,4 @@ MonoBehaviour:
   statusDamage: 0
   statusDefense: 0
   statusHealing: 0
+  passivesApplied: []

@@ -53,7 +53,7 @@ public class PlayerFunctions : Player
 
         if (player.GetCurrentHealth() <= 0)
         {
-            Debug.Log("Game Over");
+            Die();
         }
     }
 
@@ -87,5 +87,14 @@ public class PlayerFunctions : Player
     }
 
     public Player GetPlayer() { return player; }
+
+    public override void Die()
+    {
+        Debug.Log("Game Over");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;    
+#endif
+        Application.Quit();
+    }
 }
 
