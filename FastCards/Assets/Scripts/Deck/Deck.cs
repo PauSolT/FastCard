@@ -76,6 +76,7 @@ public class Deck : MonoBehaviour
         Shuffle(drawDeck);
         DrawStartingHand(GameManager.player.GetPlayer());
 
+
     }
 
     //Shuffle deck

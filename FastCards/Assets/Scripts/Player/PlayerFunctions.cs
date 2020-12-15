@@ -34,6 +34,9 @@ public class PlayerFunctions : Player
 
     public override void TakeDamage(int damage)
     {
+        if (damage <= 0)
+            return;
+
         if (player.GetCurrentArmor() > 0)
         {
             int damageHealth = damage - player.GetCurrentArmor();
@@ -42,19 +45,16 @@ public class PlayerFunctions : Player
             else if(damageHealth > 0)
             {
                 player.SetCurrentArmor(0);
-                player.SetCurrentHealth(player.GetCurrentHealth() - damageHealth);
+                LoseHP(damageHealth);
             }
         }
         else
         {
-            player.SetCurrentHealth(player.GetCurrentHealth() - damage);
+            LoseHP(damage);
         }
         Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
 
-        if (player.GetCurrentHealth() <= 0)
-        {
-            Die();
-        }
+        
     }
 
     public override void Heal(int heal)
@@ -84,6 +84,15 @@ public class PlayerFunctions : Player
         player.SetStatusDefense(player.GetStatusDefense() + defenseBuff);
         player.SetStatusHeal(player.GetStatusHeal() + healingBuff);
         Debug.Log("Damage Buff: " + player.GetStatusDamage() + "Defense Buff: " + player.GetStatusDefense() + "Healing Buff " + player.GetStatusHeal());
+    }
+
+    public override void LoseHP(int hpLoss)
+    {
+        player.SetCurrentHealth(player.GetCurrentHealth() - hpLoss);
+        if (player.GetCurrentHealth() <= 0)
+        {
+            Die();
+        }
     }
 
     public Player GetPlayer() { return player; }

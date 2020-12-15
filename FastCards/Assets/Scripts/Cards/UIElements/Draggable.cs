@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
@@ -11,13 +12,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private int unitsToShowCard = 180;
 
-    private SpriteRenderer spriteRenderer;
-
     // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

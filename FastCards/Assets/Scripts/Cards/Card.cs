@@ -39,7 +39,7 @@ public abstract class Card : ScriptableObject
     [SerializeField] public int statusHealing;
     [SerializeField] public List <CardPassive> passivesApplied = new List<CardPassive>();
 
-    ArrayList cardBehaviours = new ArrayList();
+    List<CardBehaviour> cardBehaviours = new List<CardBehaviour>();
     //Events
     protected Action<PlayerFunctions> cardUse;
 

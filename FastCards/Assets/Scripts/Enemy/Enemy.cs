@@ -60,4 +60,6 @@ public class Enemy
     public virtual void Heal(int heal) { }
     public virtual void AddArmor(int armor) { }
     public virtual void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff) { }
+
+    public virtual void LoseHP(int hpLoss) { }
 }

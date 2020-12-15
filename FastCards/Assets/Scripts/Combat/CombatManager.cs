@@ -10,6 +10,7 @@ public class CombatManager
     public bool playerTurn = true;
     public int combo;
     float comboSeconds = 5f;
+    public static HorizontalLayoutGroup hand;
     public float currentComboSeconds = 0f;
 
 
@@ -38,6 +39,7 @@ public class CombatManager
         jsonFile = Resources.Load(path) as TextAsset;
         GameManager.combatManager = JsonUtility.FromJson<CombatManager>(jsonFile.text);
 
+        hand = GameObject.Find("Canvas/Hand").GetComponent<HorizontalLayoutGroup>();
         enemy = combatEnemy;
         GameManager.deck.Init();
         GameManager.deck.StartCombat();
@@ -69,10 +71,12 @@ public class CombatManager
 
     void StartPlayerTurn()
     {
+        hand.enabled = true;
         playerTurn = true;
         GameManager.deck.DrawStartingHand(GameManager.player.GetPlayer());
         GameManager.combatManager.currentTurnSeconds = GameManager.combatManager.turnSeconds;
         GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
+        hand.enabled = false;
     }
 
     public void BuildCombo()

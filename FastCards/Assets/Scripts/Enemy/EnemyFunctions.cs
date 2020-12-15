@@ -27,6 +27,9 @@ public class EnemyFunctions : Enemy
 
     public override void TakeDamage(int damage)
     {
+        if (damage <= 0)
+            return;
+
         if (enemy.GetCurrentArmor() > 0)
         {
             int damageHealth = damage - enemy.GetCurrentArmor();
@@ -35,12 +38,12 @@ public class EnemyFunctions : Enemy
             else if (damageHealth > 0)
             {
                 enemy.SetCurrentArmor(0);
-                enemy.SetCurrentHealth(enemy.GetCurrentHealth() - damageHealth);
+                LoseHP(damageHealth);
             }
         }
         else
         {
-            enemy.SetCurrentHealth(enemy.GetCurrentHealth() - damage);
+            LoseHP(damage);
         }
         Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
 
@@ -81,6 +84,10 @@ public class EnemyFunctions : Enemy
 
     public Enemy GetEnemy() { return enemy; }
 
+    public override void LoseHP(int hpLoss)
+    {
+        enemy.SetCurrentHealth(enemy.GetCurrentHealth() - hpLoss);
+    }
     public void DoOption()
     {
         selectedBehaviour.ChooseOption();

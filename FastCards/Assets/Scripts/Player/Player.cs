@@ -95,6 +95,8 @@ public class Player
     public virtual void AddArmor(int armor) { }
     public virtual void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff) { }
     
+    public virtual void LoseHP(int hpLoss) { }
+
     public virtual void Die() { }
 
     //Hand related
