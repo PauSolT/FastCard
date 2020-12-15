@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class Deck : MonoBehaviour
 
     static Deck instance;
 
+    public List<GameObject> cardsGO = new List<GameObject>();
+    public GameObject cardPrefab;
+    public GameObject canvas;
 
     //Initialize deck
     public void Init()
@@ -54,11 +58,19 @@ public class Deck : MonoBehaviour
         foreach (Card card in combatDeck)
         {
             drawDeck.Add(card);
+
         }
 
         foreach (Card card in drawDeck)
         {
             card.CardInit();
+            GameObject newCard = Instantiate(cardPrefab, canvas.transform);
+            newCard.name = card.cardName;
+            newCard.GetComponentsInChildren<Text>()[0].text = card.cardName;
+            newCard.GetComponentsInChildren<Text>()[1].text = card.cost.ToString();
+            newCard.GetComponentsInChildren<Text>()[2].text = card.cardDescription;
+            newCard.GetComponentsInChildren<Text>()[3].text = card.cardType.ToString();
+            cardsGO.Add(newCard);
         }
 
         Shuffle(drawDeck);

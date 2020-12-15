@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public static List<EnemyFunctions> enemies = new List<EnemyFunctions>();
 
-
+    
     void Awake()
     {
         player.Init();
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
             enemies[i].Init(i.ToString());
         }
         combatManager.Init(enemies[0]);
+        LookUpTable.LoadTable();
     }
 
     // Update is called once per frame

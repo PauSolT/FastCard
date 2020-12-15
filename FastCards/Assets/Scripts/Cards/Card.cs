@@ -39,6 +39,7 @@ public abstract class Card : ScriptableObject
     [SerializeField] public int statusHealing;
     [SerializeField] public List <CardPassive> passivesApplied = new List<CardPassive>();
 
+    ArrayList cardBehaviours = new ArrayList();
     //Events
     protected Action<PlayerFunctions> cardUse;
 
@@ -50,12 +51,12 @@ public abstract class Card : ScriptableObject
             CombatManager.enemy.TakeDamage(fullDamage);
     }
 
-    public void DefenseCard(PlayerFunctions player)
+    protected void DefenseCard(PlayerFunctions player)
     {
         player.AddArmor(armor + GameManager.combatManager.combo);
     }
 
-    public void HealCard(PlayerFunctions player)
+    protected void HealCard(PlayerFunctions player)
     {
         player.Heal(heal + GameManager.combatManager.combo);
     }
@@ -63,7 +64,7 @@ public abstract class Card : ScriptableObject
     protected void StatusCard(PlayerFunctions player)
     {
         if (self)
-            player.ApplyStatus(statusDamage, statusDefense, statusHealing);
+            player.ApplyStatus(statusDamage, statusDamage, statusHealing);
         else if (!self)
             CombatManager.enemy.ApplyStatus(statusDamage, statusDefense, statusHealing);
     }
