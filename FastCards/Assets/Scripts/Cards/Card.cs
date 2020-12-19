@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEditor;
 
-public abstract class Card : ScriptableObject
+public class Card : MonoBehaviour
 {
     //Enums
     public enum CardType
@@ -39,7 +39,7 @@ public abstract class Card : ScriptableObject
     [SerializeField] public int statusHealing;
     [SerializeField] public List <CardPassive> passivesApplied = new List<CardPassive>();
 
-    List<CardBehaviour> cardBehaviours = new List<CardBehaviour>();
+    [SerializeField] List<CardBehaviour> cardBehaviours = new List<CardBehaviour>();
     //Events
     protected Action<PlayerFunctions> cardUse;
 
@@ -99,3 +99,97 @@ public abstract class Card : ScriptableObject
 }
 
 
+//Custom inspector starts here
+#if UNITY_EDITOR
+
+[CustomEditor(typeof(CardBehaviour))]
+class CardBehaviourInspectorEditor : Editor
+{
+    ////cast target
+    //CardBehaviour behaviourScript;
+    //Condition conditionScript;
+
+    //enum BehaviourType
+    //{
+    //    Attack,
+    //    Defense,
+    //    Heal,
+    //    LoseHp,
+    //    StatusAttack,
+    //    StatusDefense,
+    //    StatusHeal,
+    //    Draw
+    //}
+    //BehaviourType behaviourType;
+
+
+    //bool condition = false;
+
+    //bool literalValue = false;
+    //int compValue;
+    //LookUpTable.DelegateType firstDelegate;
+    //LookUpTable.DelegateType secondDelegate;
+
+    //Condition.ConditionTypes conditionTypes;
+    public override void OnInspectorGUI()
+    {
+
+        //behaviourScript.value = EditorGUILayout.IntField("Value", behaviourScript.value);
+        //behaviourScript.behaviourTarget = EditorGUILayout.Toggle("Self", behaviourScript.behaviourTarget);
+        //condition = EditorGUILayout.Toggle("Condition", condition);
+        //behaviourType = (BehaviourType)EditorGUILayout.EnumPopup("Choose Behaviour", behaviourType);
+
+
+
+        //if (condition)
+        //{
+        //    firstDelegate = (LookUpTable.DelegateType)EditorGUILayout.EnumPopup(firstDelegate);
+        //    literalValue = EditorGUILayout.Toggle("Literal value", literalValue);
+
+        //    if (literalValue)
+        //        compValue = EditorGUILayout.IntField("Value", compValue);
+        //    else if (!literalValue)
+        //        secondDelegate = (LookUpTable.DelegateType)EditorGUILayout.EnumPopup(secondDelegate);
+
+        //    conditionTypes = (Condition.ConditionTypes)EditorGUILayout.EnumPopup(conditionTypes);
+
+        //    conditionScript.conditionTypes.Add(conditionTypes);
+
+        //    conditionScript.deleagtePairs.Add(firstDelegate, secondDelegate);
+        //}
+
+
+        //switch (behaviourType)
+        //{
+        //    case BehaviourType.Attack:
+        //        behaviourScript.behaviorUse += behaviourScript.AttackCard;
+        //        break;
+        //    case BehaviourType.Defense:
+        //        behaviourScript.behaviorUse += behaviourScript.DefenseCard;
+        //        break;
+        //    case BehaviourType.Heal:
+        //        behaviourScript.behaviorUse += behaviourScript.HealCard;
+        //        break;
+        //    case BehaviourType.LoseHp:
+        //        behaviourScript.behaviorUse += behaviourScript.TakeHPCard;
+        //        break;
+        //    case BehaviourType.StatusAttack:
+        //        behaviourScript.behaviorUse += behaviourScript.StatusAttack;
+        //        break;
+        //    case BehaviourType.StatusDefense:
+        //        behaviourScript.behaviorUse += behaviourScript.StatusDefense;
+        //        break;
+        //    case BehaviourType.StatusHeal:
+        //        behaviourScript.behaviorUse += behaviourScript.StatusHeal;
+        //        break;
+        //    case BehaviourType.Draw:
+        //        behaviourScript.behaviorUse += behaviourScript.DrawCard;
+        //        break;
+        //}
+
+
+        //EditorUtility.SetDirty(target);
+    }
+}//end inspectorclass
+
+#endif

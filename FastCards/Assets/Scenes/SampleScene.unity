@@ -1526,11 +1526,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575292061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a5f9be06b0f3a42800527d99f9982c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5593614e91dca6249af28520ee0442c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 5
-  behaviourTarget: 1
+  cardName: 
+  cardDescription: 
+  cost: 0
+  discard: 0
+  self: 0
+  cardType: 0
+  damage: 0
+  armor: 0
+  heal: 0
+  draw: 0
+  statusDamage: 0
+  statusDefense: 0
+  statusHealing: 0
+  passivesApplied: []
+  cardBehaviours:
+  - condition:
+      deleagtePairs:
+      - delegate1: 0
+        delegate2: 0
+      - delegate1: 0
+        delegate2: 0
+      conditionTypes: 0000000000000000
+    value: 0
+    targetPlayer: 1
+  - condition:
+      deleagtePairs: []
+      conditionTypes: 
+    value: 0
+    targetPlayer: 1
 --- !u!1 &1699919258
 GameObject:
   m_ObjectHideFlags: 0
