@@ -27,27 +27,27 @@ public class CardPassive : Card
     }
 }
 
-//Custom inspector starts here
-#if UNITY_EDITOR
+////Custom inspector starts here
+//#if UNITY_EDITOR
 
-[CustomEditor(typeof(CardPassive))]
-class PassiveInspectorEditor : Editor
-{
-    //cast target
-    CardPassive enumScript;
+//[CustomEditor(typeof(CardPassive))]
+//class PassiveInspectorEditor : Editor
+//{
+//    //cast target
+//    CardPassive enumScript;
 
-    public override void OnInspectorGUI()
-    {
-        enumScript = target as CardPassive;
+//    public override void OnInspectorGUI()
+//    {
+//        //enumScript = target as CardPassive;
 
-        //Enum drop down
-        enumScript.cardName = EditorGUILayout.TextField("Name", enumScript.cardName);
-        enumScript.cardDescription = EditorGUILayout.TextField("Description", enumScript.cardDescription);
-        enumScript.cost = EditorGUILayout.IntField("Cost", enumScript.cost);
-        enumScript.discard = EditorGUILayout.Toggle("Discard", enumScript.discard);
-        enumScript.selectPassive = (AllPasives.PassiveName)EditorGUILayout.EnumPopup(enumScript.selectPassive);
-        EditorUtility.SetDirty(target);
-    }
-}//end inspectorclass
+//        //Enum drop down
+//        enumScript.cardName = EditorGUILayout.TextField("Name", enumScript.cardName);
+//        enumScript.cardDescription = EditorGUILayout.TextField("Description", enumScript.cardDescription);
+//        enumScript.cost = EditorGUILayout.IntField("Cost", enumScript.cost);
+//        enumScript.discard = EditorGUILayout.Toggle("Discard", enumScript.discard);
+//        enumScript.selectPassive = (AllPasives.PassiveName)EditorGUILayout.EnumPopup(enumScript.selectPassive);
+//        EditorUtility.SetDirty(target);
+//    }
+//}//end inspectorclass
 
-#endif
+//#endif

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public static List<EnemyFunctions> enemies = new List<EnemyFunctions>();
 
+    public Card[] cardsCreated;
+    public List<Card> showCardsCreated;
     
     void Awake()
     {
@@ -23,6 +26,15 @@ public class GameManager : MonoBehaviour
         }
         combatManager.Init(enemies[0]);
         LookUpTable.LoadTable();
+
+        string jsonData = File.ReadAllText("Assets/Resources/Jsons/CardData.json");
+        Debug.Log(jsonData);
+        cardsCreated = JsonHelper.FromJson<Card>(jsonData);
+
+        for (int i = 0; i < cardsCreated.Length; i++)
+        {
+            showCardsCreated.Add(cardsCreated[i]);
+        }
     }
 
     // Update is called once per frame

@@ -6,19 +6,56 @@ using UnityEditor;
 [System.Serializable]
 public class CardBehaviour
 {
-    [SerializeField] Condition condition = new Condition();
+    [SerializeField] public Condition condition = new Condition();
 
     public int value = 0;
     public bool targetPlayer = true;
 
+    [System.Serializable] public enum BehaviourType
+    {
+        Attack,
+        Defense,
+        Heal,
+        TakeHp,
+        BuffAttack,
+        BuffDefense,
+        BuffHealing,
+        Draw
+    }
+
+    [SerializeField] public BehaviourType behaviourType;
+
     public System.Action<bool, int> behaviorUse;
+
+    public void Init()
+    {
+        switch (behaviourType)
+        {
+            case BehaviourType.Attack:
+                break;
+            case BehaviourType.Defense:
+                break;
+            case BehaviourType.Heal:
+                break;
+            case BehaviourType.TakeHp:
+                break;
+            case BehaviourType.BuffAttack:
+                break;
+            case BehaviourType.BuffDefense:
+                break;
+            case BehaviourType.BuffHealing:
+                break;
+            case BehaviourType.Draw:
+                break;
+        }
+    }
     void Execute()
     {
         condition.CheckCondition();
         behaviorUse.Invoke(targetPlayer, value);
     }
 
-    public void AttackCard(bool self, int value)
+    public static void AttackCard(bool self, int value)
     {
         int fullDamage = value + GameManager.player.GetPlayer().GetStatusDamage() + GameManager.combatManager.combo;
         if (self)
@@ -27,7 +64,7 @@ public class CardBehaviour
             CombatManager.enemy.TakeDamage(fullDamage);
     }
 
-    public void TakeHPCard(bool self, int value)
+    public static void TakeHPCard(bool self, int value)
     {
         if (self)
             GameManager.player.LoseHP(value);
@@ -36,7 +73,7 @@ public class CardBehaviour
 
     }
 
-    public void DefenseCard(bool self, int value)
+    public static void DefenseCard(bool self, int value)
     {
         if (self)
             GameManager.player.AddArmor(value + GameManager.combatManager.combo);
@@ -45,7 +82,7 @@ public class CardBehaviour
 
     }
 
-    public void HealCard(bool self, int value)
+    public static void HealCard(bool self, int value)
     {
         if (self)
             GameManager.player.Heal(value + GameManager.combatManager.combo);
@@ -53,7 +90,7 @@ public class CardBehaviour
             CombatManager.enemy.Heal(value);
     }
 
-    public void StatusAttack(bool self, int value)
+    public static void StatusAttack(bool self, int value)
     {
         if (self)
             GameManager.player.ApplyStatus(value, 0, 0);
@@ -61,7 +98,7 @@ public class CardBehaviour
             CombatManager.enemy.ApplyStatus(value, 0, 0);
     }
 
-    public void StatusDefense(bool self, int value)
+    public static void StatusDefense(bool self, int value)
     {
         if (self)
             GameManager.player.ApplyStatus(0, value, 0);
@@ -69,7 +106,7 @@ public class CardBehaviour
             CombatManager.enemy.ApplyStatus(0, value, 0);
     }
 
-    public void StatusHeal(bool self, int value)
+    public static void StatusHeal(bool self, int value)
     {
         if (self)
             GameManager.player.ApplyStatus(0, 0, value);
@@ -77,7 +114,7 @@ public class CardBehaviour
             CombatManager.enemy.ApplyStatus(0, 0, value);
     }
 
-    public void DrawCard(bool self, int value)
+    public static void DrawCard(bool self, int value)
     {
         for (int i = 0; i < value; i++)
         {

@@ -25,10 +25,10 @@ public class PlayerFunctions : Player
         player.SetCurrentHealth(player.GetStartingHealth());
         player.SetCurrentLevel(player.GetStartingLevel());
 
-        Debug.Log("Max hand size: " + player.GetStartingMaxHandSize());
-        Debug.Log("Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
-        Debug.Log("Name: " + player.GetName());
-        Debug.Log("Level: " + player.GetStartingLevel());
+        //Debug.Log("Max hand size: " + player.GetStartingMaxHandSize());
+        //Debug.Log("Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
+        //Debug.Log("Name: " + player.GetName());
+        //Debug.Log("Level: " + player.GetStartingLevel());
     }
 
 

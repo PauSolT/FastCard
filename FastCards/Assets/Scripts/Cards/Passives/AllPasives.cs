@@ -23,7 +23,13 @@ public class AllPasives
         {
             if (card.cost == 0)
             {
-                card.damage += 3;
+                for (int i = 0; i < card.cardBehaviours.Count; i++)
+                {
+                    if(card.cardBehaviours[i].behaviourType == CardBehaviour.BehaviourType.Attack)
+                    {
+                        card.cardBehaviours[i].value += 3;
+                    }
+                }
             }
         }
     }

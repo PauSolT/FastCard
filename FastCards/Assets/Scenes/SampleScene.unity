@@ -667,6 +667,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397460439}
   m_CullTransparentMesh: 0
+--- !u!1 &404719524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 404719526}
+  - component: {fileID: 404719525}
+  m_Layer: 0
+  m_Name: Strike
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &404719525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404719524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5593614e91dca6249af28520ee0442c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: Strike
+  cardDescription: Deal 5 damage
+  cost: 1
+  discard: 0
+  cardType: 0
+  passivesApplied: []
+  cardBehaviours:
+  - condition:
+      deleagtePairs:
+      - delegate1: 0
+        delegate2: 0
+      conditionTypes: 00000000
+    value: 5
+    targetPlayer: 0
+    behaviourType: 0
+--- !u!4 &404719526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404719524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1439,6 @@ MonoBehaviour:
   seePlayerHand: []
   seeDrawDeck: []
   seePileDeck: []
-  seePassive: []
   cardsGO: []
   cardPrefab: {fileID: 5140809299016602801, guid: e4e250461dc546a49b52a0b1b277474a,
     type: 3}
@@ -1533,15 +1590,7 @@ MonoBehaviour:
   cardDescription: 
   cost: 0
   discard: 0
-  self: 0
   cardType: 0
-  damage: 0
-  armor: 0
-  heal: 0
-  draw: 0
-  statusDamage: 0
-  statusDefense: 0
-  statusHealing: 0
   passivesApplied: []
   cardBehaviours:
   - condition:
@@ -1553,11 +1602,13 @@ MonoBehaviour:
       conditionTypes: 0000000000000000
     value: 0
     targetPlayer: 1
+    behaviourType: 0
   - condition:
       deleagtePairs: []
       conditionTypes: 
     value: 0
     targetPlayer: 1
+    behaviourType: 0
 --- !u!1 &1699919258
 GameObject:
   m_ObjectHideFlags: 0

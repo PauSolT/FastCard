@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Deck : MonoBehaviour
 {
 
-    string path = "Cards";
+    //string path = "Cards";
 
     public List<Card> playerDeck = new List<Card>();
 
@@ -35,10 +35,10 @@ public class Deck : MonoBehaviour
     //Initialize deck
     public void Init()
     {
-        foreach (Card card in Resources.LoadAll<Card>(path))
-        {
-            playerDeck.Add(card);
-        }
+        //foreach (Card card in Resources.LoadAll<Card>(path))
+        //{
+        //    playerDeck.Add(card);
+        //}
         instance = this;
     }
 
@@ -50,7 +50,7 @@ public class Deck : MonoBehaviour
         combatDeck = new List<Card>(playerDeck.Count);
         foreach (Card card in playerDeck)
         {
-            combatDeck.Add(Instantiate(card));
+            //combatDeck.Add(Instantiate(card));
         }
         drawDeck = new List<Card>(combatDeck.Count);
         pileDeck = new List<Card>(combatDeck.Count);

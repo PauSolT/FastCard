@@ -23,7 +23,7 @@ public static class LookUpTable
         lookUpTable.Add(DelegateType.playerHealth, GameManager.player.GetPlayer().GetCurrentHealth);
         lookUpTable.Add(DelegateType.playerMaxHealth, GameManager.player.GetPlayer().GetCurrentMaxHealth);
         lookUpTable.Add(DelegateType.enemyHealth, CombatManager.enemy.GetEnemy().GetCurrentHealth);
-        lookUpTable.Add(DelegateType.enemyHealth, CombatManager.enemy.GetEnemy().GetStartingMaxHealth);
+        lookUpTable.Add(DelegateType.enemyMaxHealth, CombatManager.enemy.GetEnemy().GetStartingMaxHealth);
     }
     // Start is called before the first frame update
 
