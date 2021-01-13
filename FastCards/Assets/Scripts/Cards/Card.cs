@@ -4,10 +4,11 @@ using UnityEngine;
 using System;
 using UnityEditor;
 
-[System.Serializable]
-public class Card : MonoBehaviour
+[Serializable]
+public class Card 
 {
     //Enums
+    [Serializable]
     public enum CardType
     {
         Attack,
@@ -42,6 +43,7 @@ public class Card : MonoBehaviour
 
     [SerializeField] public List<CardBehaviour> cardBehaviours = new List<CardBehaviour>();
     //Events
+    [SerializeField]
     protected Action<PlayerFunctions> cardUse;
 
     //Basic Card Functions

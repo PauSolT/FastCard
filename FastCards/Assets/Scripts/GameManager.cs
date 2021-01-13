@@ -29,12 +29,22 @@ public class GameManager : MonoBehaviour
 
         string jsonData = File.ReadAllText("Assets/Resources/Jsons/CardData.json");
         Debug.Log(jsonData);
-        cardsCreated = JsonHelper.FromJson<Card>(jsonData);
 
-        for (int i = 0; i < cardsCreated.Length; i++)
+        CardCollection cardCollection;
+
+        using (StreamReader stream = new StreamReader("Assets/Resources/Jsons/CardData.json"))
         {
-            showCardsCreated.Add(cardsCreated[i]);
+            string json = stream.ReadToEnd();
+            cardCollection = JsonUtility.FromJson<CardCollection>(json);
         }
+
+        Debug.Log(cardCollection.cards[0].cardName);
+        Debug.Log(cardCollection.cards[1].cardName);
+        Debug.Log(cardCollection.cards[2].cardName);
+        //for (int i = 0; i < cardsCreated.Length; i++)
+        //{
+        //    showCardsCreated.Add(cardsCreated[i]);
+        //}
     }
 
     // Update is called once per frame

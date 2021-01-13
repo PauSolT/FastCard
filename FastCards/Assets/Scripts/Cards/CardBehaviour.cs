@@ -145,7 +145,7 @@ public class Condition
     [SerializeField] public DeleagtePair[] deleagtePairs;
 
     //[SerializeField] public Dictionary<LookUpTable.DelegateType, LookUpTable.DelegateType> conditionPairs;
-    [SerializeField] public List<ConditionTypes> conditionTypes;
+    [SerializeField] public ConditionTypes[] conditionTypes;
 
 
     void Init()

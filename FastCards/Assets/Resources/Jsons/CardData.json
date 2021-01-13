@@ -1,174 +1,151 @@
-[
-  {
-    "cardName": "1",
-    "cardDescription": "1",
-    "cost": 1,
-    "discard": true,
-    "cardType": 0,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [
-            {
-              "delegate1": 0,
-              "delegate2": 2
-            }
-          ],
-          "conditionTypes": [ 0 ]
+{
+  "cards": [
+    {
+      "cardName": "As",
+      "cardDescription": "Deal 5 damage to yourself",
+      "cost": 1,
+      "discard": true,
+      "cardType": 0,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "behaviourType": 0
+        }
+      ]
+    },
+    {
+      "cardName": "5",
+      "cardDescription": "5",
+      "cost": 5,
+      "discard": true,
+      "cardType": 3,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [
+              {
+                "delegate1": 1,
+                "delegate2": 3
+              }
+            ],
+            "conditionTypes": [ 3 ]
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "behaviourType": 2
+        }
+      ]
+    },
+    {
+      "cardName": "Pog",
+      "cardDescription": "Champ",
+      "cost": 0,
+      "discard": true,
+      "cardType": 0,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 100,
+          "targetPlayer": false,
+          "behaviourType": 0
+        }
+      ]
+    },
+    {
+      "cardName": "Pepe",
+      "cardDescription": "Add 100 defense",
+      "cost": 1,
+      "discard": true,
+      "cardType": 1,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 100,
+          "targetPlayer": true,
+          "behaviourType": 1
+        }
+      ]
+    },
+    {
+      "cardName": "Twitch",
+      "cardDescription": "Deal 100 damage to yourself",
+      "cost": 1,
+      "discard": true,
+      "cardType": 0,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 100,
+          "targetPlayer": true,
+          "behaviourType": 3
+        }
+      ]
+    },
+    {
+      "cardName": "10",
+      "cardDescription": "Add 10 defense, heal 10",
+      "cost": 10,
+      "discard": false,
+      "cardType": 1,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 10,
+          "targetPlayer": true,
+          "behaviourType": 1
         },
-        "value": 1,
-        "targetPlayer": true,
-        "behaviourType": 0
-      }
-    ]
-  },
-  {
-    "cardName": "As",
-    "cardDescription": "Deal 5 damage to yourself",
-    "cost": 1,
-    "discard": true,
-    "cardType": 0,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [],
-          "conditionTypes": []
-        },
-        "value": 5,
-        "targetPlayer": true,
-        "behaviourType": 0
-      }
-    ]
-
-  },
-  {
-    "cardName": "5",
-    "cardDescription": "5",
-    "cost": 5,
-    "discard": true,
-    "cardType": 3,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [
-            {
-              "delegate1": 1,
-              "delegate2": 3
-            }
-          ],
-          "conditionTypes": [ 3 ]
-        },
-        "value": 5,
-        "targetPlayer": true,
-        "behaviourType": 2
-      }
-    ]
-  },
-  {
-    "cardName": "Pog",
-    "cardDescription": "Champ",
-    "cost": 0,
-    "discard": true,
-    "cardType": 0,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [],
-          "conditionTypes": []
-        },
-        "value": 100,
-        "targetPlayer": false,
-        "behaviourType": 0
-      }
-    ]
-  },
-  {
-    "cardName": "Pepe",
-    "cardDescription": "Add 100 defense",
-    "cost": 1,
-    "discard": true,
-    "cardType": 1,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [],
-          "conditionTypes": []
-        },
-        "value": 100,
-        "targetPlayer": true,
-        "behaviourType": 1
-      }
-    ]
-  },
-  {
-    "cardName": "Twitch",
-    "cardDescription": "Deal 100 damage to yourself",
-    "cost": 1,
-    "discard": true,
-    "cardType": 0,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [],
-          "conditionTypes": []
-        },
-        "value": 100,
-        "targetPlayer": true,
-        "behaviourType": 3
-      }
-    ]
-  },
-  {
-    "cardName": "10",
-    "cardDescription": "Add 10 defense, heal 10",
-    "cost": 10,
-    "discard": false,
-    "cardType": 1,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [],
-          "conditionTypes": []
-        },
-        "value": 10,
-        "targetPlayer": true,
-        "behaviourType": 1
-      },
-      {
-        "condition": {
-          "deleagtePairs": [],
-          "conditionTypes": []
-        },
-        "value": 10,
-        "targetPlayer": true,
-        "behaviourType": 2
-      }
-    ]
-  },
-  {
-    "cardName": "Calvicie",
-    "cardDescription": "Te deja a 1 de vida",
-    "cost": 2,
-    "discard": false,
-    "cardType": 0,
-    "passivesApplied": [],
-    "cardBehaviours": [
-      {
-        "condition": {
-          "deleagtePairs": [],
-          "conditionTypes": []
-        },
-        "value": 99,
-        "targetPlayer": true,
-        "behaviourType": 3
-      }
-    ]
-  }
-]
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 10,
+          "targetPlayer": true,
+          "behaviourType": 2
+        }
+      ]
+    },
+    {
+      "cardName": "Calvicie",
+      "cardDescription": "Te deja a 1 de vida",
+      "cost": 2,
+      "discard": false,
+      "cardType": 0,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 99,
+          "targetPlayer": true,
+          "behaviourType": 3
+        }
+      ]
+    }
+  ]
+}

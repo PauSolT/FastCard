@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public static class JsonHelper
 {
@@ -24,7 +25,7 @@ public static class JsonHelper
         return JsonUtility.ToJson(wrapper, prettyPrint);
     }
 
-    [System.Serializable]
+    [Serializable]
     private class Wrapper<T>
     {
         public T[] Items;

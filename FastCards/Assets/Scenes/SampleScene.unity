@@ -676,7 +676,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 404719526}
-  - component: {fileID: 404719525}
   m_Layer: 0
   m_Name: Strike
   m_TagString: Untagged
@@ -684,33 +683,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &404719525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 404719524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5593614e91dca6249af28520ee0442c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardName: Strike
-  cardDescription: Deal 5 damage
-  cost: 1
-  discard: 0
-  cardType: 0
-  passivesApplied: []
-  cardBehaviours:
-  - condition:
-      deleagtePairs:
-      - delegate1: 0
-        delegate2: 0
-      conditionTypes: 00000000
-    value: 5
-    targetPlayer: 0
-    behaviourType: 0
 --- !u!4 &404719526
 Transform:
   m_ObjectHideFlags: 0
@@ -1406,6 +1378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3e2ac3835262e49ba93ce407ecc2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardsCreated: []
+  showCardsCreated: []
 --- !u!4 &1380530694
 Transform:
   m_ObjectHideFlags: 0
@@ -1552,7 +1526,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1575292062}
-  - component: {fileID: 1575292063}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1574,41 +1547,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1575292063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575292061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5593614e91dca6249af28520ee0442c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardName: 
-  cardDescription: 
-  cost: 0
-  discard: 0
-  cardType: 0
-  passivesApplied: []
-  cardBehaviours:
-  - condition:
-      deleagtePairs:
-      - delegate1: 0
-        delegate2: 0
-      - delegate1: 0
-        delegate2: 0
-      conditionTypes: 0000000000000000
-    value: 0
-    targetPlayer: 1
-    behaviourType: 0
-  - condition:
-      deleagtePairs: []
-      conditionTypes: 
-    value: 0
-    targetPlayer: 1
-    behaviourType: 0
 --- !u!1 &1699919258
 GameObject:
   m_ObjectHideFlags: 0
