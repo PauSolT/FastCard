@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
 
     public Card[] cardsCreated;
     public List<Card> showCardsCreated;
-    
+
+    public CardCollection cardCollection;
+
+
     void Awake()
     {
         player.Init();
@@ -30,7 +33,7 @@ public class GameManager : MonoBehaviour
         string jsonData = File.ReadAllText("Assets/Resources/Jsons/CardData.json");
         Debug.Log(jsonData);
 
-        CardCollection cardCollection;
+        ;
 
         using (StreamReader stream = new StreamReader("Assets/Resources/Jsons/CardData.json"))
         {
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(cardCollection.cards[0].cardName);
         Debug.Log(cardCollection.cards[1].cardName);
         Debug.Log(cardCollection.cards[2].cardName);
+        cardCollection.cards[cardCollection.cards.Length - 1].CardUse();
         //for (int i = 0; i < cardsCreated.Length; i++)
         //{
         //    showCardsCreated.Add(cardsCreated[i]);

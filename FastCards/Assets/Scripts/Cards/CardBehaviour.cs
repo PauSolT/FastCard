@@ -25,32 +25,41 @@ public class CardBehaviour
 
     [SerializeField] public BehaviourType behaviourType;
 
-    public System.Action<bool, int> behaviorUse;
+    [SerializeField] public System.Action<bool, int> behaviorUse;
 
     public void Init()
     {
         switch (behaviourType)
         {
             case BehaviourType.Attack:
+                behaviorUse += AttackCard;
                 break;
             case BehaviourType.Defense:
+                behaviorUse += DefenseCard;
                 break;
             case BehaviourType.Heal:
+                behaviorUse += HealCard;
                 break;
             case BehaviourType.TakeHp:
+                behaviorUse += TakeHPCard;
                 break;
             case BehaviourType.BuffAttack:
+                behaviorUse += StatusAttack;
                 break;
             case BehaviourType.BuffDefense:
+                behaviorUse += StatusDefense;
                 break;
             case BehaviourType.BuffHealing:
+                behaviorUse += StatusHeal;
                 break;
             case BehaviourType.Draw:
+                behaviorUse += DrawCard;
                 break;
         }
     }
-    void Execute()
+    public void Execute()
     {
+        Init();
         condition.CheckCondition();
         behaviorUse.Invoke(targetPlayer, value);
     }

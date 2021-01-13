@@ -88,6 +88,11 @@ public class Card
 
     public virtual void CardUse()
     {
+        foreach (CardBehaviour c in cardBehaviours)
+        {
+            c.Execute();
+        }
+
         if (GameManager.combatManager.currentComboSeconds > 0f)
             GameManager.combatManager.BuildCombo();
     }
