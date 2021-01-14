@@ -61,5 +61,11 @@ public class Enemy
     public virtual void AddArmor(int armor) { }
     public virtual void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff) { }
 
+    //Comparison related
+    public int GetHalfHealth() { return startingMaxHealth / 2; }
+    public int GetThreeQuartersHealth() { return startingMaxHealth * (3 / 4); }
+    public int GetOneThirdHealth() { return startingMaxHealth / 3; }
+    public int GetOneFourthHealth() { return startingMaxHealth / 4; }
+
     public virtual void LoseHP(int hpLoss) { }
 }

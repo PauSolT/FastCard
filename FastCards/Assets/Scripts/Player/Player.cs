@@ -99,6 +99,12 @@ public class Player
 
     public virtual void Die() { }
 
+    //Comparison related
+    public int GetHalfHealth() { return currentMaxHealth / 2; }
+    public int GetThreeQuartersHealth() { return currentMaxHealth * (3/4); }
+    public int GetOneThirdHealth() { return currentMaxHealth / 3; }
+    public int GetOneFourthHealth() { return currentMaxHealth / 4; }
+
     //Hand related
     public List<Card> GetHand() { return hand; }
     public void AddCardToPlayer(Card card)

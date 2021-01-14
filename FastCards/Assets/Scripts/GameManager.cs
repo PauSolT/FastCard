@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(cardCollection.cards[0].cardName);
         Debug.Log(cardCollection.cards[1].cardName);
         Debug.Log(cardCollection.cards[2].cardName);
-        cardCollection.cards[cardCollection.cards.Length - 1].CardUse();
+        cardCollection.cards[cardCollection.cards.Length-1].CardUse();
         //for (int i = 0; i < cardsCreated.Length; i++)
         //{
         //    showCardsCreated.Add(cardsCreated[i]);

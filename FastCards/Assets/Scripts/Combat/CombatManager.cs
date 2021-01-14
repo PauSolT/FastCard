@@ -31,6 +31,46 @@ public class CombatManager
     public static Text playerName;
     public static Text enemyName;
 
+    //Comparison related
+    //Cards type played this round
+    public static int attackCardsRound = 50;
+    public static int defendCardsRound = 0;
+    public static int healingCardsRound = 0;
+    public static int statusCardsRound = 0;
+    public static int drawsCardsRound = 0;
+
+    //Values played this round
+    public static int damageDealtRound = 0;
+    public static int armorDealtRound = 0;
+    public static int healingDealtRound = 0;
+    public static int statusDealtRound = 0;
+    public static int drawsDealtRound = 0;
+
+    //Values all combat
+    public static int damageDealt = 0;
+    public static int armorGotten = 0;
+    public static int healingDone = 0;
+    public static int statusInflicted = 0;
+    public static int cardsDrawn = 0;
+
+    public static int GetAttackCardsRound() { return attackCardsRound; }
+    public static int GetDefendCardsRound() { return defendCardsRound; }
+    public static int GetHealingCardsRound() { return healingCardsRound; }
+    public static int GetStatusCardsRound() { return statusCardsRound; }
+    public static int GetDrawCardsRound() { return drawsCardsRound; }
+    public static int GetDamageDealtRound() { return damageDealtRound; }
+    public static int GetArmorDealtRound() { return armorDealtRound; }
+    public static int GetHealingDealtRound() { return healingDealtRound; }
+    public static int GetStatusDealtRound() { return statusDealtRound; }
+    public static int GetDrawsDealtRound() { return drawsDealtRound; }
+    public static int GetDamageDealt() { return damageDealt; }
+    public static int GetArmorGotten() { return armorGotten; }
+    public static int GetHealingDone() { return healingDone; }
+    public static int GetStatusInflicted() { return statusInflicted; }
+    public static int GetCardsDrawn() { return cardsDrawn; }
+
+
+
     TextAsset jsonFile;
     string path = "Jsons/CombatValues";
 
@@ -53,7 +93,7 @@ public class CombatManager
         playerName = GameObject.Find("Canvas/PlayerName").GetComponent<Text>();
         enemyName = GameObject.Find("Canvas/EnemyName").GetComponent<Text>();
 
-        StartPlayerTurn();
+        //StartPlayerTurn();
     }
 
     void EndPlayerTurn()
@@ -76,6 +116,17 @@ public class CombatManager
         GameManager.deck.DrawStartingHand(GameManager.player.GetPlayer());
         GameManager.combatManager.currentTurnSeconds = GameManager.combatManager.turnSeconds;
         GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
+        //Values reset
+        attackCardsRound = 0;
+        defendCardsRound = 0;
+        healingCardsRound = 0;
+        statusCardsRound = 0;
+        drawsCardsRound = 0;
+        damageDealtRound = 0;
+        armorDealtRound = 0;
+        healingDealtRound = 0;
+        statusDealtRound = 0;
+        drawsDealtRound = 0;
         hand.enabled = false;
     }
 

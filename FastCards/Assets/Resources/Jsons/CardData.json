@@ -31,8 +31,8 @@
           "condition": {
             "deleagtePairs": [
               {
-                "delegate1": 1,
-                "delegate2": 3
+                "delegate1": 0,
+                "delegate2": 2
               }
             ],
             "conditionTypes": [ 3 ]
@@ -147,5 +147,66 @@
         }
       ]
     }
-  ]
+  ,
+{
+    "cardName": "10",
+    "cardDescription": "Heal 5 if your health is lower than your enemy's and if your armor is equal or lower than your enemy's.",
+    "cost": 2,
+    "discard": true,
+    "cardType": 3,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [
+                    {
+                        "delegate1": 0,
+                        "delegate2": 7
+                    },
+                    {
+                        "delegate1": 2,
+                        "delegate2": 9
+                    }
+                ],
+                "conditionTypes": [
+                    1,
+                    3
+                ]
+            },
+            "value": 5,
+            "targetPlayer": true,
+            "behaviourType": 2
+        }
+    ]
+}
+,
+{
+    "cardName": "SI",
+    "cardDescription": "Defensa 75, atac 50",
+    "cost": 2,
+    "discard": false,
+    "cardType": 1,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 75,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 1
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 0,
+            "targetPlayer": false,
+            "valueDelegate": 15,
+            "behaviourType": 0
+        }
+    ]
+}
+]
 }

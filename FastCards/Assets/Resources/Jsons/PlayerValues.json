@@ -1,9 +1,9 @@
 {
   "startingMaxHealth": 100,
-  "startingHealth": 100,
+  "startingHealth": 80,
   "startingMaxHandSize": 5,
   "startingLevel": 1,
   "startingArmor": 0,
   "drawSize": 5,
-  "name": "Player Name"
+  "name": "Player"
 }

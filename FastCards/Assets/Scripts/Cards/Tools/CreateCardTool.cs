@@ -143,12 +143,11 @@ public class CreateCardTool : ScriptableWizard
         //jsonData = JsonConvert.SerializeObject(cardList);
         //Debug.Log(jsonData);
         string jsonData = File.ReadAllText(filePath);
-        string cardData = JsonUtility.ToJson(card);
-        //jsonData += ",\n" + cardData
+        string cardData = JsonUtility.ToJson(card, true);
         cardData = cardData.Substring(0, cardData.Length - 1);
 
-        int ind = jsonData.LastIndexOf("}");
-        jsonData = jsonData.Insert(ind, "},\n" + cardData);
+        int ind = jsonData.LastIndexOf("]");
+        jsonData = jsonData.Insert(ind, ",\n" + cardData + "}\n");
         File.WriteAllText(filePath, jsonData);
 
 
