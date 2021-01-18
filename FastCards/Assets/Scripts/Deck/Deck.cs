@@ -32,13 +32,15 @@ public class Deck : MonoBehaviour
     public GameObject cardPrefab;
     public GameObject canvas;
 
+    static float waitDrawSeconds = 0.15f;
+
     //Initialize deck
     public void Init()
     {
-        //foreach (Card card in Resources.LoadAll<Card>(path))
-        //{
-        //    playerDeck.Add(card);
-        //}
+        foreach (Card card in GameManager.cardCollection.cards)
+        {
+            playerDeck.Add(card);
+        }
         instance = this;
     }
 
@@ -50,7 +52,7 @@ public class Deck : MonoBehaviour
         combatDeck = new List<Card>(playerDeck.Count);
         foreach (Card card in playerDeck)
         {
-            //combatDeck.Add(Instantiate(card));
+            combatDeck.Add(card);
         }
         drawDeck = new List<Card>(combatDeck.Count);
         pileDeck = new List<Card>(combatDeck.Count);
@@ -58,25 +60,49 @@ public class Deck : MonoBehaviour
         foreach (Card card in combatDeck)
         {
             drawDeck.Add(card);
-
-        }
-
-        foreach (Card card in drawDeck)
-        {
-            card.CardInit();
-            GameObject newCard = Instantiate(cardPrefab, canvas.transform);
-            newCard.name = card.cardName;
-            newCard.GetComponentsInChildren<Text>()[0].text = card.cardName;
-            newCard.GetComponentsInChildren<Text>()[1].text = card.cost.ToString();
-            newCard.GetComponentsInChildren<Text>()[2].text = card.cardDescription;
-            newCard.GetComponentsInChildren<Text>()[3].text = card.cardType.ToString();
-            cardsGO.Add(newCard);
         }
 
         Shuffle(drawDeck);
+
         DrawStartingHand(GameManager.player.GetPlayer());
 
+    }
 
+    public void UpdateCardDescription()
+    {
+        int i = 0;
+        foreach(Card card in GameManager.player.GetPlayer().GetHand())
+        {
+            int[] sumTotal = new int[card.cardBehaviours.Count];
+            
+            for (int j = 0; j < card.cardBehaviours.Count; j++)
+            {
+                sumTotal[j] = card.cardBehaviours[j].CheckDamageBehaviour();
+            }
+
+            switch(card.cardBehaviours.Count)
+            {
+                case 1:
+                    //card.cardDescription = string.Format(card.cardDescription, sumTotal[0]);
+                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0]);
+                    break;
+                case 2:
+                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1]);
+                    break;
+                case 3:
+                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2]);
+                    break;
+                case 4:
+                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3]);
+                    break;
+                case 5:
+                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4]);
+                    break;
+            }
+
+            //cardsGO[i].GetComponentsInChildren<Text>()[2].text = card.cardDescription;
+            i++;
+        }
     }
 
     //Shuffle deck
@@ -93,9 +119,9 @@ public class Deck : MonoBehaviour
     }
 
     //Drawing card related
-    public static IEnumerator Draw(Player player)
+    public IEnumerator Draw(Player player)
     {
-        yield return new WaitForSeconds(0.33f);
+        yield return null;
         //Draw card
         if (drawDeck.Count <= 0 )
         {
@@ -105,23 +131,45 @@ public class Deck : MonoBehaviour
         if (CheckIfDrawCardPossible(player))
         {
             player.AddCardToPlayer(drawDeck[0]);
+            DrawHandCards(drawDeck[0]);
             drawDeck.RemoveAt(0);
+            UpdateCardDescription();
+            CombatManager.hand.spacing += 100;
         }
-
     }
-    public static void DrawCard(Player player)
+    public IEnumerator DrawCard(Player player)
     {
+        yield return new WaitForSeconds(waitDrawSeconds);
         instance.StartCoroutine(Draw(player));
     }
 
-    public void DrawStartingHand(Player player)
+    public static IEnumerator DrawStartingHand(Player player)
     {
         for (int i = 0; i < player.GetDrawSize(); i++)
         {
-            StartCoroutine(Draw(player));
+            yield return new WaitForSeconds(waitDrawSeconds);
+            instance.StartCoroutine(instance.DrawCard(player));
         }
     }
 
+    public void DrawHandCards(Card card)
+    {
+        card.CardInit();
+        GameObject newCard = Instantiate(cardPrefab, canvas.transform);
+        Draggable drag = newCard.GetComponent<Draggable>();
+        drag.card = card;
+        newCard.name = card.cardName;
+        newCard.GetComponentsInChildren<Text>()[0].text = card.cardName;
+        newCard.GetComponentsInChildren<Text>()[1].text = card.cost.ToString();
+        newCard.GetComponentsInChildren<Text>()[2].text = card.cardDescription;
+        newCard.GetComponentsInChildren<Text>()[3].text = card.cardType.ToString();
+        cardsGO.Add(newCard);
+    }
+
+    public void DestroyCard(Object go)
+    {
+        Destroy(go);
+    }
     public static bool CheckIfDrawCardPossible(Player player)
     {
         bool pos = false;

@@ -46,40 +46,6 @@ public class Card
     [SerializeField]
     protected Action<PlayerFunctions> cardUse;
 
-    //Basic Card Functions
-    //protected void AttackCard(PlayerFunctions player)
-    //{
-    //    int fullDamage = damage + player.GetPlayer().GetStatusDamage() + GameManager.combatManager.combo;
-    //    if (fullDamage >= 0)
-    //        CombatManager.enemy.TakeDamage(fullDamage);
-    //}
-
-    //protected void DefenseCard(PlayerFunctions player)
-    //{
-    //    player.AddArmor(armor + GameManager.combatManager.combo);
-    //}
-
-    //protected void HealCard(PlayerFunctions player)
-    //{
-    //    player.Heal(heal + GameManager.combatManager.combo);
-    //}
-
-    //protected void StatusCard(PlayerFunctions player)
-    //{
-    //    if (self)
-    //        player.ApplyStatus(statusDamage, statusDamage, statusHealing);
-    //    else if (!self)
-    //        CombatManager.enemy.ApplyStatus(statusDamage, statusDefense, statusHealing);
-    //}
-
-    //protected void DrawCard(PlayerFunctions player)
-    //{
-    //    for (int i = 0; i < draw; i++)
-    //    {
-    //        Deck.DrawCard(player.GetPlayer());
-    //    }
-    //}
-
     //Virtual functions so childs use them
     public virtual void CardInit()
     {
@@ -94,8 +60,13 @@ public class Card
         }
 
         if (GameManager.combatManager.currentComboSeconds > 0f)
+        {
             GameManager.combatManager.BuildCombo();
+        }
+
+        GameManager.deck.UpdateCardDescription();
     }
+
 
     protected void OneTimeUse()
     {

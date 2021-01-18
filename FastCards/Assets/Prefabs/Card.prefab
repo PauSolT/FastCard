@@ -112,7 +112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.0005188, y: 75.138}
+  m_AnchoredPosition: {x: 0.0005187988, y: 75.138}
   m_SizeDelta: {x: 199.99905, y: 149.7237}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5140809298035877758
@@ -149,7 +149,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -268,7 +268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000053406, y: 11.492}
+  m_AnchoredPosition: {x: -0.00005340576, y: 11.492}
   m_SizeDelta: {x: 199.99988, y: 22.984863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5140809298690965541
@@ -374,6 +374,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a85877d991f7824a84e3c85e192268b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card:
+    cardName: 
+    cardDescription: 
+    cost: 0
+    discard: 0
+    cardType: 0
+    cardBehaviours: []
 --- !u!114 &958838619706963834
 MonoBehaviour:
   m_ObjectHideFlags: 0

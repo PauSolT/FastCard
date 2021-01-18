@@ -15,9 +15,9 @@ public class GameManager : MonoBehaviour
     public Card[] cardsCreated;
     public List<Card> showCardsCreated;
 
-    public CardCollection cardCollection;
+    public static CardCollection cardCollection;
 
-
+    public GameObject goDeck;
     void Awake()
     {
         player.Init();
@@ -27,33 +27,40 @@ public class GameManager : MonoBehaviour
             enemies.Add(new EnemyFunctions());
             enemies[i].Init(i.ToString());
         }
+
+        //Initialize together
         combatManager.Init(enemies[0]);
         LookUpTable.LoadTable();
 
-        string jsonData = File.ReadAllText("Assets/Resources/Jsons/CardData.json");
-        Debug.Log(jsonData);
+        InitCards();
 
-        ;
-
-        using (StreamReader stream = new StreamReader("Assets/Resources/Jsons/CardData.json"))
-        {
-            string json = stream.ReadToEnd();
-            cardCollection = JsonUtility.FromJson<CardCollection>(json);
-        }
-
-        Debug.Log(cardCollection.cards[0].cardName);
-        Debug.Log(cardCollection.cards[1].cardName);
-        Debug.Log(cardCollection.cards[2].cardName);
-        cardCollection.cards[cardCollection.cards.Length-1].CardUse();
-        //for (int i = 0; i < cardsCreated.Length; i++)
-        //{
-        //    showCardsCreated.Add(cardsCreated[i]);
-        //}
+        deck.Init();
+        deck.StartCombat();
     }
 
     // Update is called once per frame
     private void Update()
     {
         combatManager.CombatInputs();
+    }
+
+    void InitCards()
+    {
+        using (StreamReader stream = new StreamReader("Assets/Resources/Jsons/CardData.json"))
+        {
+            string json = stream.ReadToEnd();
+            cardCollection = JsonUtility.FromJson<CardCollection>(json);
+        }
+
+        foreach (Card card in cardCollection.cards)
+        {
+            GameObject go = new GameObject();
+            go.AddComponent<CardHolder>();
+            CardHolder cardHolder = go.GetComponent<CardHolder>();
+            cardHolder.card = card;
+            go.name = card.cardName;
+
+            go.transform.parent = goDeck.transform;
+        }
     }
 }

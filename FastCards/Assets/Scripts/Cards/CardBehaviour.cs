@@ -11,6 +11,7 @@ public class CardBehaviour
     public int value = 0;
     public bool targetPlayer = true;
     [SerializeField]public LookUpTable.DelegateType valueDelegate;
+    public int sumtotal = 0;
 
     [System.Serializable] public enum BehaviourType
     {
@@ -58,6 +59,38 @@ public class CardBehaviour
                 break;
         }
     }
+
+    public int CheckDamageBehaviour()
+    {
+        switch (behaviourType)
+        {
+            case BehaviourType.Attack:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]() + GameManager.player.GetPlayer().GetStatusDamage() + GameManager.combatManager.combo;
+                break;
+            case BehaviourType.Defense:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]() + GameManager.player.GetPlayer().GetStatusDefense() + GameManager.combatManager.combo;
+                break;
+            case BehaviourType.Heal:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]() + GameManager.player.GetPlayer().GetStatusHeal() + GameManager.combatManager.combo;
+                break;
+            case BehaviourType.TakeHp:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]();
+                break;
+            case BehaviourType.BuffAttack:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]();
+                break;
+            case BehaviourType.BuffDefense:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]();
+                break;
+            case BehaviourType.BuffHealing:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]();
+                break;
+            case BehaviourType.Draw:
+                sumtotal = value + LookUpTable.lookUpTable[valueDelegate]();
+                break;
+        }
+        return sumtotal;
+    }
     public void Execute()
     {
         Init();
@@ -92,92 +125,116 @@ public class CardBehaviour
         }
     }
 
-    public static void AttackCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    public void AttackCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
     {
         int fullDamage = value + LookUpTable.lookUpTable[del]() + GameManager.player.GetPlayer().GetStatusDamage() + GameManager.combatManager.combo;
         if (self)
-            GameManager.player.TakeDamage(value + LookUpTable.lookUpTable[del]());
-        else if (!self)
-            CombatManager.enemy.TakeDamage(fullDamage);
-
-        CombatManager.damageDealtRound += value + LookUpTable.lookUpTable[del]();
-        CombatManager.damageDealt += value + LookUpTable.lookUpTable[del]();
-    }
-
-    public static void TakeHPCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
-    {
-        if (self)
-            GameManager.player.LoseHP(value + LookUpTable.lookUpTable[del]());
-        else if (!self)
-            CombatManager.enemy.LoseHP(value + LookUpTable.lookUpTable[del]());
-
-    }
-
-    public static void DefenseCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
-    {
-        if (self)
-            GameManager.player.AddArmor(value + LookUpTable.lookUpTable[del]() + GameManager.combatManager.combo);
-        else if (!self)
-            CombatManager.enemy.AddArmor(value + LookUpTable.lookUpTable[del]());
-
-        CombatManager.armorDealtRound += value + LookUpTable.lookUpTable[del]();
-        CombatManager.armorGotten += value + LookUpTable.lookUpTable[del]();
-    }
-
-    public static void HealCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
-    {
-        if (self)
-            GameManager.player.Heal(value + +LookUpTable.lookUpTable[del]() + GameManager.combatManager.combo);
-        else if (!self)
-            CombatManager.enemy.Heal(value + LookUpTable.lookUpTable[del]());
-
-
-        CombatManager.healingDealtRound += value + LookUpTable.lookUpTable[del]();
-        CombatManager.healingDone += value + LookUpTable.lookUpTable[del]();
-    }
-
-    public static void StatusAttack(bool self, int value = 0, LookUpTable.DelegateType del = 0)
-    {
-        if (self)
-            GameManager.player.ApplyStatus(value +LookUpTable.lookUpTable[del](), 0, 0);
-        else if (!self)
-            CombatManager.enemy.ApplyStatus(value + LookUpTable.lookUpTable[del](), 0, 0);
-
-        CombatManager.statusDealtRound += value + LookUpTable.lookUpTable[del]();
-        CombatManager.statusInflicted += value + LookUpTable.lookUpTable[del]();
-    }
-
-    public static void StatusDefense(bool self, int value = 0, LookUpTable.DelegateType del = 0)
-    {
-        if (self)
-            GameManager.player.ApplyStatus(0, value + LookUpTable.lookUpTable[del](), 0);
-        else if (!self)
-            CombatManager.enemy.ApplyStatus(0, value + LookUpTable.lookUpTable[del](), 0);
-
-        CombatManager.statusDealtRound += value + LookUpTable.lookUpTable[del]();
-        CombatManager.statusInflicted += value + LookUpTable.lookUpTable[del]();
-    }
-
-    public static void StatusHeal(bool self, int value = 0, LookUpTable.DelegateType del = 0)
-    {
-        if (self)
-            GameManager.player.ApplyStatus(0, 0, value + LookUpTable.lookUpTable[del]());
-        else if (!self)
-            CombatManager.enemy.ApplyStatus(0, 0, value + LookUpTable.lookUpTable[del]());
-
-        CombatManager.statusDealtRound += value + LookUpTable.lookUpTable[del]();
-        CombatManager.statusInflicted += value + LookUpTable.lookUpTable[del]();
-    }
-
-    public static void DrawCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
-    {
-        for (int i = 0; i < value; i++)
         {
-            Deck.DrawCard(GameManager.player.GetPlayer());
+            GameManager.player.TakeDamage(fullDamage);
+        }
+        else if (!self)
+        {
+            CombatManager.enemy.TakeDamage(fullDamage);
+            CombatManager.damageDealtRound += fullDamage;
+            CombatManager.damageDealt += fullDamage;
         }
 
-        CombatManager.drawsDealtRound += value + LookUpTable.lookUpTable[del]();
-        CombatManager.cardsDrawn += value + LookUpTable.lookUpTable[del]();
+        
+    }
+
+    public void TakeHPCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    {
+        int totalValue = value + LookUpTable.lookUpTable[del]();
+
+        if (self)
+            GameManager.player.LoseHP(totalValue);
+        else if (!self)
+            CombatManager.enemy.LoseHP(totalValue);
+
+    }
+
+    public void DefenseCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    {
+        int totalValue = value + LookUpTable.lookUpTable[del]() + GameManager.combatManager.combo;
+
+        if (self)
+        {
+            GameManager.player.AddArmor(totalValue);
+            CombatManager.armorDealtRound += totalValue;
+            CombatManager.armorGotten += totalValue;
+        }
+        else if (!self)
+        {
+            CombatManager.enemy.AddArmor(totalValue);
+        }
+
+        
+    }
+
+    public void HealCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    {
+        int totalValue = value + LookUpTable.lookUpTable[del]() + GameManager.combatManager.combo;
+
+        if (self)
+            GameManager.player.Heal(totalValue);
+        else if (!self)
+            CombatManager.enemy.Heal(totalValue);
+
+
+        CombatManager.healingDealtRound += totalValue;
+        CombatManager.healingDone += totalValue;
+    }
+
+    public void StatusAttack(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    {
+        int totalValue = value + LookUpTable.lookUpTable[del]();
+
+        if (self)
+            GameManager.player.ApplyStatus(totalValue, 0, 0);
+        else if (!self)
+            CombatManager.enemy.ApplyStatus(totalValue, 0, 0);
+
+        CombatManager.statusDealtRound += totalValue;
+        CombatManager.statusInflicted += totalValue;
+    }
+
+    public void StatusDefense(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    {
+        int totalValue = value + LookUpTable.lookUpTable[del]();
+
+        if (self)
+            GameManager.player.ApplyStatus(0, totalValue, 0);
+        else if (!self)
+            CombatManager.enemy.ApplyStatus(0, totalValue, 0);
+
+        CombatManager.statusDealtRound += totalValue;
+        CombatManager.statusInflicted += totalValue;
+    }
+
+    public void StatusHeal(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    {
+        int totalValue = value + LookUpTable.lookUpTable[del]();
+
+        if (self)
+            GameManager.player.ApplyStatus(0, 0, totalValue);
+        else if (!self)
+            CombatManager.enemy.ApplyStatus(0, 0, totalValue);
+
+        CombatManager.statusDealtRound += totalValue;
+        CombatManager.statusInflicted += totalValue;
+    }
+
+    public void DrawCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    {
+        int totalValue = value + LookUpTable.lookUpTable[del]();
+
+        for (int i = 0; i < value; i++)
+        {
+            GameManager.deck.DrawCard(GameManager.player.GetPlayer());
+        }
+
+        CombatManager.drawsDealtRound += totalValue;
+        CombatManager.cardsDrawn += totalValue;
     }
 }
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CardCollection 
+public class CardCollection
 {
     public Card[] cards;
+   
 }

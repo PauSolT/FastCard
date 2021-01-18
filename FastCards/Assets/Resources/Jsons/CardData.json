@@ -2,9 +2,9 @@
   "cards": [
     {
       "cardName": "As",
-      "cardDescription": "Deal 5 damage to yourself",
+      "cardDescription": "Deal {0} damage to yourself",
       "cost": 1,
-      "discard": true,
+      "discard": false,
       "cardType": 0,
       "passivesApplied": [],
       "cardBehaviours": [
@@ -21,7 +21,7 @@
     },
     {
       "cardName": "5",
-      "cardDescription": "5",
+      "cardDescription": "Heal {0}",
       "cost": 5,
       "discard": true,
       "cardType": 3,
@@ -45,7 +45,7 @@
     },
     {
       "cardName": "Pog",
-      "cardDescription": "Champ",
+      "cardDescription": "Deal {0} damage",
       "cost": 0,
       "discard": true,
       "cardType": 0,
@@ -152,7 +152,7 @@
     "cardName": "10",
     "cardDescription": "Heal 5 if your health is lower than your enemy's and if your armor is equal or lower than your enemy's.",
     "cost": 2,
-    "discard": true,
+    "discard": false,
     "cardType": 3,
     "cardBehaviours": [
         {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CreateAssetMenu(fileName = "Passive Card", menuName = "Card/Passive Card")]
 public class CardPassive : Card
 {
     public AllPasives.PassiveName selectPassive;
