@@ -6,8 +6,8 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
+#if UNITY_EDITOR
 public class CreateCardTool : ScriptableWizard
 {
     public string cardName;
@@ -112,3 +112,5 @@ public class CreateCardTool : ScriptableWizard
         }
     }
 }
+
+#endif

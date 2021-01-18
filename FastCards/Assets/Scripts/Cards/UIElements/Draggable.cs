@@ -25,7 +25,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta * 1.32f;
+        rectTransform.anchoredPosition += eventData.delta * 0.67f;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

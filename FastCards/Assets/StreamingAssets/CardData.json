@@ -1,0 +1,173 @@
+{
+  "cards": [
+    {
+      "cardName": "Strike",
+      "cardDescription": "Deal {0} damage",
+      "cost": 1,
+      "discard": false,
+      "cardType": 0,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 6,
+          "targetPlayer": false,
+          "behaviourType": 0
+        }
+      ]
+    },
+    {
+      "cardName": "Defense",
+      "cardDescription": "Add {0} armor",
+      "cost": 1,
+      "discard": false,
+      "cardType": 1,
+      "passivesApplied": [],
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 6,
+          "targetPlayer": true,
+          "behaviourType": 1
+        }
+      ]
+    }
+,
+{
+    "cardName": "Healing",
+    "cardDescription": "Heal for {0}",
+    "cost": 1,
+    "discard": false,
+    "cardType": 3,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 5,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "sumtotal": 0,
+            "behaviourType": 2
+        }
+    ]
+}
+,
+{
+    "cardName": "Damage Buff/Debuff",
+    "cardDescription": "Gain 1 attack buff, enemy loses 1 attack buff. Discard",
+    "cost": 2,
+    "discard": true,
+    "cardType": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        }
+    ]
+}
+,
+{
+    "cardName": "Armor buff/debuff",
+    "cardDescription": "Gain 1 armor buff, enemy loses 1 armor buff. Discard",
+    "cost": 2,
+    "discard": true,
+    "cardType": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        }
+    ]
+}
+,
+{
+    "cardName": "Heal buff/debuff",
+    "cardDescription": "Gain 1 healing buff, enemy loses 1 healing buff. Discard",
+    "cost": 2,
+    "discard": true,
+    "cardType": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        }
+    ]
+}
+,
+{
+    "cardName": "Sight",
+    "cardDescription": "Draw 2 cards",
+    "cost": 1,
+    "discard": false,
+    "cardType": 4,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 2,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
+        }
+    ]
+}
+]
+}

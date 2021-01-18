@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     void InitCards()
     {
-        using (StreamReader stream = new StreamReader("Assets/Resources/Jsons/CardData.json"))
+        using (StreamReader stream = new StreamReader(Path.Combine(Application.streamingAssetsPath, "CardData.json")))
         {
             string json = stream.ReadToEnd();
             cardCollection = JsonUtility.FromJson<CardCollection>(json);
