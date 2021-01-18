@@ -11,7 +11,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private RectTransform rectTransform;
     private Vector2 startingPosition;
 
-    private int unitsToShowCard = 180;
+    private int unitsToShowCard = 140;
 
     private int siblingIndex;
 
@@ -39,9 +39,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition = startingPosition;
-        transform.SetSiblingIndex(siblingIndex);
-        CombatManager.hand.enabled = true;
+        ResetCardPosition();
     }
 
     bool cardUsed = false;
@@ -50,20 +48,33 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         float playField = Screen.height * 0.2f;
         if ( playField <= rectTransform.anchoredPosition.y &&!cardUsed)
         {
-            Debug.Log(gameObject.name + " used!");
-            cardUsed = true;
-            GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), card);
-            Destroy(gameObject);
-            GameManager.deck.cardsGO.Remove(gameObject);
-            CombatManager.hand.enabled = true;
-            CombatManager.hand.spacing -= 100;
+            if(GameManager.player.GetPlayer().GetCurrentMana() >= card.cost &&
+                GameManager.player.GetPlayer().GetCurrentMana() - card.cost >= 0)
+            {
+                cardUsed = true;
+                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), card);
+                GameManager.player.SpendMana(card);
+                Destroy(gameObject);
+                GameManager.deck.cardsGO.Remove(gameObject);
+                CombatManager.hand.enabled = true;
+                CombatManager.hand.spacing -= 100;
+            } else
+            {
+                ResetCardPosition();
+            }
+           
         }
         else
         {
-            rectTransform.anchoredPosition = startingPosition;
-            transform.SetSiblingIndex(siblingIndex);
-            CombatManager.hand.enabled = true;
+            ResetCardPosition();
         }
+    }
+
+    void ResetCardPosition()
+    {
+        rectTransform.anchoredPosition = startingPosition;
+        transform.SetSiblingIndex(siblingIndex);
+        CombatManager.hand.enabled = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)

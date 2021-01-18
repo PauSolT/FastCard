@@ -11,7 +11,7 @@ public class CardBehaviour
     public int value = 0;
     public bool targetPlayer = true;
     [SerializeField]public LookUpTable.DelegateType valueDelegate;
-    public int sumtotal = 0;
+    int sumtotal = 0;
 
     [System.Serializable] public enum BehaviourType
     {
@@ -93,7 +93,6 @@ public class CardBehaviour
     }
     public void Execute()
     {
-        Init();
         if (condition.CheckCondition())
             behaviorUse.Invoke(targetPlayer, value, valueDelegate);
 
@@ -230,7 +229,7 @@ public class CardBehaviour
 
         for (int i = 0; i < value; i++)
         {
-            GameManager.deck.DrawCard(GameManager.player.GetPlayer());
+            Deck.instance.StartCoroutine(GameManager.deck.DrawCard(GameManager.player.GetPlayer()));
         }
 
         CombatManager.drawsDealtRound += totalValue;

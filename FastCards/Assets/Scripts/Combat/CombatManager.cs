@@ -32,6 +32,8 @@ public class CombatManager
     public static Text playerName;
     public static Text enemyName;
     public static Text comboText;
+    public static Text manaText;
+    public static Text intentionText;
 
     //Comparison related
     //Cards type played this round
@@ -95,6 +97,8 @@ public class CombatManager
         playerName = GameObject.Find("Canvas/PlayerName").GetComponent<Text>();
         enemyName = GameObject.Find("Canvas/EnemyName").GetComponent<Text>();
         comboText = GameObject.Find("Canvas/ComboText").GetComponent<Text>();
+        manaText = GameObject.Find("Canvas/ManaText").GetComponent<Text>();
+        intentionText = GameObject.Find("Canvas/EnemyIntention").GetComponent<Text>();
         
 
         StartPlayerTurn();
@@ -109,6 +113,7 @@ public class CombatManager
             GameManager.deck.DestroyCard(GameManager.deck.canvas.transform.GetChild(i).gameObject);
             GameManager.deck.cardsGO.RemoveAt(0);
         }
+        hand.spacing = -1150;
         playerTurn = false;
         currentTurnSeconds = 0f;
         currentComboSeconds = 0f;
@@ -121,6 +126,9 @@ public class CombatManager
         GameManager.deck.StartCoroutine(Deck.DrawStartingHand(GameManager.player.GetPlayer()));
         GameManager.combatManager.currentTurnSeconds = GameManager.combatManager.turnSeconds;
         GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
+        GameManager.player.RefillMana();
+        hand.enabled = true;
+        enemy.DoOption();
         //Values reset
         attackCardsRound = 0;
         defendCardsRound = 0;
@@ -154,6 +162,7 @@ public class CombatManager
         enemyName.text = enemy.GetEnemy().GetName();
         enemyArmor.text = enemy.GetEnemy().GetCurrentArmor().ToString();
         comboText.text = "COMBO: " + combo.ToString();
+        manaText.text = "Volts: " + GameManager.player.GetPlayer().GetCurrentMana().ToString() + " / " + GameManager.player.GetPlayer().GetCurrentMaxMana().ToString();
 
         GameManager.deck.seePlayerHand = GameManager.player.GetPlayer().GetHand();
         GameManager.deck.seeDrawDeck = Deck.drawDeck;
@@ -167,7 +176,6 @@ public class CombatManager
         comboSlider.maxValue = comboSeconds;
         currentComboSeconds -= Time.deltaTime;
         comboSlider.value = currentComboSeconds;
-        //Debug.Log(combo);
 
         if (currentTurnSeconds <= 0f)
             EndPlayerTurn();
@@ -191,57 +199,57 @@ public class CombatManager
 
         if (!playerTurn)
         {
-            enemy.DoOption();
+            enemy.ExecuteOption();
             StartPlayerTurn();
         }
 
-        if (playerTurn)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && GameManager.player.GetPlayer().GetHand().Count >= 1)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
-            }
+        //if (playerTurn)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Alpha1) && GameManager.player.GetPlayer().GetHand().Count >= 1)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha2) && GameManager.player.GetPlayer().GetHand().Count >= 2)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[1]);
-            }
+        //    if (Input.GetKeyDown(KeyCode.Alpha2) && GameManager.player.GetPlayer().GetHand().Count >= 2)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[1]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha3) && GameManager.player.GetPlayer().GetHand().Count >= 3)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[2]);
-            }
+        //    if (Input.GetKeyDown(KeyCode.Alpha3) && GameManager.player.GetPlayer().GetHand().Count >= 3)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[2]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha4) && GameManager.player.GetPlayer().GetHand().Count >= 4)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[3]);
-            }
+        //    if (Input.GetKeyDown(KeyCode.Alpha4) && GameManager.player.GetPlayer().GetHand().Count >= 4)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[3]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha5) && GameManager.player.GetPlayer().GetHand().Count >= 5)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[4]);
-            }
+        //    if (Input.GetKeyDown(KeyCode.Alpha5) && GameManager.player.GetPlayer().GetHand().Count >= 5)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[4]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha6) && GameManager.player.GetPlayer().GetHand().Count >= 6)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[5]);
-            }
+        //    if (Input.GetKeyDown(KeyCode.Alpha6) && GameManager.player.GetPlayer().GetHand().Count >= 6)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[5]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha7) && GameManager.player.GetPlayer().GetHand().Count >= 7)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[6]);
-            }
+        //    if (Input.GetKeyDown(KeyCode.Alpha7) && GameManager.player.GetPlayer().GetHand().Count >= 7)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[6]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha8) && GameManager.player.GetPlayer().GetHand().Count >= 8)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[7]);
-            }
+        //    if (Input.GetKeyDown(KeyCode.Alpha8) && GameManager.player.GetPlayer().GetHand().Count >= 8)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[7]);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.Alpha9) && GameManager.player.GetPlayer().GetHand().Count >= 9)
-            {
-                GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[8]);
-            }
-        }
+        //    if (Input.GetKeyDown(KeyCode.Alpha9) && GameManager.player.GetPlayer().GetHand().Count >= 9)
+        //    {
+        //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[8]);
+        //    }
+        //}
         
 
         

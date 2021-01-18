@@ -6,6 +6,8 @@ using System.Linq;
 public class EnemyBehaviour 
 {
     int lastAction = -1;
+
+    public int numRandom;
     public enum EnemyAction
     {
         Attack,
@@ -16,9 +18,9 @@ public class EnemyBehaviour
     }
     public Dictionary<EnemyAction, System.Action> options = new Dictionary<EnemyAction, System.Action>();
 
-    public void ChooseOption()
+    public virtual void ChooseOption()
     { 
-        int numRandom = Random.Range(0, options.Count - 1);
+        numRandom = Random.Range(0, options.Count - 1);
 
         while (lastAction == numRandom
             || (CombatManager.enemy.GetEnemy().GetCurrentHealth() == CombatManager.enemy.GetEnemy().GetStartingMaxHealth() && options.Keys.ElementAt(numRandom) == EnemyAction.Heal))
@@ -28,7 +30,12 @@ public class EnemyBehaviour
         }
 
         lastAction = numRandom;
-        switch(numRandom)
+        
+    }
+
+    public void ExecuteOption()
+    {
+        switch (numRandom)
         {
             case 0:
                 FirstOption();

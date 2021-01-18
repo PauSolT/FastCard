@@ -26,7 +26,7 @@ public class Deck : MonoBehaviour
     public List<Card> seePileDeck;
     public List<CardPassive> seePassive;
 
-    static Deck instance;
+    public static Deck instance;
 
     public List<GameObject> cardsGO = new List<GameObject>();
     public GameObject cardPrefab;
@@ -39,8 +39,17 @@ public class Deck : MonoBehaviour
     {
         foreach (Card card in GameManager.cardCollection.cards)
         {
-            playerDeck.Add(card);
+            card.CardInit();
+            playerDeck.Add(card);  
         }
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                playerDeck.Add(GameManager.cardCollection.cards[i]);
+            }
+        }
+
         instance = this;
     }
 
@@ -119,7 +128,7 @@ public class Deck : MonoBehaviour
     }
 
     //Drawing card related
-    public IEnumerator Draw(Player player)
+    IEnumerator Draw(Player player)
     {
         yield return null;
         //Draw card
@@ -154,7 +163,6 @@ public class Deck : MonoBehaviour
 
     public void DrawHandCards(Card card)
     {
-        card.CardInit();
         GameObject newCard = Instantiate(cardPrefab, canvas.transform);
         Draggable drag = newCard.GetComponent<Draggable>();
         drag.card = card;

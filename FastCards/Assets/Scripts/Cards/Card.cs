@@ -26,19 +26,9 @@ public class Card
     [SerializeField] public int cost;
 
     [SerializeField] public bool discard;
-    //[SerializeField] public bool self;
 
     [SerializeField] public CardType cardType;
 
-    //Value types
-    //[SerializeField] public int damage;
-    //[SerializeField] public int armor;
-    //[SerializeField] public int heal;
-    //[SerializeField] public int draw;
-
-    //[SerializeField] public int statusDamage;
-    //[SerializeField] public int statusDefense;
-    //[SerializeField] public int statusHealing;
     [SerializeField] public List <CardPassive> passivesApplied = new List<CardPassive>();
 
     [SerializeField] public List<CardBehaviour> cardBehaviours = new List<CardBehaviour>();
@@ -49,7 +39,10 @@ public class Card
     //Virtual functions so childs use them
     public virtual void CardInit()
     {
-        
+        foreach(CardBehaviour cb in cardBehaviours)
+        {
+            cb.Init();
+        }
     }
 
     public virtual void CardUse()

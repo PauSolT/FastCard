@@ -92,4 +92,8 @@ public class EnemyFunctions : Enemy
     {
         selectedBehaviour.ChooseOption();
     }
+    public void ExecuteOption()
+    {
+        selectedBehaviour.ExecuteOption();
+    }
 }

@@ -1,8 +1,8 @@
 {
   "cards": [
     {
-      "cardName": "As",
-      "cardDescription": "Deal {0} damage to yourself",
+      "cardName": "Strike",
+      "cardDescription": "Deal {0} damage",
       "cost": 1,
       "discard": false,
       "cardType": 0,
@@ -13,97 +13,16 @@
             "deleagtePairs": [],
             "conditionTypes": []
           },
-          "value": 5,
-          "targetPlayer": true,
-          "behaviourType": 0
-        }
-      ]
-    },
-    {
-      "cardName": "5",
-      "cardDescription": "Heal {0}",
-      "cost": 5,
-      "discard": true,
-      "cardType": 3,
-      "passivesApplied": [],
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [
-              {
-                "delegate1": 0,
-                "delegate2": 2
-              }
-            ],
-            "conditionTypes": [ 3 ]
-          },
-          "value": 5,
-          "targetPlayer": true,
-          "behaviourType": 2
-        }
-      ]
-    },
-    {
-      "cardName": "Pog",
-      "cardDescription": "Deal {0} damage",
-      "cost": 0,
-      "discard": true,
-      "cardType": 0,
-      "passivesApplied": [],
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 100,
+          "value": 6,
           "targetPlayer": false,
           "behaviourType": 0
         }
       ]
     },
     {
-      "cardName": "Pepe",
-      "cardDescription": "Add 100 defense",
+      "cardName": "Defense",
+      "cardDescription": "Add {0} armor",
       "cost": 1,
-      "discard": true,
-      "cardType": 1,
-      "passivesApplied": [],
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 100,
-          "targetPlayer": true,
-          "behaviourType": 1
-        }
-      ]
-    },
-    {
-      "cardName": "Twitch",
-      "cardDescription": "Deal 100 damage to yourself",
-      "cost": 1,
-      "discard": true,
-      "cardType": 0,
-      "passivesApplied": [],
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 100,
-          "targetPlayer": true,
-          "behaviourType": 3
-        }
-      ]
-    },
-    {
-      "cardName": "10",
-      "cardDescription": "Add 10 defense, heal 10",
-      "cost": 10,
       "discard": false,
       "cardType": 1,
       "passivesApplied": [],
@@ -113,98 +32,140 @@
             "deleagtePairs": [],
             "conditionTypes": []
           },
-          "value": 10,
+          "value": 6,
           "targetPlayer": true,
           "behaviourType": 1
-        },
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 10,
-          "targetPlayer": true,
-          "behaviourType": 2
-        }
-      ]
-    },
-    {
-      "cardName": "Calvicie",
-      "cardDescription": "Te deja a 1 de vida",
-      "cost": 2,
-      "discard": false,
-      "cardType": 0,
-      "passivesApplied": [],
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 99,
-          "targetPlayer": true,
-          "behaviourType": 3
         }
       ]
     }
-  ,
+,
 {
-    "cardName": "10",
-    "cardDescription": "Heal 5 if your health is lower than your enemy's and if your armor is equal or lower than your enemy's.",
-    "cost": 2,
+    "cardName": "Healing",
+    "cardDescription": "Heal for {0}",
+    "cost": 1,
     "discard": false,
     "cardType": 3,
     "cardBehaviours": [
         {
             "condition": {
-                "deleagtePairs": [
-                    {
-                        "delegate1": 0,
-                        "delegate2": 7
-                    },
-                    {
-                        "delegate1": 2,
-                        "delegate2": 9
-                    }
-                ],
-                "conditionTypes": [
-                    1,
-                    3
-                ]
+                "deleagtePairs": [],
+                "conditionTypes": []
             },
             "value": 5,
             "targetPlayer": true,
+            "valueDelegate": 0,
+            "sumtotal": 0,
             "behaviourType": 2
         }
     ]
 }
 ,
 {
-    "cardName": "SI",
-    "cardDescription": "Defensa 75, atac 50",
+    "cardName": "Damage Buff/Debuff",
+    "cardDescription": "Gain 1 attack buff, enemy loses 1 attack buff",
     "cost": 2,
-    "discard": false,
-    "cardType": 1,
+    "discard": true,
+    "cardType": 2,
     "cardBehaviours": [
         {
             "condition": {
                 "deleagtePairs": [],
                 "conditionTypes": []
             },
-            "value": 75,
+            "value": 1,
             "targetPlayer": true,
             "valueDelegate": 0,
-            "behaviourType": 1
+            "behaviourType": 4
         },
         {
             "condition": {
                 "deleagtePairs": [],
                 "conditionTypes": []
             },
-            "value": 0,
+            "value": -1,
             "targetPlayer": false,
-            "valueDelegate": 15,
-            "behaviourType": 0
+            "valueDelegate": 0,
+            "behaviourType": 4
+        }
+    ]
+}
+,
+{
+    "cardName": "Armor buff/debuff",
+    "cardDescription": "Gain 1 armor buff, enemy loses 1 armor buff",
+    "cost": 2,
+    "discard": true,
+    "cardType": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        }
+    ]
+}
+,
+{
+    "cardName": "Heal buff/debuff",
+    "cardDescription": "Gain 1 healing buff, enemy loses 1 healing buff",
+    "cost": 2,
+    "discard": true,
+    "cardType": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        }
+    ]
+}
+,
+{
+    "cardName": "Sight",
+    "cardDescription": "Draw 2 cards",
+    "cost": 1,
+    "discard": true,
+    "cardType": 4,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 2,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
         }
     ]
 }

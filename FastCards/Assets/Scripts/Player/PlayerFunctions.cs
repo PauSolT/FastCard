@@ -25,11 +25,8 @@ public class PlayerFunctions : Player
         player.SetCurrentHealth(player.GetStartingHealth());
         player.SetCurrentLevel(player.GetStartingLevel());
         player.SetCurrentArmor(player.GetStartingArmor());
-
-        //Debug.Log("Max hand size: " + player.GetStartingMaxHandSize());
-        //Debug.Log("Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
-        //Debug.Log("Name: " + player.GetName());
-        //Debug.Log("Level: " + player.GetStartingLevel());
+        player.SetCurrentMaxMana(player.GetStartingMaxMana());
+        player.SetCurrentMana(player.GetStartingMana());
     }
 
 
@@ -95,6 +92,18 @@ public class PlayerFunctions : Player
             Die();
         }
     }
+
+    //Mana functions
+    public override void SpendMana(Card card)
+    {
+        player.SetCurrentMana(player.GetCurrentMana()- card.cost);
+    }
+
+    public override void RefillMana()
+    {
+        player.SetCurrentMana(player.GetCurrentMaxMana());
+    }
+
 
     public Player GetPlayer() { return player; }
 

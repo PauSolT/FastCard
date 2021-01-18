@@ -19,6 +19,11 @@ public class Player
     [SerializeField] int startingArmor = 0;
     [SerializeField] int currentArmor;
 
+    //Mana
+    [SerializeField] int startingMaxMana = 0;
+    [SerializeField] int currentMaxMana;
+    [SerializeField] int startingMana = 0;
+    [SerializeField] int currentMana;
 
     //Hand size
     [SerializeField] int startingMaxHandSize = 0;
@@ -51,6 +56,22 @@ public class Player
 
     public int GetCurrentHealth() { return currentHealth; }
     public void SetCurrentHealth(int value) { currentHealth = value; }
+
+    //Mana related
+    public int GetStartingMaxMana() { return startingMaxMana; }
+
+    public int GetCurrentMaxMana() { return currentMaxMana; }
+    public void SetCurrentMaxMana(int value) { currentMaxMana = value; }
+
+    public int GetStartingMana() { return startingMana; }
+    public void SetStartingMana(int value) { startingMana = value; }
+
+    public int GetCurrentMana() { return currentMana; }
+    public void SetCurrentMana(int value) { currentMana = value; }
+
+    public virtual void SpendMana(Card card) { }
+
+    public virtual void RefillMana() { }
 
     //Armor
     public int GetStartingArmor() { return startingArmor; }
