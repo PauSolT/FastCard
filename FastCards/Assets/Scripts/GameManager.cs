@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static PlayerFunctions player = new PlayerFunctions();
     public static Deck deck;
+    public static CombatFunctions combatFunctions;
     public static CombatManager combatManager = new CombatManager();
 
     public static List<EnemyFunctions> enemies = new List<EnemyFunctions>();
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         player.Init();
         deck = GetComponent<Deck>();
+        combatFunctions = GetComponent<CombatFunctions>();
         for (int i = 0; i < 1; i++)
         {
             enemies.Add(new EnemyFunctions());

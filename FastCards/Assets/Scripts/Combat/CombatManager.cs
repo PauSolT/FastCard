@@ -17,14 +17,14 @@ public class CombatManager
     [SerializeField] float turnSeconds = 10f;
     float currentTurnSeconds = 0f;
 
+    //Sliders
     public static Slider playerSlider;
     public static Slider enemySlider;
     public static Slider comboSlider;
     public static Slider turnSlider;
     public static Slider timeSlider;
 
-
-
+    //Texts 
     public static Text playerHealth;
     public static Text enemyHealth;
     public static Text playerArmor;
@@ -34,6 +34,10 @@ public class CombatManager
     public static Text comboText;
     public static Text manaText;
     public static Text intentionText;
+    public static Text endTurnInfo;
+
+    //Buttons
+    public static Button endTurnButton;
 
     //Comparison related
     //Cards type played this round
@@ -86,25 +90,31 @@ public class CombatManager
         hand = GameObject.Find("Canvas/Hand").GetComponent<HorizontalLayoutGroup>();
         enemy = combatEnemy;
         
-        playerSlider = GameObject.Find("Canvas/PlayerSlider").GetComponent<Slider>();
-        enemySlider = GameObject.Find("Canvas/EnemySlider").GetComponent<Slider>();
-        timeSlider = GameObject.Find("Canvas/TimeSlider").GetComponent<Slider>();
-        comboSlider = GameObject.Find("Canvas/ComboSlider").GetComponent<Slider>();
-        playerHealth = GameObject.Find("Canvas/PlayerHealth").GetComponent<Text>();
-        enemyHealth = GameObject.Find("Canvas/EnemyHealth").GetComponent<Text>();
-        playerArmor = GameObject.Find("Canvas/PlayerArmor").GetComponent<Text>();
-        enemyArmor = GameObject.Find("Canvas/EnemyArmor").GetComponent<Text>();
-        playerName = GameObject.Find("Canvas/PlayerName").GetComponent<Text>();
-        enemyName = GameObject.Find("Canvas/EnemyName").GetComponent<Text>();
-        comboText = GameObject.Find("Canvas/ComboText").GetComponent<Text>();
-        manaText = GameObject.Find("Canvas/ManaText").GetComponent<Text>();
-        intentionText = GameObject.Find("Canvas/EnemyIntention").GetComponent<Text>();
-        
+        //Player HUD
+        playerSlider = GameObject.Find("Canvas/PlayerHUD/PlayerSlider").GetComponent<Slider>();
+        playerHealth = GameObject.Find("Canvas/PlayerHUD/PlayerHealth").GetComponent<Text>();
+        playerName = GameObject.Find("Canvas/PlayerHUD/PlayerName").GetComponent<Text>();
+        playerArmor = GameObject.Find("Canvas/PlayerHUD/PlayerArmor").GetComponent<Text>();
+
+        //Enemy HUD
+        enemySlider = GameObject.Find("Canvas/EnemyHUD/EnemySlider").GetComponent<Slider>();
+        enemyHealth = GameObject.Find("Canvas/EnemyHUD/EnemyHealth").GetComponent<Text>();
+        enemyArmor = GameObject.Find("Canvas/EnemyHUD/EnemyArmor").GetComponent<Text>();
+        enemyName = GameObject.Find("Canvas/EnemyHUD/EnemyName").GetComponent<Text>();
+        intentionText = GameObject.Find("Canvas/EnemyHUD/EnemyIntention").GetComponent<Text>();
+
+        //Combat HUD
+        timeSlider = GameObject.Find("Canvas/CombatHUD/TimeSlider").GetComponent<Slider>();
+        comboSlider = GameObject.Find("Canvas/CombatHUD/ComboSlider").GetComponent<Slider>();
+        comboText = GameObject.Find("Canvas/CombatHUD/ComboText").GetComponent<Text>();
+        manaText = GameObject.Find("Canvas/CombatHUD/ManaText").GetComponent<Text>();
+        endTurnButton = GameObject.Find("Canvas/CombatHUD/EndTurnButton").GetComponent<Button>();
+        endTurnInfo = GameObject.Find("Canvas/CombatHUD/EndTurnInfo").GetComponent<Text>();
 
         StartPlayerTurn();
     }
 
-    void EndPlayerTurn()
+    public void EndPlayerTurn()
     {
         int it = GameManager.player.GetPlayer().GetHand().Count;
         for (int i = 0; i < it; i++)
@@ -127,6 +137,7 @@ public class CombatManager
         GameManager.combatManager.currentTurnSeconds = GameManager.combatManager.turnSeconds;
         GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
         GameManager.player.RefillMana();
+        GameManager.combatFunctions.ShowCombo();
         hand.enabled = true;
         enemy.DoOption();
         //Values reset
@@ -184,12 +195,7 @@ public class CombatManager
         {
             combo = 0;
             GameManager.deck.UpdateCardDescription();
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            GameManager.player.TakeDamage(6);
+            GameManager.combatFunctions.HideCombo();
         }
 
         if (Input.GetKeyDown(KeyCode.E) && playerTurn)

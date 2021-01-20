@@ -24,8 +24,7 @@ public class EnemyBehaviour
 
         while (lastAction == numRandom
             || (CombatManager.enemy.GetEnemy().GetCurrentHealth() == CombatManager.enemy.GetEnemy().GetStartingMaxHealth() && options.Keys.ElementAt(numRandom) == EnemyAction.Heal))
-        {
-            Debug.Log("Another random number in enemy options");
+        {   
             numRandom = Random.Range(0, options.Count - 1);
         }
 
