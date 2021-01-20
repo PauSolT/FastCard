@@ -11,9 +11,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private RectTransform rectTransform;
     private Vector2 startingPosition;
 
-    private int unitsToShowCard = 140;
+    private const int unitsToShowCard = 140;
 
     private int siblingIndex;
+
+    private bool cardUsed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta * 0.67f;
+        transform.position = Input.mousePosition;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -42,7 +44,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         ResetCardPosition();
     }
 
-    bool cardUsed = false;
     public void OnEndDrag(PointerEventData eventData)
     {
         float playField = Screen.height * 0.2f;
@@ -79,7 +80,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //rectTransform.anchoredPosition = eventData.pressPosition;
-        //transform.SetAsLastSibling();
+        transform.position = Input.mousePosition;
     }
 }
