@@ -34,10 +34,14 @@ public class EnemyFunctions : Enemy
         {
             int damageHealth = damage - enemy.GetCurrentArmor();
             if (damageHealth <= 0)
+            {
                 enemy.SetCurrentArmor(enemy.GetCurrentArmor() - damage);
-            else if (damageHealth > 0)
+                CombatManager.enemyArmor.text = enemy.GetCurrentArmor().ToString();
+            }
+            if (damageHealth > 0)
             {
                 enemy.SetCurrentArmor(0);
+                CombatManager.enemyArmor.text = enemy.GetCurrentArmor().ToString();
                 LoseHP(damageHealth);
             }
         }
@@ -62,6 +66,8 @@ public class EnemyFunctions : Enemy
 
         if (enemy.GetCurrentHealth() >= enemy.GetStartingHealth())
             enemy.SetCurrentHealth(enemy.GetStartingHealth());
+
+        CombatManager.enemyHealth.text = enemy.GetCurrentHealth() + " / " + enemy.GetStartingMaxHealth();
 
         //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
@@ -88,6 +94,7 @@ public class EnemyFunctions : Enemy
     public override void LoseHP(int hpLoss)
     {
         enemy.SetCurrentHealth(enemy.GetCurrentHealth() - hpLoss);
+        CombatManager.enemyHealth.text = enemy.GetCurrentHealth() + " / " + enemy.GetStartingMaxHealth();
     }
     public void DoOption()
     {

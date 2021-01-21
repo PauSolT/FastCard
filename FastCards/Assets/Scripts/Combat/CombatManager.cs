@@ -120,6 +120,19 @@ public class CombatManager
         levelUpHUD = GameObject.Find("Canvas/LevelUpHUD");
         levelUpHUD.SetActive(false);
 
+        //Set HUD
+        playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + " / " + GameManager.player.GetPlayer().GetCurrentMaxHealth();
+        enemyHealth.text = enemy.GetEnemy().GetCurrentHealth() + " / " + enemy.GetEnemy().GetStartingMaxHealth();
+        playerArmor.text = GameManager.player.GetPlayer().GetCurrentArmor().ToString();
+        enemyArmor.text = enemy.GetEnemy().GetCurrentArmor().ToString();
+        playerSlider.maxValue = GameManager.player.GetPlayer().GetCurrentMaxHealth();
+        playerSlider.value = GameManager.player.GetPlayer().GetCurrentHealth();
+        enemySlider.maxValue = enemy.GetEnemy().GetStartingMaxHealth();
+        enemySlider.value = enemy.GetEnemy().GetCurrentHealth();
+        playerName.text = GameManager.player.GetPlayer().GetName();
+        enemyName.text = enemy.GetEnemy().GetName();
+        comboText.text = "COMBO: " + combo.ToString();
+
         StartPlayerTurn();
     }
 
@@ -157,12 +170,14 @@ public class CombatManager
     {
         comboBuilder++;
         combo += (int)comboMultiplier * comboBuilder;
+        comboText.text = "COMBO: " + combo.ToString();
     }
 
     void ResetCombo()
     {
         combo = 0;
         comboBuilder = 0;
+        comboText.text = "COMBO: " + combo.ToString();
     }
 
     void ResetCombatRoundValues()
@@ -181,20 +196,10 @@ public class CombatManager
 
     public void CombatInputs()
     {   
-        playerSlider.maxValue = GameManager.player.GetPlayer().GetCurrentMaxHealth();
-        playerSlider.value = GameManager.player.GetPlayer().GetCurrentHealth();
-        enemySlider.maxValue = enemy.GetEnemy().GetStartingMaxHealth();
-        enemySlider.value = enemy.GetEnemy().GetCurrentHealth();
-
-        playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + " / " + GameManager.player.GetPlayer().GetCurrentMaxHealth();
-        enemyHealth.text = enemy.GetEnemy().GetCurrentHealth() + " / " + enemy.GetEnemy().GetStartingMaxHealth();
-        playerArmor.text = GameManager.player.GetPlayer().GetCurrentArmor().ToString();
-        enemyArmor.text = enemy.GetCurrentArmor().ToString();
-        playerName.text = GameManager.player.GetPlayer().GetName();
-        enemyName.text = enemy.GetEnemy().GetName();
-        enemyArmor.text = enemy.GetEnemy().GetCurrentArmor().ToString();
-        comboText.text = "COMBO: " + combo.ToString();
-        manaText.text = "Volts: " + GameManager.player.GetPlayer().GetCurrentMana().ToString() + " / " + GameManager.player.GetPlayer().GetCurrentMaxMana().ToString();
+        if (enemy.GetEnemy().GetCurrentHealth() <= 0)
+        {
+            return;
+        }
 
         GameManager.deck.seePlayerHand = GameManager.player.GetPlayer().GetHand();
         GameManager.deck.seeDrawDeck = Deck.drawDeck;

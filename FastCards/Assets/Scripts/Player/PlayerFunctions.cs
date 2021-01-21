@@ -39,10 +39,16 @@ public class PlayerFunctions : Player
         {
             int damageHealth = damage - player.GetCurrentArmor();
             if(damageHealth <= 0)
+            {
                 player.SetCurrentArmor(player.GetCurrentArmor() - damage);
+                CombatManager.playerArmor.text = GameManager.player.GetCurrentArmor().ToString();
+
+            }
+
             else if(damageHealth > 0)
             {
                 player.SetCurrentArmor(0);
+                CombatManager.playerArmor.text = GameManager.player.GetCurrentArmor().ToString();
                 LoseHP(damageHealth);
             }
         }
@@ -64,6 +70,8 @@ public class PlayerFunctions : Player
         if (player.GetCurrentHealth() >= player.GetCurrentMaxHealth())
             player.SetCurrentHealth(player.GetCurrentMaxHealth());
 
+        CombatManager.playerHealth.text = GameManager.player.GetCurrentHealth() + " / " + GameManager.player.GetCurrentMaxHealth();
+
         //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
     }
 
@@ -71,7 +79,10 @@ public class PlayerFunctions : Player
     {
         int def = armor + player.GetStatusDefense();
         if (def >= 0)
+        {
             player.SetCurrentArmor(player.GetCurrentArmor() + def);
+            CombatManager.playerArmor.text = GameManager.player.GetCurrentArmor().ToString();
+        }
 
         //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
     }
@@ -86,7 +97,8 @@ public class PlayerFunctions : Player
 
     public override void LoseHP(int hpLoss)
     {
-        player.SetCurrentHealth(player.GetCurrentHealth() - hpLoss);
+        player.SetCurrentHealth(player  .GetCurrentHealth() - hpLoss);
+        CombatManager.playerHealth.text = GameManager.player.GetCurrentHealth() + " / " + GameManager.player.GetCurrentMaxHealth();
         if (player.GetCurrentHealth() <= 0)
         {
             Die();
@@ -97,11 +109,13 @@ public class PlayerFunctions : Player
     public override void SpendMana(Card card)
     {
         player.SetCurrentMana(player.GetCurrentMana()- card.cost);
+        CombatManager.manaText.text = "Volts: " + GameManager.player.GetPlayer().GetCurrentMana().ToString() + " / " + GameManager.player.GetPlayer().GetCurrentMaxMana().ToString();
     }
 
     public override void RefillMana()
     {
         player.SetCurrentMana(player.GetCurrentMaxMana());
+        CombatManager.manaText.text = "Volts: " + GameManager.player.GetPlayer().GetCurrentMana().ToString() + " / " + GameManager.player.GetPlayer().GetCurrentMaxMana().ToString();
     }
 
 
