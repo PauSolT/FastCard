@@ -50,9 +50,9 @@ public class PlayerFunctions : Player
         {
             LoseHP(damage);
         }
-        Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
+        //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
 
-        
+
     }
 
     public override void Heal(int heal)
@@ -64,7 +64,7 @@ public class PlayerFunctions : Player
         if (player.GetCurrentHealth() >= player.GetCurrentMaxHealth())
             player.SetCurrentHealth(player.GetCurrentMaxHealth());
 
-        Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
+        //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
     }
 
     public override void AddArmor(int armor)
@@ -73,7 +73,7 @@ public class PlayerFunctions : Player
         if (def >= 0)
             player.SetCurrentArmor(player.GetCurrentArmor() + def);
 
-        Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
+        //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
     }
 
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
@@ -81,7 +81,7 @@ public class PlayerFunctions : Player
         player.SetStatusDamage(player.GetStatusDamage() + damageBuff);
         player.SetStatusDefense(player.GetStatusDefense() + defenseBuff);
         player.SetStatusHeal(player.GetStatusHeal() + healingBuff);
-        Debug.Log("Damage Buff: " + player.GetStatusDamage() + "Defense Buff: " + player.GetStatusDefense() + "Healing Buff " + player.GetStatusHeal());
+        //Debug.Log("Damage Buff: " + player.GetStatusDamage() + "Defense Buff: " + player.GetStatusDefense() + "Healing Buff " + player.GetStatusHeal());
     }
 
     public override void LoseHP(int hpLoss)
@@ -106,6 +106,37 @@ public class PlayerFunctions : Player
 
 
     public Player GetPlayer() { return player; }
+
+    public override void LevelUp()
+    {
+        CombatManager.levelUpHUD.SetActive(true);
+    }
+
+    public override void IncreaseCurrentHandSize()
+    {
+        //Don't show if player has more than 10
+        player.SetCurrentMaxHandSize(player.GetCurrentMaxHandSize() + 1);
+        Debug.Log("Increased Hand size to: " + player.GetCurrentMaxHandSize());
+    }
+
+    public override void IncreaseCurrentMaxHealth()
+    {
+        player.SetCurrentMaxHealth(player.GetCurrentMaxHealth() + 5);
+        Debug.Log("Increased Max health to: " + player.GetCurrentMaxHealth());
+    }
+
+    public override void IncreaseCurrentMaxMana()
+    {
+        //Don't show if player has more than 9
+        player.SetCurrentMaxMana(player.GetCurrentMaxMana() + 1);
+        Debug.Log("Increased Max mana to: " + player.GetCurrentMaxMana());
+    }
+
+    public override void IncreaseComboMultiplier()
+    {
+        GameManager.combatManager.comboMultiplier += 1;
+        Debug.Log("Increased Combo multiplir to: " + GameManager.combatManager.comboMultiplier);
+    }
 
     public override void Die()
     {

@@ -128,9 +128,8 @@ public class Deck : MonoBehaviour
     }
 
     //Drawing card related
-    IEnumerator Draw(Player player)
+    void Draw(Player player)
     {
-        yield return null;
         //Draw card
         if (drawDeck.Count <= 0 )
         {
@@ -149,7 +148,7 @@ public class Deck : MonoBehaviour
     public IEnumerator DrawCard(Player player)
     {
         yield return new WaitForSeconds(waitDrawSeconds);
-        instance.StartCoroutine(Draw(player));
+        Draw(player);
     }
 
     public static IEnumerator DrawStartingHand(Player player)

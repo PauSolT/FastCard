@@ -1,5 +1,7 @@
 {
   "comboSeconds": 10,
   "turnSeconds": 30,
-  "combo": 0
+  "combo": 0,
+  "comboBuilder": 0,
+  "comboMultiplier": 2
 }

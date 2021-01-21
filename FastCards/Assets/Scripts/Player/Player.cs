@@ -133,4 +133,16 @@ public class Player
         hand.Add(card);
         currentHandSize++;
     }
+
+    //Level up related
+    public virtual void LevelUp() { }
+
+    public virtual void IncreaseCurrentMaxMana() { }
+
+    public virtual void IncreaseCurrentMaxHealth() { }
+
+    public virtual void IncreaseCurrentHandSize() { }
+
+    public virtual void IncreaseComboMultiplier() { }
+
 }

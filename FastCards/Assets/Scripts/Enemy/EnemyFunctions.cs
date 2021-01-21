@@ -22,7 +22,7 @@ public class EnemyFunctions : Enemy
         enemy.SetBehaviour(selectedBehaviour);
         enemy.GetBehaviour().Init();
 
-        Debug.Log("Enemy Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
+        //Debug.Log("Enemy Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
 
     public override void TakeDamage(int damage)
@@ -45,11 +45,12 @@ public class EnemyFunctions : Enemy
         {
             LoseHP(damage);
         }
-        Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
+        //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
 
         if (enemy.GetCurrentHealth() <= 0)
         {
-            Debug.Log("Game Over");
+            GameManager.player.LevelUp();
+            GameObject.Find("Canvas/EnemyHUD").gameObject.SetActive(false);
         }
     }
 
@@ -62,7 +63,7 @@ public class EnemyFunctions : Enemy
         if (enemy.GetCurrentHealth() >= enemy.GetStartingHealth())
             enemy.SetCurrentHealth(enemy.GetStartingHealth());
 
-        Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
+        //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
 
     public override void AddArmor(int armor)
@@ -71,7 +72,7 @@ public class EnemyFunctions : Enemy
         if (def >= 0)
             enemy.SetCurrentArmor(enemy.GetCurrentArmor() + def);
 
-        Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
+        //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
 
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
@@ -79,7 +80,7 @@ public class EnemyFunctions : Enemy
         enemy.SetStatusDamage(enemy.GetStatusDamage() + damageBuff);
         enemy.SetStatusDefense(enemy.GetStatusDefense() + defenseBuff);
         enemy.SetStatusHeal(enemy.GetStatusHeal() + healingBuff);
-        Debug.Log("Damage Buff: " + enemy.GetStatusDamage() + "Defense Buff: " + enemy.GetStatusDefense() + "Healing Buff " + enemy.GetStatusHeal());
+        //Debug.Log("Damage Buff: " + enemy.GetStatusDamage() + "Defense Buff: " + enemy.GetStatusDefense() + "Healing Buff " + enemy.GetStatusHeal());
     }
 
     public Enemy GetEnemy() { return enemy; }

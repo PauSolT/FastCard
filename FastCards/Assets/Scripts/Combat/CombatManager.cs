@@ -9,6 +9,8 @@ public class CombatManager
     public static EnemyFunctions enemy;
     public bool playerTurn = true;
     public int combo = 0;
+    public int comboBuilder = 0;
+    public float comboMultiplier = 0; 
     public float comboSeconds = 5f;
     public static HorizontalLayoutGroup hand;
     public float currentComboSeconds = 0f;
@@ -38,6 +40,9 @@ public class CombatManager
 
     //Buttons
     public static Button endTurnButton;
+
+    //LevelUp
+    public static GameObject levelUpHUD;
 
     //Comparison related
     //Cards type played this round
@@ -78,7 +83,7 @@ public class CombatManager
     public static int GetCardsDrawn() { return cardsDrawn; }
 
 
-
+        
     TextAsset jsonFile;
     string path = "Jsons/CombatValues";
 
@@ -111,6 +116,10 @@ public class CombatManager
         endTurnButton = GameObject.Find("Canvas/CombatHUD/EndTurnButton").GetComponent<Button>();
         endTurnInfo = GameObject.Find("Canvas/CombatHUD/EndTurnInfo").GetComponent<Text>();
 
+        //Level HUD
+        levelUpHUD = GameObject.Find("Canvas/LevelUpHUD");
+        levelUpHUD.SetActive(false);
+
         StartPlayerTurn();
     }
 
@@ -127,7 +136,7 @@ public class CombatManager
         playerTurn = false;
         currentTurnSeconds = 0f;
         currentComboSeconds = 0f;
-        combo = 0;
+        ResetCombo();
     }
 
     void StartPlayerTurn()
@@ -141,6 +150,23 @@ public class CombatManager
         hand.enabled = true;
         enemy.DoOption();
         //Values reset
+        ResetCombatRoundValues();
+    }
+
+    public void BuildCombo()
+    {
+        comboBuilder++;
+        combo += (int)comboMultiplier * comboBuilder;
+    }
+
+    void ResetCombo()
+    {
+        combo = 0;
+        comboBuilder = 0;
+    }
+
+    void ResetCombatRoundValues()
+    {
         attackCardsRound = 0;
         defendCardsRound = 0;
         healingCardsRound = 0;
@@ -151,11 +177,6 @@ public class CombatManager
         healingDealtRound = 0;
         statusDealtRound = 0;
         drawsDealtRound = 0;
-    }
-
-    public void BuildCombo()
-    {
-        combo++;
     }
 
     public void CombatInputs()
@@ -193,7 +214,7 @@ public class CombatManager
 
         if (currentComboSeconds <= 0f)
         {
-            combo = 0;
+            ResetCombo();
             GameManager.deck.UpdateCardDescription();
             GameManager.combatFunctions.HideCombo();
         }
@@ -207,6 +228,23 @@ public class CombatManager
         {
             enemy.ExecuteOption();
             StartPlayerTurn();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            GameManager.player.IncreaseCurrentMaxHealth();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            GameManager.player.IncreaseCurrentMaxMana();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            GameManager.player.IncreaseCurrentHandSize();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            GameManager.player.IncreaseComboMultiplier();
         }
 
         //if (playerTurn)
@@ -256,8 +294,8 @@ public class CombatManager
         //        GameManager.deck.UsedCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[8]);
         //    }
         //}
-        
 
-        
+
+
     }
 }
