@@ -142,7 +142,7 @@ public class CombatManager
         for (int i = 0; i < it; i++)
         {
             GameManager.deck.HandCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
-            GameManager.deck.DestroyCard(GameManager.deck.canvas.transform.GetChild(i).gameObject);
+            GameManager.deck.DestroyCard(GameManager.deck.hand.transform.GetChild(i).gameObject);
             GameManager.deck.cardsGO.RemoveAt(0);
         }
         hand.spacing = -1150;
@@ -220,7 +220,7 @@ public class CombatManager
         if (currentComboSeconds <= 0f)
         {
             ResetCombo();
-            GameManager.deck.UpdateCardDescription();
+            GameManager.deck.UpdateCardDescription(GameManager.player.GetPlayer().GetHand(), GameManager.deck.cardsGO);
             GameManager.combatFunctions.HideCombo();
         }
 

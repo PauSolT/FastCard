@@ -6,6 +6,7 @@
       "cost": 1,
       "discard": false,
       "cardType": 0,
+      "cardTier":  0,
       "passivesApplied": [],
       "cardBehaviours": [
         {
@@ -25,6 +26,7 @@
       "cost": 1,
       "discard": false,
       "cardType": 1,
+      "cardTier": 0,
       "passivesApplied": [],
       "cardBehaviours": [
         {
@@ -39,135 +41,140 @@
       ]
     }
 ,
-{
-    "cardName": "Healing",
-    "cardDescription": "Heal for {0}",
-    "cost": 1,
-    "discard": false,
-    "cardType": 3,
-    "cardBehaviours": [
+    {
+      "cardName": "Healing",
+      "cardDescription": "Heal for {0}",
+      "cost": 1,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 0,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 5,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "sumtotal": 0,
-            "behaviourType": 2
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "sumtotal": 0,
+          "behaviourType": 2
         }
-    ]
-}
+      ]
+    }
 ,
-{
-    "cardName": "Damage Buff/Debuff",
-    "cardDescription": "Gain 1 attack buff, enemy loses 1 attack buff. Discard",
-    "cost": 2,
-    "discard": true,
-    "cardType": 2,
-    "cardBehaviours": [
+    {
+      "cardName": "Damage Buff/Debuff",
+      "cardDescription": "Gain 1 attack buff, enemy loses 1 attack buff. Discard",
+      "cost": 2,
+      "discard": true,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 4
         }
-    ]
-}
+      ]
+    }
 ,
-{
-    "cardName": "Armor buff/debuff",
-    "cardDescription": "Gain 1 armor buff, enemy loses 1 armor buff. Discard",
-    "cost": 2,
-    "discard": true,
-    "cardType": 2,
-    "cardBehaviours": [
+    {
+      "cardName": "Armor buff/debuff",
+      "cardDescription": "Gain 1 armor buff, enemy loses 1 armor buff. Discard",
+      "cost": 2,
+      "discard": true,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 5
         }
-    ]
-}
+      ]
+    }
 ,
-{
-    "cardName": "Heal buff/debuff",
-    "cardDescription": "Gain 1 healing buff, enemy loses 1 healing buff. Discard",
-    "cost": 2,
-    "discard": true,
-    "cardType": 2,
-    "cardBehaviours": [
+    {
+      "cardName": "Heal buff/debuff",
+      "cardDescription": "Gain 1 healing buff, enemy loses 1 healing buff. Discard",
+      "cost": 2,
+      "discard": true,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 6
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 6
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 6
         }
-    ]
-}
+      ]
+    }
 ,
-{
-    "cardName": "Sight",
-    "cardDescription": "Draw 2 cards",
-    "cost": 1,
-    "discard": false,
-    "cardType": 4,
-    "cardBehaviours": [
+    {
+      "cardName": "Sight",
+      "cardDescription": "Draw 2 cards",
+      "cost": 1,
+      "discard": false,
+      "cardType": 4,
+      "cardTier": 0,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 2,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 7
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
         }
-    ]
-}
+      ]
+    }
 ]
 }

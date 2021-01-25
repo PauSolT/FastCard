@@ -11,7 +11,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private RectTransform rectTransform;
     private Vector2 startingPosition;
 
-    private const int unitsToShowCard = 140;
+    private int unitsToShowCard = (int)(Screen.height * 0.23f);
 
     private int siblingIndex;
 
@@ -37,6 +37,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         CombatManager.hand.enabled = false;
         startingPosition = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, rectTransform.anchoredPosition.y + unitsToShowCard);
+        rectTransform.localScale = new Vector2(1.5f, 1.5f);
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -76,6 +78,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         rectTransform.anchoredPosition = startingPosition;
         transform.SetSiblingIndex(siblingIndex);
         CombatManager.hand.enabled = true;
+        rectTransform.localScale = new Vector2(1.0f, 1.0f);
+
     }
 
     public void OnPointerDown(PointerEventData eventData)

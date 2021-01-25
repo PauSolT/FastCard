@@ -19,6 +19,15 @@ public class Card
         Passive
     }
 
+    [Serializable]
+    public enum CardTier
+    {
+        Common,
+        Rare,
+        Epic,
+        Legendary
+    }
+
     //Essentials
     [SerializeField] public string cardName = null;
     [SerializeField] public string cardDescription = null;
@@ -28,6 +37,7 @@ public class Card
     [SerializeField] public bool discard;
 
     [SerializeField] public CardType cardType;
+    [SerializeField] public CardTier cardTier;
 
     [SerializeField] public List <CardPassive> passivesApplied = new List<CardPassive>();
 
@@ -57,7 +67,7 @@ public class Card
             GameManager.combatManager.BuildCombo();
         }
 
-        GameManager.deck.UpdateCardDescription();
+        GameManager.deck.UpdateCardDescription(GameManager.player.GetPlayer().GetHand(), GameManager.deck.cardsGO);
     }
 
 

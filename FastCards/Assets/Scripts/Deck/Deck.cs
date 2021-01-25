@@ -30,7 +30,8 @@ public class Deck : MonoBehaviour
 
     public List<GameObject> cardsGO = new List<GameObject>();
     public GameObject cardPrefab;
-    public GameObject canvas;
+    public GameObject hand;
+    public GameObject canvasDrawPile;
 
     static float waitDrawSeconds = 0.15f;
 
@@ -77,10 +78,10 @@ public class Deck : MonoBehaviour
 
     }
 
-    public void UpdateCardDescription()
+    public void UpdateCardDescription(List<Card> cardList, List<GameObject> cardGameObject)
     {
         int i = 0;
-        foreach(Card card in GameManager.player.GetPlayer().GetHand())
+        foreach(Card card in cardList)
         {
             int[] sumTotal = new int[card.cardBehaviours.Count];
             
@@ -92,24 +93,22 @@ public class Deck : MonoBehaviour
             switch(card.cardBehaviours.Count)
             {
                 case 1:
-                    //card.cardDescription = string.Format(card.cardDescription, sumTotal[0]);
-                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0]);
+                    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0]);
                     break;
                 case 2:
-                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1]);
+                    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1]);
                     break;
                 case 3:
-                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2]);
+                    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2]);
                     break;
                 case 4:
-                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3]);
+                    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3]);
                     break;
                 case 5:
-                    cardsGO[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4]);
+                    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4]);
                     break;
             }
 
-            //cardsGO[i].GetComponentsInChildren<Text>()[2].text = card.cardDescription;
             i++;
         }
     }
@@ -139,9 +138,9 @@ public class Deck : MonoBehaviour
         if (CheckIfDrawCardPossible(player))
         {
             player.AddCardToPlayer(drawDeck[0]);
-            DrawHandCards(drawDeck[0]);
+            DrawHandCards(drawDeck[0], hand);
             drawDeck.RemoveAt(0);
-            UpdateCardDescription();
+            UpdateCardDescription(GameManager.player.GetPlayer().GetHand(), GameManager.deck.cardsGO);
             CombatManager.hand.spacing += 100;
         }
     }
@@ -160,16 +159,13 @@ public class Deck : MonoBehaviour
         }
     }
 
-    public void DrawHandCards(Card card)
+    public void DrawHandCards(Card card, GameObject parent)
     {
-        GameObject newCard = Instantiate(cardPrefab, canvas.transform);
+        GameObject newCard = Instantiate(cardPrefab, parent.transform);
         Draggable drag = newCard.GetComponent<Draggable>();
         drag.card = card;
         newCard.name = card.cardName;
-        newCard.GetComponentsInChildren<Text>()[0].text = card.cardName;
-        newCard.GetComponentsInChildren<Text>()[1].text = card.cost.ToString();
-        newCard.GetComponentsInChildren<Text>()[2].text = card.cardDescription;
-        newCard.GetComponentsInChildren<Text>()[3].text = card.cardType.ToString();
+        SetCardTexts(newCard, card);
         cardsGO.Add(newCard);
     }
 
@@ -221,6 +217,82 @@ public class Deck : MonoBehaviour
 
 
         Debug.Log("Used " + card.cardName);
+    }
+
+    public void SeeDrawPile()
+    {
+        List<GameObject> drawPileGO = new List<GameObject>();
+
+
+        foreach (Card card in drawDeck)
+        {
+            GameObject newCard = Instantiate(cardPrefab, canvasDrawPile.transform);
+            newCard.GetComponent<Draggable>().enabled = false;
+            newCard.name = card.cardName;
+            SetCardTexts(newCard, card);
+            cardsGO.Add(newCard);
+        }
+        foreach (Transform child in canvasDrawPile.transform)
+        {
+            drawPileGO.Add(child.gameObject);
+        }
+
+
+        UpdateCardDescription(drawDeck, drawPileGO);
+
+        canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
+    }
+
+    public void HideDrawPile()
+    {
+        canvasDrawPile.transform.parent.parent.gameObject.SetActive(false);
+
+        foreach (Transform child in canvasDrawPile.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void SeePileDeck()
+    {
+        List<GameObject> pileDeckGO = new List<GameObject>();
+
+
+        foreach (Card card in pileDeck)
+        {
+            GameObject newCard = Instantiate(cardPrefab, canvasDrawPile.transform);
+            newCard.GetComponent<Draggable>().enabled = false;
+            newCard.name = card.cardName;
+            SetCardTexts(newCard, card);
+            cardsGO.Add(newCard);
+        }
+        foreach (Transform child in canvasDrawPile.transform)
+        {
+            pileDeckGO.Add(child.gameObject);
+        }
+
+
+        UpdateCardDescription(pileDeck, pileDeckGO);
+
+        canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
+    }
+
+    public void HidePileDeck()
+    {
+        canvasDrawPile.transform.parent.parent.gameObject.SetActive(false);
+
+        foreach (Transform child in canvasDrawPile.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    void SetCardTexts(GameObject go, Card card)
+    {
+        go.GetComponentsInChildren<Text>()[0].text = card.cardName;
+        go.GetComponentsInChildren<Text>()[1].text = card.cost.ToString();
+        go.GetComponentsInChildren<Text>()[2].text = card.cardDescription;
+        go.GetComponentsInChildren<Text>()[3].text = card.cardType.ToString();
     }
 
     //Card destination

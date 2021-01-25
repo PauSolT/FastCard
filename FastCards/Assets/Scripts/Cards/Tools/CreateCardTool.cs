@@ -17,6 +17,7 @@ public class CreateCardTool : ScriptableWizard
     public bool discard;
 
     public Card.CardType type;
+    public Card.CardTier tier;
 
     public CardBehaviour[] cardBehaviour;
 
@@ -36,6 +37,7 @@ public class CreateCardTool : ScriptableWizard
             cardName = cardName,
             cardDescription = cardDescription,
             cardType = type,
+            cardTier = tier,
             cost = cost,
             discard = discard,
         };
@@ -73,11 +75,6 @@ public class CreateCardTool : ScriptableWizard
             }
         }
 
-        //List<Card> cardList = JsonConvert.DeserializeObject<List<Card>>(jsonData);
-        //cardList.Add(card);
-
-        //jsonData = JsonConvert.SerializeObject(cardList);
-        //Debug.Log(jsonData);
         string jsonData = File.ReadAllText(filePath);
         string cardData = JsonUtility.ToJson(card, true);
         cardData = cardData.Substring(0, cardData.Length - 1);
@@ -85,12 +82,6 @@ public class CreateCardTool : ScriptableWizard
         int ind = jsonData.LastIndexOf("]");
         jsonData = jsonData.Insert(ind, ",\n" + cardData + "}\n");
         File.WriteAllText(filePath, jsonData);
-
-
-        //string output = JsonConvert.SerializeObject(card);
-        //Debug.Log("Output: " + output);
-
-        //GameManager.cardsCreated.Add(JsonConvert.DeserializeObject(output) as Card);
     }
 
     void OnWizardUpdate()
