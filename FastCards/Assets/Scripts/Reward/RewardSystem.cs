@@ -4,155 +4,111 @@ using UnityEngine;
 
 public class RewardSystem
 {
+    List<Card> rewardCards;
+    List<GameObject> rewardCardsGO;
 
-    //CardType
-    public List<Card> attackCards;
-    public List<Card> defenseCards;
-    public List<Card> healingCards;
-    public List<Card> statusCards;
-    public List<Card> drawCards;
-    public List<Card> passiveCards;
+    int commonPossibilities = 150;
+    int rarePossibilities = 45;
+    int epicPossibilities = 5;
+    //int legendaryPossibilities = 0;
 
-    //CardTier
-    public List<Card> commonCards;
-    public List<Card> rareCards;
-    public List<Card> epicCards;
-    public List<Card> legendaryCards;
+    public static int numMaxRewards = 3;
 
-    public void Init()
+    int numRewardCards = 4;
+
+    int maxPossibility = 150;
+
+    public static int rewardsSelected;
+
+    public void GetRewards()
     {
-        FillAttackCards();
-        FillDefenseCards();
-        FillHealingCards();
-        FillStatusCards();
-        FillDrawingCards();
-        FillPassiveCards();
-        FillCommonCards();
-        FillRareCards();
-        FillEpicCards();
-        FillLegendaryCards();
+        SelectCards();
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    void SelectCards()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void FillAttackCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
+        rewardCards = new List<Card>();
+        rewardCardsGO = new List<GameObject>();
+        int randNum;
+        int randCard;
+        int cardsSelected = 0;
+        rewardsSelected = 0;
+        do
         {
-            if (card.cardType == Card.CardType.Attack)
+            randNum = Random.Range(0, maxPossibility + 1);
+
+            if (randNum <= commonPossibilities)
             {
-                attackCards.Add(card);
+                randCard = Random.Range(0, GameManager.rewardCards.GetCommonCards().Count);
+                if (!rewardCards.Contains(GameManager.rewardCards.GetCommonCards()[randCard]))
+                {
+                    rewardCards.Add(GameManager.rewardCards.GetCommonCards()[randCard]);
+                    cardsSelected++;
+                }
+            }
+            else if (randNum <= (commonPossibilities + rarePossibilities))
+            {
+                randCard = Random.Range(0, GameManager.rewardCards.GetRareCards().Count);
+                if (!rewardCards.Contains(GameManager.rewardCards.GetRareCards()[randCard]))
+                {
+                    rewardCards.Add(GameManager.rewardCards.GetRareCards()[randCard]);
+                    cardsSelected++;
+                }
+            }
+            else if (randNum <= (commonPossibilities + rarePossibilities + epicPossibilities))
+            {
+                randCard = Random.Range(0, GameManager.rewardCards.GetEpicCards().Count);
+                if (!rewardCards.Contains(GameManager.rewardCards.GetEpicCards()[randCard]))
+                {
+                    rewardCards.Add(GameManager.rewardCards.GetEpicCards()[randCard]);
+                    cardsSelected++;
+                }
+            }
+            else
+            {
+                randCard = Random.Range(0, GameManager.rewardCards.GetLegendaryCards().Count);
+                if (!rewardCards.Contains(GameManager.rewardCards.GetLegendaryCards()[randCard]))
+                    rewardCards.Add(GameManager.rewardCards.GetLegendaryCards()[randCard]);
+                {
+                    cardsSelected++;
+                }
+            }
+
+
+        } while (cardsSelected < numRewardCards);
+
+
+        foreach (Card card in rewardCards)
+        {
+            GameObject newCard = GameManager.Instantiate(GameManager.deck.cardRewardPrefab, GameManager.deck.canvasDrawPile.transform);
+            newCard.GetComponent<Selectable>().card = card;
+            newCard.name = card.cardName;
+            GameManager.deck.SetCardTexts(newCard, card);
+            rewardCardsGO.Add(newCard);
+        }
+
+        GameManager.deck.UpdateCardDescription(rewardCards, rewardCardsGO);
+    }
+
+
+    public void AddRewardCardsToPlayer()
+    {
+        foreach (Selectable select in GameManager.deck.canvasDrawPile.transform.GetComponentsInChildren<Selectable>())
+        {
+            if(select.selected)
+            {
+                GameManager.deck.playerDeck.Add(select.card);
             }
         }
     }
 
-    public void FillDefenseCards()
+    public static void IncreaseRewardsSelected()
     {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardType == Card.CardType.Defense)
-            {
-                defenseCards.Add(card);
-            }
-        }
+        rewardsSelected++;
     }
 
-    public void FillHealingCards()
+    public static void DecreaseRewardsSelected()
     {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardType == Card.CardType.Heal)
-            {
-                healingCards.Add(card);
-            }
-        }
-    }
-
-    public void FillStatusCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardType == Card.CardType.Status)
-            {
-                statusCards.Add(card);
-            }
-        }
-    }
-
-    public void FillDrawingCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardType == Card.CardType.Draw)
-            {
-                drawCards.Add(card);
-            }
-        }
-    }
-
-    public void FillPassiveCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardType == Card.CardType.Passive)
-            {
-                passiveCards.Add(card);
-            }
-        }
-    }
-
-    public void FillCommonCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardTier == Card.CardTier.Common)
-            {
-                commonCards.Add(card);
-            }
-        }
-    }
-
-    public void FillRareCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardTier == Card.CardTier.Rare)
-            {
-                rareCards.Add(card);
-            }
-        }
-    }
-
-    public void FillEpicCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardTier == Card.CardTier.Epic)
-            {
-                epicCards.Add(card);
-            }
-        }
-    }
-
-    public void FillLegendaryCards()
-    {
-        foreach (Card card in GameManager.cardCollection.cards)
-        {
-            if (card.cardTier == Card.CardTier.Legendary)
-            {
-                legendaryCards.Add(card);
-            }
-        }
+        rewardsSelected--;
     }
 }

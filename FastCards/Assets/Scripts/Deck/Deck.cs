@@ -30,6 +30,7 @@ public class Deck : MonoBehaviour
 
     public List<GameObject> cardsGO = new List<GameObject>();
     public GameObject cardPrefab;
+    public GameObject cardRewardPrefab;
     public GameObject hand;
     public GameObject canvasDrawPile;
 
@@ -287,7 +288,7 @@ public class Deck : MonoBehaviour
         }
     }
 
-    void SetCardTexts(GameObject go, Card card)
+    public void SetCardTexts(GameObject go, Card card)
     {
         go.GetComponentsInChildren<Text>()[0].text = card.cardName;
         go.GetComponentsInChildren<Text>()[1].text = card.cost.ToString();

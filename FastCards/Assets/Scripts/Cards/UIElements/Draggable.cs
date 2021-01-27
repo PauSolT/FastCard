@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class Draggable : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     public Card card;
     private RectTransform rectTransform;
@@ -21,9 +21,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-    }
-    public void OnBeginDrag(PointerEventData eventData)
-    {
     }
     public void OnDrag(PointerEventData eventData)
     {

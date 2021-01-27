@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     public static Deck deck;
     public static CombatFunctions combatFunctions;
     public static CombatManager combatManager = new CombatManager();
+    public static RewardCards rewardCards = new RewardCards();
 
     public static List<EnemyFunctions> enemies = new List<EnemyFunctions>();
+
+    public static RewardSystem rewardSystem = new RewardSystem();
 
     public Card[] cardsCreated;
     public List<Card> showCardsCreated;
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
         LookUpTable.LoadTable();
 
         InitCards();
+        rewardCards.Init();
 
         deck.Init();
         deck.StartCombat();

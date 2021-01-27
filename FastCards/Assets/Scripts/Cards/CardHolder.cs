@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardHolder :MonoBehaviour
+public class CardHolder : MonoBehaviour
 {
     public Card card;
 }

@@ -12,12 +12,11 @@ public class CombatManager
     public int comboBuilder = 0;
     public float comboMultiplier = 0; 
     public float comboSeconds = 5f;
-    public static HorizontalLayoutGroup hand;
     public float currentComboSeconds = 0f;
-
-
     [SerializeField] float turnSeconds = 10f;
     float currentTurnSeconds = 0f;
+
+    public static HorizontalLayoutGroup hand;
 
     //Sliders
     public static Slider playerSlider;
@@ -132,6 +131,7 @@ public class CombatManager
         playerName.text = GameManager.player.GetPlayer().GetName();
         enemyName.text = enemy.GetEnemy().GetName();
         comboText.text = "COMBO: " + combo.ToString();
+
 
         StartPlayerTurn();
     }

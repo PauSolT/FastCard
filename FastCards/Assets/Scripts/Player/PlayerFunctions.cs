@@ -70,7 +70,8 @@ public class PlayerFunctions : Player
         if (player.GetCurrentHealth() >= player.GetCurrentMaxHealth())
             player.SetCurrentHealth(player.GetCurrentMaxHealth());
 
-        CombatManager.playerHealth.text = GameManager.player.GetCurrentHealth() + " / " + GameManager.player.GetCurrentMaxHealth();
+        CombatManager.playerHealth.text = player.GetCurrentHealth() + " / " + player.GetCurrentMaxHealth();
+        CombatManager.playerSlider.value = player.GetCurrentHealth();
 
         //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
     }
@@ -98,7 +99,8 @@ public class PlayerFunctions : Player
     public override void LoseHP(int hpLoss)
     {
         player.SetCurrentHealth(player  .GetCurrentHealth() - hpLoss);
-        CombatManager.playerHealth.text = GameManager.player.GetCurrentHealth() + " / " + GameManager.player.GetCurrentMaxHealth();
+        CombatManager.playerHealth.text = player.GetCurrentHealth() + " / " + player.GetCurrentMaxHealth();
+        CombatManager.playerSlider.value = player.GetCurrentHealth();
         if (player.GetCurrentHealth() <= 0)
         {
             Die();

@@ -61,4 +61,9 @@ public class CombatFunctions : MonoBehaviour
         CombatManager.levelUpHUD.SetActive(false);
     }
 
+    public void AddRewards()
+    {
+        GameManager.rewardSystem.AddRewardCardsToPlayer();
+    }
+
 }

@@ -53,8 +53,9 @@ public class EnemyFunctions : Enemy
 
         if (enemy.GetCurrentHealth() <= 0)
         {
-            GameManager.player.LevelUp();
-            GameObject.Find("Canvas/EnemyHUD").gameObject.SetActive(false);
+            GameManager.rewardSystem.GetRewards();
+            //GameManager.player.LevelUp();
+            //GameObject.Find("Canvas/EnemyHUD").gameObject.SetActive(false);
         }
     }
 
@@ -68,6 +69,7 @@ public class EnemyFunctions : Enemy
             enemy.SetCurrentHealth(enemy.GetStartingHealth());
 
         CombatManager.enemyHealth.text = enemy.GetCurrentHealth() + " / " + enemy.GetStartingMaxHealth();
+        CombatManager.enemySlider.value = enemy.GetCurrentHealth();
 
         //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
@@ -95,6 +97,8 @@ public class EnemyFunctions : Enemy
     {
         enemy.SetCurrentHealth(enemy.GetCurrentHealth() - hpLoss);
         CombatManager.enemyHealth.text = enemy.GetCurrentHealth() + " / " + enemy.GetStartingMaxHealth();
+        CombatManager.enemySlider.value = enemy.GetCurrentHealth();
+
     }
     public void DoOption()
     {
