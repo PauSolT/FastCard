@@ -456,7 +456,10 @@ MonoBehaviour:
     cost: 0
     discard: 0
     cardType: 0
+    cardTier: 0
     cardBehaviours: []
+    colorCard: {r: 0, g: 0, b: 0, a: 0}
+    colorBgCard: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6676518705322571225
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,6 +39,11 @@ public class CombatManager
 
     //Buttons
     public static Button endTurnButton;
+    public static Button deckButton;
+    public static Button hideDeckButton;
+    public static Button pileButton;
+    public static Button hidePileButton;
+    public static Button addCards;
 
     //LevelUp
     public static GameObject levelUpHUD;
@@ -114,10 +119,18 @@ public class CombatManager
         manaText = GameObject.Find("Canvas/CombatHUD/ManaText").GetComponent<Text>();
         endTurnButton = GameObject.Find("Canvas/CombatHUD/EndTurnButton").GetComponent<Button>();
         endTurnInfo = GameObject.Find("Canvas/CombatHUD/EndTurnInfo").GetComponent<Text>();
+        deckButton = GameObject.Find("Canvas/CombatHUD/DeckButton").GetComponent<Button>();
+        hideDeckButton = GameObject.Find("Canvas/CombatHUD/HideDeckButton").GetComponent<Button>();
+        pileButton = GameObject.Find("Canvas/CombatHUD/PileDeck").GetComponent<Button>();
+        hidePileButton = GameObject.Find("Canvas/CombatHUD/HidePileDeck").GetComponent<Button>();
 
         //Level HUD
         levelUpHUD = GameObject.Find("Canvas/LevelUpHUD");
         levelUpHUD.SetActive(false);
+
+        //Reward HUD
+        addCards = GameObject.Find("Canvas/RewardHUD/AddCards").GetComponent<Button>();
+
 
         //Set HUD
         playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + " / " + GameManager.player.GetPlayer().GetCurrentMaxHealth();

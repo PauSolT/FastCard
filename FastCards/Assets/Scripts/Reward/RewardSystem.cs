@@ -23,6 +23,7 @@ public class RewardSystem
     public void GetRewards()
     {
         SelectCards();
+        GameManager.deck.canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
     }
 
     void SelectCards()

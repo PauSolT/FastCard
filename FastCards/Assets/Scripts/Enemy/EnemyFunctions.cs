@@ -49,13 +49,11 @@ public class EnemyFunctions : Enemy
         {
             LoseHP(damage);
         }
-        //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
 
         if (enemy.GetCurrentHealth() <= 0)
         {
-            GameManager.rewardSystem.GetRewards();
-            //GameManager.player.LevelUp();
-            //GameObject.Find("Canvas/EnemyHUD").gameObject.SetActive(false);
+            GameManager.player.LevelUp();
+            GameObject.Find("Canvas/EnemyHUD").gameObject.SetActive(false);
         }
     }
 
@@ -78,7 +76,10 @@ public class EnemyFunctions : Enemy
     {
         int def = armor + enemy.GetStatusDefense();
         if (def >= 0)
+        {
             enemy.SetCurrentArmor(enemy.GetCurrentArmor() + def);
+            CombatManager.enemyArmor.text = CombatManager.enemy.GetEnemy().GetCurrentArmor().ToString();
+        }
 
         //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }

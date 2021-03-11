@@ -44,6 +44,21 @@ public class GameManager : MonoBehaviour
         deck.StartCombat();
     }
 
+    void StartCombat()
+    {
+        player.Init();
+        deck = GetComponent<Deck>();
+        combatFunctions = GetComponent<CombatFunctions>();
+        combatManager.Init(enemies[0]);
+        LookUpTable.LoadTable();
+
+        InitCards();
+        rewardCards.Init();
+
+        deck.Init();
+        deck.StartCombat();
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -52,11 +67,27 @@ public class GameManager : MonoBehaviour
 
     void InitCards()
     {
-        using (StreamReader stream = new StreamReader(Path.Combine(Application.streamingAssetsPath, "CardData.json")))
+        string path = Application.dataPath + "/SaveFile.json";
+        string srPath = Path.Combine(Application.streamingAssetsPath, "SavedGame.json");
+        //if (File.Exists(path))
+        //{
+        //    File.WriteAllText(srPath, File.ReadAllText(path));
+        //    using (StreamReader stream = new StreamReader(srPath))
+        //    {
+        //        string json = stream.ReadToEnd();
+        //        cardCollection = JsonUtility.FromJson<CardCollection>(json);
+        //    }
+        //    File.Delete(srPath);
+        //}
+        //else if (!File.Exists(path))
         {
-            string json = stream.ReadToEnd();
-            cardCollection = JsonUtility.FromJson<CardCollection>(json);
+            using (StreamReader stream = new StreamReader(Path.Combine(Application.streamingAssetsPath, "CardData.json")))
+            {
+                string json = stream.ReadToEnd();
+                cardCollection = JsonUtility.FromJson<CardCollection>(json);
+            }
         }
+        
 
         foreach (Card card in cardCollection.cards)
         {

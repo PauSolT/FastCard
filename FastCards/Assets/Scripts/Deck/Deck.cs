@@ -167,6 +167,8 @@ public class Deck : MonoBehaviour
         drag.card = card;
         newCard.name = card.cardName;
         SetCardTexts(newCard, card);
+        cardPrefab.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
+        cardPrefab.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
         cardsGO.Add(newCard);
     }
 
@@ -216,8 +218,6 @@ public class Deck : MonoBehaviour
         else if (!card.discard)
             HandCardToPile(player, card);
 
-
-        Debug.Log("Used " + card.cardName);
     }
 
     public void SeeDrawPile()
@@ -231,6 +231,8 @@ public class Deck : MonoBehaviour
             newCard.GetComponent<Draggable>().enabled = false;
             newCard.name = card.cardName;
             SetCardTexts(newCard, card);
+            cardPrefab.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
+            cardPrefab.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
             cardsGO.Add(newCard);
         }
         foreach (Transform child in canvasDrawPile.transform)
@@ -242,6 +244,9 @@ public class Deck : MonoBehaviour
         UpdateCardDescription(drawDeck, drawPileGO);
 
         canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
+
+        CombatManager.deckButton.gameObject.SetActive(false);
+        CombatManager.hideDeckButton.gameObject.SetActive(true);
     }
 
     public void HideDrawPile()
@@ -252,6 +257,9 @@ public class Deck : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        
+        CombatManager.deckButton.gameObject.SetActive(true);
+        CombatManager.hideDeckButton.gameObject.SetActive(false);
     }
 
     public void SeePileDeck()
@@ -265,6 +273,8 @@ public class Deck : MonoBehaviour
             newCard.GetComponent<Draggable>().enabled = false;
             newCard.name = card.cardName;
             SetCardTexts(newCard, card);
+            cardPrefab.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
+            cardPrefab.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
             cardsGO.Add(newCard);
         }
         foreach (Transform child in canvasDrawPile.transform)
@@ -276,6 +286,7 @@ public class Deck : MonoBehaviour
         UpdateCardDescription(pileDeck, pileDeckGO);
 
         canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
+
     }
 
     public void HidePileDeck()
@@ -286,6 +297,7 @@ public class Deck : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
     }
 
     public void SetCardTexts(GameObject go, Card card)

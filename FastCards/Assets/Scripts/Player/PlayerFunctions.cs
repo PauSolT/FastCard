@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerFunctions : Player
 {
@@ -27,6 +28,13 @@ public class PlayerFunctions : Player
         player.SetCurrentArmor(player.GetStartingArmor());
         player.SetCurrentMaxMana(player.GetStartingMaxMana());
         player.SetCurrentMana(player.GetStartingMana());
+
+        if (File.Exists(path))
+        {
+            string rsPath = Path.Combine(Application.dataPath, "/Resources/SavedGame.json");
+            jsonFile = Resources.Load(rsPath) as TextAsset;
+            player = JsonUtility.FromJson<Player>(jsonFile.text);
+        }
     }
 
 
@@ -132,31 +140,31 @@ public class PlayerFunctions : Player
     {
         //Don't show if player has more than 10
         player.SetCurrentMaxHandSize(player.GetCurrentMaxHandSize() + 1);
-        Debug.Log("Increased Hand size to: " + player.GetCurrentMaxHandSize());
+        //Debug.Log("Increased Hand size to: " + player.GetCurrentMaxHandSize());
     }
 
     public override void IncreaseCurrentMaxHealth()
     {
         player.SetCurrentMaxHealth(player.GetCurrentMaxHealth() + 5);
-        Debug.Log("Increased Max health to: " + player.GetCurrentMaxHealth());
+        //Debug.Log("Increased Max health to: " + player.GetCurrentMaxHealth());
     }
 
     public override void IncreaseCurrentMaxMana()
     {
         //Don't show if player has more than 9
         player.SetCurrentMaxMana(player.GetCurrentMaxMana() + 1);
-        Debug.Log("Increased Max mana to: " + player.GetCurrentMaxMana());
+        //Debug.Log("Increased Max mana to: " + player.GetCurrentMaxMana());
     }
 
     public override void IncreaseComboMultiplier()
     {
         GameManager.combatManager.comboMultiplier += 1;
-        Debug.Log("Increased Combo multiplir to: " + GameManager.combatManager.comboMultiplier);
+        //Debug.Log("Increased Combo multiplir to: " + GameManager.combatManager.comboMultiplier);
     }
 
     public override void Die()
     {
-        Debug.Log("Game Over");
+        //Debug.Log("Game Over");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;    
 #endif
