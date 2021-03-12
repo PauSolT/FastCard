@@ -29,12 +29,12 @@ public class PlayerFunctions : Player
         player.SetCurrentMaxMana(player.GetStartingMaxMana());
         player.SetCurrentMana(player.GetStartingMana());
 
-        if (File.Exists(path))
-        {
-            string rsPath = Path.Combine(Application.dataPath, "/Resources/SavedGame.json");
-            jsonFile = Resources.Load(rsPath) as TextAsset;
-            player = JsonUtility.FromJson<Player>(jsonFile.text);
-        }
+        //if (File.Exists(path))
+        //{
+        //    string rsPath = Path.Combine(Application.dataPath, "/Resources/SavedGame.json");
+        //    jsonFile = Resources.Load(rsPath) as TextAsset;
+        //    player = JsonUtility.FromJson<Player>(jsonFile.text);
+        //}
     }
 
 

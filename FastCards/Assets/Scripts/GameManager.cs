@@ -67,8 +67,8 @@ public class GameManager : MonoBehaviour
 
     void InitCards()
     {
-        string path = Application.dataPath + "/SaveFile.json";
-        string srPath = Path.Combine(Application.streamingAssetsPath, "SavedGame.json");
+        //string path = Application.dataPath + "/SaveFile.json";
+        //string srPath = Path.Combine(Application.streamingAssetsPath, "SavedGame.json");
         //if (File.Exists(path))
         //{
         //    File.WriteAllText(srPath, File.ReadAllText(path));
