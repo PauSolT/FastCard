@@ -167,8 +167,19 @@ public class Deck : MonoBehaviour
         drag.card = card;
         newCard.name = card.cardName;
         SetCardTexts(newCard, card);
-        cardPrefab.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
-        cardPrefab.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
+        newCard.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
+        newCard.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
+        cardsGO.Add(newCard);
+    }
+
+    public void DrawCardWoDraggable(Card card, GameObject parent)
+    {
+        GameObject newCard = Instantiate(cardPrefab, parent.transform);
+        newCard.GetComponent<Draggable>().enabled = false;
+        newCard.name = card.cardName;
+        SetCardTexts(newCard, card);
+        newCard.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
+        newCard.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
         cardsGO.Add(newCard);
     }
 
@@ -227,13 +238,7 @@ public class Deck : MonoBehaviour
 
         foreach (Card card in drawDeck)
         {
-            GameObject newCard = Instantiate(cardPrefab, canvasDrawPile.transform);
-            newCard.GetComponent<Draggable>().enabled = false;
-            newCard.name = card.cardName;
-            SetCardTexts(newCard, card);
-            cardPrefab.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
-            cardPrefab.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
-            cardsGO.Add(newCard);
+            DrawCardWoDraggable(card, canvasDrawPile);
         }
         foreach (Transform child in canvasDrawPile.transform)
         {

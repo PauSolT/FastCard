@@ -130,7 +130,7 @@ public class CombatManager
 
         //Reward HUD
         addCards = GameObject.Find("Canvas/RewardHUD/AddCards").GetComponent<Button>();
-
+        addCards.gameObject.SetActive(false);
 
         //Set HUD
         playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + " / " + GameManager.player.GetPlayer().GetCurrentMaxHealth();

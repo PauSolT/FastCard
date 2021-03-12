@@ -24,6 +24,7 @@ public class RewardSystem
     {
         SelectCards();
         GameManager.deck.canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
+        CombatManager.addCards.gameObject.SetActive(true);
     }
 
     void SelectCards()
@@ -85,6 +86,7 @@ public class RewardSystem
             newCard.GetComponent<Selectable>().card = card;
             newCard.name = card.cardName;
             GameManager.deck.SetCardTexts(newCard, card);
+            newCard.transform.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = card.colorCard;
             rewardCardsGO.Add(newCard);
         }
 

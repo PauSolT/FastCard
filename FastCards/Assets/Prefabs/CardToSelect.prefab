@@ -368,6 +368,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9a2c3edf7ba3b4f82ebc56a9ff2fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 0
+  card:
+    cardName: 
+    cardDescription: 
+    cost: 0
+    discard: 0
+    cardType: 0
+    cardTier: 0
+    cardBehaviours: []
+    colorCard: {r: 0, g: 0, b: 0, a: 0}
+    colorBgCard: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7345999967225883838
 GameObject:
   m_ObjectHideFlags: 0
