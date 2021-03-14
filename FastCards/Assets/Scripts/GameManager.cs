@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public static CombatManager combatManager = new CombatManager();
     public static RewardCards rewardCards = new RewardCards();
 
-    public static List<EnemyFunctions> enemies = new List<EnemyFunctions>();
+    public List<EnemyFunctions> enemies;
 
     public static RewardSystem rewardSystem = new RewardSystem();
 
@@ -21,42 +21,32 @@ public class GameManager : MonoBehaviour
 
     public static CardCollection cardCollection;
 
-    public GameObject goDeck;
+    public static GameObject goDeck;
+
+    public static int currentEnemy = 0;
+
+    public void NextEnemy()
+    {
+        rewardSystem.AddRewardCardsToPlayer();
+        currentEnemy++;
+        combatManager.InitEnemy(enemies[currentEnemy]);
+        combatManager.SetStartingHUD();
+    }
     void Awake()
     {
-        player.Init();
-        deck = GetComponent<Deck>();
-        combatFunctions = GetComponent<CombatFunctions>();
-        for (int i = 0; i < 1; i++)
-        {
-            enemies.Add(new EnemyFunctions());
-            enemies[i].Init(i.ToString());
-        }
-
-        //Initialize together
-        combatManager.Init(enemies[0]);
-        LookUpTable.LoadTable();
-
-        InitCards();
-        rewardCards.Init();
-
-        deck.Init();
-        deck.StartCombat();
+        StartGame(currentEnemy);
     }
 
-    void StartCombat()
+    public void StartGame(int enemyNumber)
     {
         player.Init();
         deck = GetComponent<Deck>();
         combatFunctions = GetComponent<CombatFunctions>();
-        combatManager.Init(enemies[0]);
-        LookUpTable.LoadTable();
 
-        InitCards();
-        rewardCards.Init();
-
-        deck.Init();
-        deck.StartCombat();
+        //Initialize together
+        combatManager.InitEnemy(enemies[enemyNumber]);
+        combatManager.InitCombat();
+        combatManager.SetStartingHUD();
     }
 
     // Update is called once per frame
@@ -65,7 +55,7 @@ public class GameManager : MonoBehaviour
         combatManager.CombatInputs();
     }
 
-    void InitCards()
+    public static void InitCards()
     {
         //string path = Application.dataPath + "/SaveFile.json";
         //string srPath = Path.Combine(Application.streamingAssetsPath, "SavedGame.json");
@@ -97,7 +87,7 @@ public class GameManager : MonoBehaviour
             cardHolder.card = card;
             go.name = card.cardName;
 
-            go.transform.parent = goDeck.transform;
+            //go.transform.parent = goDeck.transform;
         }
     }
 }

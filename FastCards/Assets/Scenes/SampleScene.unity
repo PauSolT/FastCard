@@ -3908,9 +3908,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3e2ac3835262e49ba93ce407ecc2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/EnemyValues0
+    selectedBehaviour: {fileID: 8855917525165246769, guid: 3a03368101222604faf2767243a0d91d,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/EnemyValues1
+    selectedBehaviour: {fileID: 7259082910680081825, guid: 37c22b3a675c0bb49a5994bbd2a3cf88,
+      type: 3}
   cardsCreated: []
   showCardsCreated: []
-  goDeck: {fileID: 1575292061}
 --- !u!4 &1380530694
 Transform:
   m_ObjectHideFlags: 0
@@ -4525,8 +4551,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380530696}
-        m_MethodName: AddRewards
+      - m_Target: {fileID: 1380530693}
+        m_MethodName: NextEnemy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

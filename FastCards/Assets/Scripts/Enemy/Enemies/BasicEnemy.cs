@@ -13,11 +13,11 @@ public class BasicEnemy : EnemyBehaviour
     public override void Init()
     {
         StartingPassive();
-        options.Add(EnemyAction.Attack, FirstOption);
-        options.Add(EnemyAction.Defend, SecondOption);
-        options.Add(EnemyAction.Heal, ThirdOption);
-        options.Add(EnemyAction.Multiple, FourthOption);
-        options.Add(EnemyAction.Status, FifthOption);
+        options.Add(0, FirstOption);
+        options.Add(1, SecondOption);
+        options.Add(2, ThirdOption);
+        options.Add(3, FourthOption);
+        options.Add(4, FifthOption);
     }
 
     public override void ChooseOption()
@@ -27,18 +27,23 @@ public class BasicEnemy : EnemyBehaviour
         {
             case 0:
                 CombatManager.intentionText.text = "Attack: " + (attack + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString();
+                action = EnemyAction.Attack;
                 break;
             case 1:
                 CombatManager.intentionText.text = "Defense: " + (defense + CombatManager.enemy.GetEnemy().GetStatusDefense()).ToString();
+                action = EnemyAction.Defend;
                 break;
             case 2:
                 CombatManager.intentionText.text = "Healing: " + (heal + CombatManager.enemy.GetEnemy().GetStatusHeal()).ToString();
+                action = EnemyAction.Heal;
                 break;
             case 3:
                 CombatManager.intentionText.text = "Attack buff: " + buffattack.ToString();
+                action = EnemyAction.Status;
                 break;
             case 4:
                 CombatManager.intentionText.text = "Healing debuff: " + debuffHealing.ToString();
+                action = EnemyAction.Status;
                 break;
             default:
                 break;

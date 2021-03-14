@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class EnemyBehaviour 
+[System.Serializable]
+public class EnemyBehaviour : MonoBehaviour
 {
     int lastAction = -1;
 
@@ -16,14 +17,17 @@ public class EnemyBehaviour
         Status,
         Multiple
     }
-    public Dictionary<EnemyAction, System.Action> options = new Dictionary<EnemyAction, System.Action>();
+
+    public EnemyAction action;
+    public Dictionary<int, System.Action> options = new Dictionary<int, System.Action>();
+    public Dictionary<int, Dictionary<EnemyAction, System.Action>> moves = new Dictionary<int, Dictionary<EnemyAction, System.Action>>();
 
     public virtual void ChooseOption()
     { 
         numRandom = Random.Range(0, options.Count - 1);
 
         while (lastAction == numRandom
-            || (CombatManager.enemy.GetEnemy().GetCurrentHealth() == CombatManager.enemy.GetEnemy().GetStartingMaxHealth() && options.Keys.ElementAt(numRandom) == EnemyAction.Heal))
+            || (CombatManager.enemy.GetEnemy().GetCurrentHealth() == CombatManager.enemy.GetEnemy().GetStartingMaxHealth() && action == EnemyAction.Heal))
         {   
             numRandom = Random.Range(0, options.Count - 1);
         }

@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+ [System.Serializable]
 public class EnemyFunctions : Enemy
 {
     TextAsset jsonFile;
     Enemy enemy;
 
+    //Jsons/EnemyValues
     [SerializeField] string path = "Jsons/EnemyValues";
 
-    [SerializeField] EnemyBehaviour selectedBehaviour = new BasicEnemy();
+    [SerializeField]EnemyBehaviour selectedBehaviour = null;
 
-    public void Init(string pathEnemy)
+    public void Init()
     {
         enemy = new Enemy();
-        jsonFile = Resources.Load(path + pathEnemy) as TextAsset;
+        jsonFile = Resources.Load(path) as TextAsset;
         enemy = JsonUtility.FromJson<Enemy>(jsonFile.text);
 
         enemy.SetCurrentHealth(enemy.GetStartingHealth());

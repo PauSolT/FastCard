@@ -48,6 +48,9 @@ public class CombatManager
     //LevelUp
     public static GameObject levelUpHUD;
 
+    //GameObjects
+    public static GameObject enemyHUD;
+
     //Comparison related
     //Cards type played this round
     public static int attackCardsRound = 0;
@@ -91,14 +94,9 @@ public class CombatManager
     TextAsset jsonFile;
     string path = "Jsons/CombatValues";
 
-    public void Init(EnemyFunctions combatEnemy)
+    public void InitCombat()
     {
-        jsonFile = Resources.Load(path) as TextAsset;
-        GameManager.combatManager = JsonUtility.FromJson<CombatManager>(jsonFile.text);
 
-        hand = GameObject.Find("Canvas/Hand").GetComponent<HorizontalLayoutGroup>();
-        enemy = combatEnemy;
-        
         //Player HUD
         playerSlider = GameObject.Find("Canvas/PlayerHUD/PlayerSlider").GetComponent<Slider>();
         playerHealth = GameObject.Find("Canvas/PlayerHUD/PlayerHealth").GetComponent<Text>();
@@ -106,6 +104,7 @@ public class CombatManager
         playerArmor = GameObject.Find("Canvas/PlayerHUD/PlayerArmor").GetComponent<Text>();
 
         //Enemy HUD
+        enemyHUD = GameObject.Find("Canvas/EnemyHUD");
         enemySlider = GameObject.Find("Canvas/EnemyHUD/EnemySlider").GetComponent<Slider>();
         enemyHealth = GameObject.Find("Canvas/EnemyHUD/EnemyHealth").GetComponent<Text>();
         enemyArmor = GameObject.Find("Canvas/EnemyHUD/EnemyArmor").GetComponent<Text>();
@@ -132,6 +131,33 @@ public class CombatManager
         addCards = GameObject.Find("Canvas/RewardHUD/AddCards").GetComponent<Button>();
         addCards.gameObject.SetActive(false);
 
+  
+
+
+        LookUpTable.LoadTable();
+
+        GameManager.InitCards();
+        GameManager.rewardCards.Init();
+
+        GameManager.deck.Init();
+        GameManager.deck.StartCombat();
+
+        StartPlayerTurn();
+    }
+
+    public void InitEnemy(EnemyFunctions combatEnemy)
+    {
+        jsonFile = Resources.Load(path) as TextAsset;
+        GameManager.combatManager = JsonUtility.FromJson<CombatManager>(jsonFile.text);
+
+        hand = GameObject.Find("Canvas/Hand").GetComponent<HorizontalLayoutGroup>();
+        enemy = combatEnemy;
+        enemy.Init();
+
+    }
+
+    public void SetStartingHUD()
+    {
         //Set HUD
         playerHealth.text = GameManager.player.GetPlayer().GetCurrentHealth() + " / " + GameManager.player.GetPlayer().GetCurrentMaxHealth();
         enemyHealth.text = enemy.GetEnemy().GetCurrentHealth() + " / " + enemy.GetEnemy().GetStartingMaxHealth();
@@ -144,9 +170,6 @@ public class CombatManager
         playerName.text = GameManager.player.GetPlayer().GetName();
         enemyName.text = enemy.GetEnemy().GetName();
         comboText.text = "COMBO: " + combo.ToString();
-
-
-        StartPlayerTurn();
     }
 
     public void EndPlayerTurn()

@@ -291,7 +291,8 @@ public class Deck : MonoBehaviour
         UpdateCardDescription(pileDeck, pileDeckGO);
 
         canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
-
+        CombatManager.hidePileButton.gameObject.SetActive(true);
+        CombatManager.pileButton.gameObject.SetActive(false);
     }
 
     public void HidePileDeck()
@@ -302,7 +303,8 @@ public class Deck : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
+        CombatManager.hidePileButton.gameObject.SetActive(false);
+        CombatManager.pileButton.gameObject.SetActive(true);
     }
 
     public void SetCardTexts(GameObject go, Card card)
