@@ -27,25 +27,40 @@ public class GameManager : MonoBehaviour
 
     public void NextEnemy()
     {
+        //Add the cardsm picked by the player to the player deck
         rewardSystem.AddRewardCardsToPlayer();
+        //Next enemy
         currentEnemy++;
+        //Initialize enemy
         combatManager.InitEnemy(enemies[currentEnemy]);
+        //Set HUD to player and enemy
         combatManager.SetStartingHUD();
+        //Hide button of reward cards
+        CombatManager.addCards.gameObject.SetActive(false);
+        //Hide viewport of reward cards
+        deck.canvasDrawPile.transform.parent.parent.gameObject.SetActive(false);
     }
     void Awake()
     {
+        //Starts game with enemy selected
         StartGame(currentEnemy);
     }
 
     public void StartGame(int enemyNumber)
     {
+        //Initialize player
         player.Init();
+        //Gets deck script from GameManager
         deck = GetComponent<Deck>();
+        //Gets combat functions from GameManager
         combatFunctions = GetComponent<CombatFunctions>();
 
         //Initialize together
+        //Initialize enemy selected
         combatManager.InitEnemy(enemies[enemyNumber]);
+        //Initialize combat
         combatManager.InitCombat();
+        //Set HUD to player and enemy
         combatManager.SetStartingHUD();
     }
 
@@ -57,20 +72,8 @@ public class GameManager : MonoBehaviour
 
     public static void InitCards()
     {
-        //string path = Application.dataPath + "/SaveFile.json";
-        //string srPath = Path.Combine(Application.streamingAssetsPath, "SavedGame.json");
-        //if (File.Exists(path))
-        //{
-        //    File.WriteAllText(srPath, File.ReadAllText(path));
-        //    using (StreamReader stream = new StreamReader(srPath))
-        //    {
-        //        string json = stream.ReadToEnd();
-        //        cardCollection = JsonUtility.FromJson<CardCollection>(json);
-        //    }
-        //    File.Delete(srPath);
-        //}
-        //else if (!File.Exists(path))
         {
+            //Reads cards from JSON 
             using (StreamReader stream = new StreamReader(Path.Combine(Application.streamingAssetsPath, "CardData.json")))
             {
                 string json = stream.ReadToEnd();
@@ -78,16 +81,16 @@ public class GameManager : MonoBehaviour
             }
         }
         
+        
+        //foreach (Card card in cardCollection.cards)
+        //{
+        //    GameObject go = new GameObject();
+        //    go.AddComponent<CardHolder>();
+        //    CardHolder cardHolder = go.GetComponent<CardHolder>();
+        //    cardHolder.card = card;
+        //    go.name = card.cardName;
 
-        foreach (Card card in cardCollection.cards)
-        {
-            GameObject go = new GameObject();
-            go.AddComponent<CardHolder>();
-            CardHolder cardHolder = go.GetComponent<CardHolder>();
-            cardHolder.card = card;
-            go.name = card.cardName;
-
-            //go.transform.parent = goDeck.transform;
-        }
+        //    //go.transform.parent = goDeck.transform;
+        //}
     }
 }

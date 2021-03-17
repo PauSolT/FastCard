@@ -7,21 +7,22 @@ public class Enemy
 {
     //------Variables------//
     //Name
-    [SerializeField] string enemyName = "";
+
+    [HideInInspector] [SerializeField] string enemyName = "";
 
     //Health
-    [SerializeField] int startingMaxHealth = 0;
-    [SerializeField] int startingHealth;
-    [SerializeField] int currentHealth;
+    [HideInInspector] [SerializeField] int startingMaxHealth = 0;
+    [HideInInspector] [SerializeField] int startingHealth;
+    [HideInInspector] [SerializeField] int currentHealth;
 
-    [SerializeField] int startingArmor = 0;
-    [SerializeField] int currentArmor;
+    [HideInInspector] [SerializeField] int startingArmor = 0;
+    [HideInInspector] [SerializeField] int currentArmor;
 
     //Status
-    [SerializeField] int statusDamage;
-    [SerializeField] int statusDefense;
-    [SerializeField] int statusHeal;
-    [SerializeField] EnemyBehaviour behaviour;
+    [HideInInspector] [SerializeField] int statusDamage;
+    [HideInInspector] [SerializeField] int statusDefense;
+    [HideInInspector] [SerializeField] int statusHeal;
+    [HideInInspector] [SerializeField] EnemyBehaviour behaviour;
 
     //------Functions------//
     //Health related
