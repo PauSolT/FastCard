@@ -33,7 +33,7 @@ public class Selectable : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (!selected && RewardSystem.rewardsSelected < RewardSystem.numMaxRewards)
         {
             selected = true;
-            transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().color = new Color(0.6219321f, 0.8867924f, 0.5647027f);
+            transform.GetChild(1).GetComponent<UnityEngine.UI.Image>().color = card.colorBgCard;
             RewardSystem.IncreaseRewardsSelected();
         }
         else if (selected)

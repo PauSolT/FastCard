@@ -224,7 +224,7 @@ public class CombatManager
         comboText.text = "COMBO: " + combo.ToString();
     }
 
-    void ResetCombo()
+    public void ResetCombo()
     {
         combo = 0;
         comboBuilder = 0;

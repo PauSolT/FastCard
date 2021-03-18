@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class RewardSystem
 {
-    List<Card> rewardCards;
-    List<GameObject> rewardCardsGO;
+    List<Card> rewardCards = new List<Card>();
+    List<GameObject> rewardCardsGO = new List<GameObject>();
 
-    int commonPossibilities = 50;
-    int rarePossibilities = 100;
+    int commonPossibilities = 75;
+    int rarePossibilities = 75;
     int epicPossibilities = 5;
     //int legendaryPossibilities = 0;
 
     public static int numMaxRewards = 3;
 
-    int numRewardCards = 4;
+    int numRewardCards = 5;
 
     int maxPossibility = 150;
 
@@ -29,8 +29,6 @@ public class RewardSystem
 
     void SelectCards()
     {
-        rewardCards = new List<Card>();
-        rewardCardsGO = new List<GameObject>();
         int randNum;
         int randCard;
         int cardsSelected = 0;
@@ -70,8 +68,8 @@ public class RewardSystem
             {
                 randCard = Random.Range(0, GameManager.rewardCards.GetLegendaryCards().Count);
                 if (!rewardCards.Contains(GameManager.rewardCards.GetLegendaryCards()[randCard]))
-                    rewardCards.Add(GameManager.rewardCards.GetLegendaryCards()[randCard]);
                 {
+                    rewardCards.Add(GameManager.rewardCards.GetLegendaryCards()[randCard]);
                     cardsSelected++;
                 }
             }
@@ -90,6 +88,8 @@ public class RewardSystem
             rewardCardsGO.Add(newCard);
         }
 
+        //Set combo to 0 so reward cards have correct values
+        GameManager.combatManager.ResetCombo();
         GameManager.deck.UpdateCardDescription(rewardCards, rewardCardsGO);
     }
 
@@ -102,7 +102,12 @@ public class RewardSystem
             {
                 GameManager.deck.playerDeck.Add(select.card);
             }
+        }
+
+        for (byte i = 0; i < rewardCards.Count;)
+        {
             rewardCards.RemoveAt(0);
+            GameManager.Destroy(rewardCardsGO[0]);
             rewardCardsGO.RemoveAt(0);
         }
     }
