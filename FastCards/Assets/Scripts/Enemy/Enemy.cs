@@ -61,6 +61,8 @@ public class Enemy
     public virtual void Heal(int heal) { }
     public virtual void AddArmor(int armor) { }
     public virtual void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff) { }
+    public virtual void Die() { }
+
 
     //Comparison related
     public int GetHalfHealth() { return startingMaxHealth / 2; }

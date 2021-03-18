@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         CombatManager.addCards.gameObject.SetActive(false);
         //Hide viewport of reward cards
         deck.canvasDrawPile.transform.parent.parent.gameObject.SetActive(false);
+        //Show enemy HUD
+        CombatManager.enemyHUD.SetActive(true);
     }
     void Awake()
     {

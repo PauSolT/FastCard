@@ -247,6 +247,7 @@ public class CombatManager
 
     public void CombatInputs()
     {   
+        //if enemy has no health, stops combat
         if (enemy.GetEnemy().GetCurrentHealth() <= 0)
         {
             return;

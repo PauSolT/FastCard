@@ -1093,9 +1093,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4c3a0000
-      m_LastClickedID: 14924
-      m_ExpandedIDs: 5efbfffffc380000163a0000603a0000843a0000be3a0000
+      m_SelectedIDs: 50350000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5efbffff163a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1365,8 +1365,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 843a0000
-    m_LastClickedInstanceID: 14980
+    m_SelectedInstanceIDs: 50350000
+    m_LastClickedInstanceID: 13648
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300004080ffff3c3a0000bedbffff00000000ae3a0000323c0000
     m_RenameOverlay:
@@ -1459,7 +1459,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 100
+  m_LastVerticalScrollValue: 0
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52

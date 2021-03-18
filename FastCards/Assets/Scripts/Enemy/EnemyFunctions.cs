@@ -52,10 +52,10 @@ public class EnemyFunctions : Enemy
             LoseHP(damage);
         }
 
+        //If enemy dies
         if (enemy.GetCurrentHealth() <= 0)
         {
-            GameManager.player.LevelUp();
-            GameObject.Find("Canvas/EnemyHUD").gameObject.SetActive(false);
+            Die();  
         }
     }
 
@@ -94,6 +94,11 @@ public class EnemyFunctions : Enemy
         //Debug.Log("Damage Buff: " + enemy.GetStatusDamage() + "Defense Buff: " + enemy.GetStatusDefense() + "Healing Buff " + enemy.GetStatusHeal());
     }
 
+    public override void Die()
+    {
+        GameManager.player.LevelUp();
+        CombatManager.enemyHUD.SetActive(false);
+    }
     public Enemy GetEnemy() { return enemy; }
 
     public override void LoseHP(int hpLoss)

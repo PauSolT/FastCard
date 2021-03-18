@@ -7,8 +7,8 @@ public class RewardSystem
     List<Card> rewardCards;
     List<GameObject> rewardCardsGO;
 
-    int commonPossibilities = 150;
-    int rarePossibilities = 45;
+    int commonPossibilities = 50;
+    int rarePossibilities = 100;
     int epicPossibilities = 5;
     //int legendaryPossibilities = 0;
 
@@ -102,6 +102,8 @@ public class RewardSystem
             {
                 GameManager.deck.playerDeck.Add(select.card);
             }
+            rewardCards.RemoveAt(0);
+            rewardCardsGO.RemoveAt(0);
         }
     }
 
