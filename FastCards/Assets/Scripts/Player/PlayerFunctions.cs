@@ -146,6 +146,7 @@ public class PlayerFunctions : Player
     public override void IncreaseCurrentMaxHealth()
     {
         player.SetCurrentMaxHealth(player.GetCurrentMaxHealth() + 5);
+        player.SetCurrentHealth(player.GetCurrentHealth() + 5);
         //Debug.Log("Increased Max health to: " + player.GetCurrentMaxHealth());
     }
 

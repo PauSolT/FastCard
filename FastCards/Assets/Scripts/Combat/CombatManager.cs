@@ -7,7 +7,7 @@ public class CombatManager
 {
 
     public static EnemyFunctions enemy;
-    public bool playerTurn = true;
+    public bool playerTurn;
     public int combo = 0;
     public int comboBuilder = 0;
     public float comboMultiplier = 0; 
@@ -142,7 +142,6 @@ public class CombatManager
         //Prepares deck for combat
         GameManager.deck.StartCombat();
 
-        StartPlayerTurn();
     }
 
     public void InitEnemy(EnemyFunctions combatEnemy)
@@ -173,19 +172,13 @@ public class CombatManager
         playerName.text = GameManager.player.GetPlayer().GetName();
         enemyName.text = enemy.GetEnemy().GetName();
         comboText.text = "COMBO: " + combo.ToString();
+
+        StartPlayerTurn();
     }
 
     public void EndPlayerTurn()
     {
-        //Gets the number of cards
-        int it = GameManager.player.GetPlayer().GetHand().Count;
-        //Removes all cards from hand
-        for (int i = 0; i < it; i++)
-        {
-            GameManager.deck.HandCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
-            GameManager.deck.DestroyCard(GameManager.deck.hand.transform.GetChild(i).gameObject);
-            GameManager.deck.cardsGO.RemoveAt(0);
-        }
+        EmptyHand();
         //Resize hand space
         hand.spacing = -1150;
 
@@ -243,6 +236,19 @@ public class CombatManager
         healingDealtRound = 0;
         statusDealtRound = 0;
         drawsDealtRound = 0;
+    }
+
+    public void EmptyHand()
+    {
+        //Gets the number of cards
+        int it = GameManager.player.GetPlayer().GetHand().Count;
+        //Removes all cards from hand
+        for (int i = 0; i < it; i++)
+        {
+            GameManager.deck.HandCardToPile(GameManager.player.GetPlayer(), GameManager.player.GetPlayer().GetHand()[0]);
+            GameManager.deck.DestroyCard(GameManager.deck.hand.transform.GetChild(i).gameObject);
+            GameManager.deck.cardsGO.RemoveAt(0);
+        }
     }
 
     public void CombatInputs()
