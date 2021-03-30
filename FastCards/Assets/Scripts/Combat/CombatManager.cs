@@ -50,6 +50,8 @@ public class CombatManager
 
     //GameObjects
     public static GameObject enemyHUD;
+    public static GameObject playerHUD;
+    public static GameObject combatHUD;
 
     //Comparison related
     //Cards type played this round
@@ -98,6 +100,7 @@ public class CombatManager
     {
 
         //Player HUD
+        playerHUD = GameObject.Find("Canvas/PlayerHUD");
         playerSlider = GameObject.Find("Canvas/PlayerHUD/PlayerSlider").GetComponent<Slider>();
         playerHealth = GameObject.Find("Canvas/PlayerHUD/PlayerHealth").GetComponent<Text>();
         playerName = GameObject.Find("Canvas/PlayerHUD/PlayerName").GetComponent<Text>();
@@ -112,6 +115,7 @@ public class CombatManager
         intentionText = GameObject.Find("Canvas/EnemyHUD/EnemyIntention").GetComponent<Text>();
 
         //Combat HUD
+        combatHUD = GameObject.Find("Canvas/CombatHUD");
         timeSlider = GameObject.Find("Canvas/CombatHUD/TimeSlider").GetComponent<Slider>();
         comboSlider = GameObject.Find("Canvas/CombatHUD/ComboSlider").GetComponent<Slider>();
         comboText = GameObject.Find("Canvas/CombatHUD/ComboText").GetComponent<Text>();

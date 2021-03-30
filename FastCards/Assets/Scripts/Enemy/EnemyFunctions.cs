@@ -98,6 +98,9 @@ public class EnemyFunctions : Enemy
     {
         GameManager.player.LevelUp();
         CombatManager.enemyHUD.SetActive(false);
+        CombatManager.playerHUD.SetActive(false);
+        CombatManager.combatHUD.SetActive(false);
+        CombatManager.hand.gameObject.SetActive(false);
     }
     public Enemy GetEnemy() { return enemy; }
 
