@@ -31,6 +31,8 @@ public static class LookUpTable
         damageCombat, armorCombat, healingCombat, statusCombat, drawCombat,
         //19            20          21              22          23
 
+        //Turn
+        currentTurn
     }
     public static int GetZero() { return 0; }
 
@@ -46,7 +48,7 @@ public static class LookUpTable
         lookUpTable.Add(DelegateType.playerCurrentArmor, GameManager.player.GetPlayer().GetCurrentArmor);
         lookUpTable.Add(DelegateType.enemyCurrentArmor, CombatManager.enemy.GetEnemy().GetCurrentArmor);
         lookUpTable.Add(DelegateType.player12Health, GameManager.player.GetPlayer().GetHalfHealth);
-        lookUpTable.Add(DelegateType.enemy12Health, CombatManager.enemy.GetEnemy().GetCurrentArmor);
+        lookUpTable.Add(DelegateType.enemy12Health, CombatManager.enemy.GetEnemy().GetHalfHealth);
         lookUpTable.Add(DelegateType.player34Health, GameManager.player.GetPlayer().GetThreeQuartersHealth);
         lookUpTable.Add(DelegateType.enemy34Health, CombatManager.enemy.GetEnemy().GetThreeQuartersHealth);
         lookUpTable.Add(DelegateType.player13Health, GameManager.player.GetPlayer().GetOneThirdHealth);
@@ -59,14 +61,15 @@ public static class LookUpTable
         lookUpTable.Add(DelegateType.statusCardsRound, CombatManager.GetStatusCardsRound);
         lookUpTable.Add(DelegateType.drawsCardsRound, CombatManager.GetDrawCardsRound);
         lookUpTable.Add(DelegateType.damageRound, CombatManager.GetDamageDealtRound);
-        lookUpTable.Add(DelegateType.armorRound, CombatManager.GetDamageDealtRound);
-        lookUpTable.Add(DelegateType.healRound, CombatManager.GetDamageDealtRound);
-        lookUpTable.Add(DelegateType.statusRound, CombatManager.GetDamageDealtRound);
-        lookUpTable.Add(DelegateType.drawRound, CombatManager.GetDamageDealtRound);
+        lookUpTable.Add(DelegateType.armorRound, CombatManager.GetArmorDealtRound);
+        lookUpTable.Add(DelegateType.healRound, CombatManager.GetHealingDealtRound);
+        lookUpTable.Add(DelegateType.statusRound, CombatManager.GetStatusDealtRound);
+        lookUpTable.Add(DelegateType.drawRound, CombatManager.GetDrawsDealtRound);
         lookUpTable.Add(DelegateType.damageCombat, CombatManager.GetDamageDealt);
         lookUpTable.Add(DelegateType.armorCombat, CombatManager.GetArmorGotten);
         lookUpTable.Add(DelegateType.healingCombat, CombatManager.GetHealingDone);
         lookUpTable.Add(DelegateType.statusCombat, CombatManager.GetStatusInflicted);
         lookUpTable.Add(DelegateType.drawCombat, CombatManager.GetCardsDrawn);
+        lookUpTable.Add(DelegateType.currentTurn, CombatManager.GetCurrentTurn);
     }
 }

@@ -1,12 +1,12 @@
 {
   "cards": [
     {
-      "cardName": "Strike",
+      "cardName": "Laser",
       "cardDescription": "Deal {0} damage",
       "cost": 1,
       "discard": false,
       "cardType": 0,
-      "cardTier":  0,
+      "cardTier": 0,
       "passivesApplied": [],
       "cardBehaviours": [
         {
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "cardName": "Defense",
+      "cardName": "Shield",
       "cardDescription": "Add {0} armor",
       "cost": 1,
       "discard": false,
@@ -34,15 +34,14 @@
             "deleagtePairs": [],
             "conditionTypes": []
           },
-          "value": 6,
+          "value": 5,
           "targetPlayer": true,
           "behaviourType": 1
         }
       ]
-    }
-,
+    },
     {
-      "cardName": "Healing",
+      "cardName": "Heal",
       "cardDescription": "Heal for {0}",
       "cost": 1,
       "discard": false,
@@ -54,116 +53,1344 @@
             "deleagtePairs": [],
             "conditionTypes": []
           },
-          "value": 5,
+          "value": 4,
           "targetPlayer": true,
           "valueDelegate": 0,
           "sumtotal": 0,
           "behaviourType": 2
         }
       ]
-    }
-,
+    },
     {
-      "cardName": "Damage Buff/Debuff",
-      "cardDescription": "Gain 1 attack buff, enemy loses 1 attack buff. Discard",
-      "cost": 2,
-      "discard": true,
-      "cardType": 2,
-      "cardTier": 1,
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 1,
-          "targetPlayer": true,
-          "valueDelegate": 0,
-          "behaviourType": 4
-        },
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": -1,
-          "targetPlayer": false,
-          "valueDelegate": 0,
-          "behaviourType": 4
-        }
-      ]
-    }
-,
-    {
-      "cardName": "Armor buff/debuff",
-      "cardDescription": "Gain 1 armor buff, enemy loses 1 armor buff. Discard",
-      "cost": 2,
-      "discard": true,
-      "cardType": 2,
-      "cardTier": 1,
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 1,
-          "targetPlayer": true,
-          "valueDelegate": 0,
-          "behaviourType": 5
-        },
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": -1,
-          "targetPlayer": false,
-          "valueDelegate": 0,
-          "behaviourType": 5
-        }
-      ]
-    }
-,
-    {
-      "cardName": "Heal buff/debuff",
-      "cardDescription": "Gain 1 healing buff, enemy loses 1 healing buff. Discard",
-      "cost": 2,
-      "discard": true,
-      "cardType": 2,
-      "cardTier": 1,
-      "cardBehaviours": [
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": 1,
-          "targetPlayer": true,
-          "valueDelegate": 0,
-          "behaviourType": 6
-        },
-        {
-          "condition": {
-            "deleagtePairs": [],
-            "conditionTypes": []
-          },
-          "value": -1,
-          "targetPlayer": false,
-          "valueDelegate": 0,
-          "behaviourType": 6
-        }
-      ]
-    }
-,
-    {
-      "cardName": "Sight",
-      "cardDescription": "Draw 2 cards",
-      "cost": 1,
+      "cardName": "Beam",
+      "cardDescription": "Deal {0} damage",
+      "cost": 0,
       "discard": false,
-      "cardType": 4,
+      "cardType": 0,
       "cardTier": 0,
       "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Bloody Beam",
+      "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
+      "cost": 0,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 3
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 6,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Double Beam",
+      "cardDescription": "Deal {0} damage 2 times",
+      "cost": 1,
+      "discard": true,
+      "cardType": 0,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Show Strength",
+      "cardDescription": "Deal {0} damage and add 1 Attack",
+      "cost": 1,
+      "discard": true,
+      "cardType": 0,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 8,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Bloody Shot",
+      "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
+      "cost": 1,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 3
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 12,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Cheap Shot",
+      "cardDescription": "Deal 8 damage and add -1 Armor",
+      "cost": 1,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 8,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Triforce+1",
+      "cardDescription": "Deal {0} damage, add {1} Defense, Heal {2} and Draw 1",
+      "cost": 3,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 3,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Barrage",
+      "cardDescription": "Deal {0} damage 5 times.\nDiscard",
+      "cost": 1,
+      "discard": true,
+      "cardType": 0,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Throwing Knife",
+      "cardDescription": "Deal {0} damage and add -1 Armor to the enemy",
+      "cost": 1,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 8,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Super Laser",
+      "cardDescription": "Deal {0} damage",
+      "cost": 2,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 12,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Shoot, Reload",
+      "cardDescription": "Deal {0} damage, Draw 1",
+      "cost": 2,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 9,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Double Tap",
+      "cardDescription": "Deal {0} damage 2 times.\nDiscard",
+      "cost": 2,
+      "discard": true,
+      "cardType": 0,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 8,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 8,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Repeat",
+      "cardDescription": "Deal all damage this turn to the enemy. (Self damage is counted towards damaging the enemy) ({0}).\nDiscard",
+      "cost": 2,
+      "discard": true,
+      "cardType": 0,
+      "cardTier": 3,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": false,
+          "valueDelegate": 20,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Bloody Knife",
+      "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
+      "cost": 2,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 7,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 3
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 19,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "All in",
+      "cardDescription": "Deal {0} damage and add -6 Attack",
+      "cost": 3,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 3,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 50,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -6,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Mega Laser",
+      "cardDescription": "Deal {0} damage",
+      "cost": 3,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 21,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Bloody Barrage",
+      "cardDescription": "Deal {0} damage to yourself to deal {1} damage 5 times.\nDiscard",
+      "cost": 3,
+      "discard": true,
+      "cardType": 0,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 3
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Bloody Laser",
+      "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
+      "cost": 4,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 10,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 3
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 50,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Ultra Laser",
+      "cardDescription": "Deal {0} damage",
+      "cost": 4,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 30,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Hyper Laser",
+      "cardDescription": "Deal {0} damage",
+      "cost": 5,
+      "discard": false,
+      "cardType": 0,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 40,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Mini Shield",
+      "cardDescription": "Add {0} defense",
+      "cost": 0,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Evasion",
+      "cardDescription": "Add {0} defense 3 times.\nDiscard",
+      "cost": 0,
+      "discard": true,
+      "cardType": 1,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Shield",
+      "cardDescription": "Add {0} defense",
+      "cost": 1,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Cover",
+      "cardDescription": "Add {0} defense 3 times.\nDiscard",
+      "cost": 1,
+      "discard": true,
+      "cardType": 1,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Metal Armor",
+      "cardDescription": "Add 10 Armor.\nDiscard",
+      "cost": 3,
+      "discard": true,
+      "cardType": 0,
+      "cardTier": 3,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 10,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Buff Up",
+      "cardDescription": "Add {0} defense and 1 Attack",
+      "cost": 1,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 6,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Shields Down",
+      "cardDescription": "Destroy all your defense to deal it as damage. ({0})\nDiscard",
+      "cost": 2,
+      "discard": true,
+      "cardType": 1,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": true,
+          "valueDelegate": 3,
+          "behaviourType": 0
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": false,
+          "valueDelegate": 3,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Barricade",
+      "cardDescription": "Add {0} defense and -3 Armor.\nDiscard",
+      "cost": 2,
+      "discard": true,
+      "cardType": 1,
+      "cardTier": 3,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 100,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Fortify",
+      "cardDescription": "Add {0} defense and -1 Armor",
+      "cost": 2,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 15,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Mega Shield",
+      "cardDescription": "Add {0} defense",
+      "cost": 3,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 18,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Reinforce",
+      "cardDescription": "Add {0} defense and 3 Armor",
+      "cost": 3,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Duck & Cover",
+      "cardDescription": "Add {0} defense and Draw 2",
+      "cost": 3,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 12,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
         {
           "condition": {
             "deleagtePairs": [],
@@ -174,7 +1401,1617 @@
           "valueDelegate": 0,
           "behaviourType": 7
         }
-      ]
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Ultra Shield",
+      "cardDescription": "Add {0} defense",
+      "cost": 4,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 27,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Shield & Heal",
+      "cardDescription": "Add {0} defense, 2 Armor and Heal {1}",
+      "cost": 4,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 10,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Hyper Shield",
+      "cardDescription": "Add {0} Armor",
+      "cost": 5,
+      "discard": false,
+      "cardType": 1,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 37,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 1
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Mini Heal",
+      "cardDescription": "Heal {0}",
+      "cost": 0,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Heal",
+      "cardDescription": "Heal {0}",
+      "cost": 1,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Blessing",
+      "cardDescription": "Heal {0}.\nDiscard",
+      "cost": 0,
+      "discard": true,
+      "cardType": 3,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Super Heal",
+      "cardDescription": "Heal {0}",
+      "cost": 2,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 8,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Patch Up",
+      "cardDescription": "Heal {0} and add 2 Recovery",
+      "cost": 3,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 6,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Healing Aura",
+      "cardDescription": "Heal {0}, add 4 Recovery and 4 Armor.\nDiscard",
+      "cost": 4,
+      "discard": true,
+      "cardType": 3,
+      "cardTier": 3,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 20,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Heal {0}.\nDiscard",
+      "cost": 1,
+      "discard": true,
+      "cardType": 3,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 7,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Mega Heal",
+      "cardDescription": "Heal {0}",
+      "cost": 3,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 14,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Splash Potion",
+      "cardDescription": "Heal {0} and the enemy {1}",
+      "cost": 2,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 13,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Leech",
+      "cardDescription": "Heal as much damage as you dealt this round (self damage counts towards healing) ({0}).\nDiscard",
+      "cost": 5,
+      "discard": true,
+      "cardType": 3,
+      "cardTier": 3,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": true,
+          "valueDelegate": 20,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Ultra Heal",
+      "cardDescription": "Heal {0}",
+      "cost": 4,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 21,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Heal {0} and add -1 Recovery to the enemy",
+      "cost": 1,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 6
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Hyper Heal",
+      "cardDescription": "Heal {0}",
+      "cost": 5,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 30,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDERE",
+      "cardDescription": "Heal {0} 5 times.\nDiscard",
+      "cost": 4,
+      "discard": true,
+      "cardType": 3,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Deal as much damage as you healed yourself this round ({0})",
+      "cost": 3,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": false,
+          "valueDelegate": 22,
+          "behaviourType": 0
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Heal 1 for every card drawn this round ({0})",
+      "cost": 2,
+      "discard": false,
+      "cardType": 3,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": true,
+          "valueDelegate": 24,
+          "behaviourType": 2
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Healing Shot",
+      "cardDescription": "Deal {0} damage to yourself to add 5 Recovery.\nDiscard",
+      "cost": 1,
+      "discard": true,
+      "cardType": 3,
+      "cardTier": 2,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 3
+        },
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 5,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Planning",
+      "cardDescription": "For every card drawn this round add 1 Attack ({0})",
+      "cost": 2,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": true,
+          "valueDelegate": 24,
+          "behaviourType": 4
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "Gear Up",
+      "cardDescription": "For every card drawn this round add 1 Armor ({0})",
+      "cost": 2,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": true,
+          "valueDelegate": 24,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 1 Attack",
+      "cost": 1,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 1 Armor",
+      "cost": 1,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 1 Recovery",
+      "cost": 2,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add -1 Attack to the enemy",
+      "cost": 2,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 4
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add -1 Armor to the enemy",
+      "cost": 2,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 5
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
+    },
+    {
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add -1 Recovery to the enemy",
+      "cost": 2,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 0,
+      "cardBehaviours": [
+        {
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 6 
+        }
+      ],
+      "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      }
     }
+  ,
+{
+    "cardName": "Intimidate",
+    "cardDescription": "Add -3 Attack to the enemy.\nDiscard",
+    "cost": 3,
+    "discard": true,
+    "cardType": 2,
+    "cardTier": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -3,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "PLACEHOLDER",
+    "cardDescription": "Add 3 Attack, 3 Armor and 3 Recovery",
+    "cost": 4,
+    "discard": false,
+    "cardType": 2,
+    "cardTier": 3,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 3,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 3,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 3,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "PLACEHOLDER",
+    "cardDescription": "Add 1 Attack, 1 Armor and 1 Recovery to yourself and -1 Attack, -1 Armor and -1 Recovery to the enemy.\nDiscard",
+    "cost": 1,
+    "discard": true,
+    "cardType": 2,
+    "cardTier": 3,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "PLACEHOLDER",
+    "cardDescription": "Add 2 Recovery to yourself and 1 Attack to the enemy",
+    "cost": 2,
+    "discard": false,
+    "cardType": 2,
+    "cardTier": 1,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 2,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "Voodoo Doll",
+    "cardDescription": "Add -6 Recovery to the enemy.\nDiscard",
+    "cost": 5,
+    "discard": true,
+    "cardType": 2,
+    "cardTier": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -6,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 6
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "PLACEHOLDER",
+    "cardDescription": "Add 2 Attack to yourself and -1 Attack to the enemy",
+    "cost": 4,
+    "discard": false,
+    "cardType": 2,
+    "cardTier": 1,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 2,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "PLACEHOLDER",
+    "cardDescription": "Add 2 Armor to yourself and -1 Armor to the enemy",
+    "cost": 4,
+    "discard": false,
+    "cardType": 2,
+    "cardTier": 1,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 2,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "Piercing Weapon",
+    "cardDescription": "Add 1 Attack to yourself and -2 Armor to the enemy.\nDiscard",
+    "cost": 0,
+    "discard": true,
+    "cardType": 2,
+    "cardTier": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 4
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -2,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "Draw",
+    "cardDescription": "Draw 1",
+    "cost": 1,
+    "discard": false,
+    "cardType": 4,
+    "cardTier": 0,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 1,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "Gather Intel",
+    "cardDescription": "Draw 3 and add -1 Armor",
+    "cost": 2,
+    "discard": false,
+    "cardType": 4,
+    "cardTier": 1,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 3,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
+        },
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": -1,
+            "targetPlayer": true,
+            "valueDelegate": 0,
+            "behaviourType": 5
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "Super Draw",
+    "cardDescription": "Draw 2",
+    "cost": 2,
+    "discard": false,
+    "cardType": 4,
+    "cardTier": 0,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 2,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "Mega Draw",
+    "cardDescription": "Draw 3",
+    "cost": 3,
+    "discard": false,
+    "cardType": 4,
+    "cardTier": 1,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 3,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "PLACEHOLDER",
+    "cardDescription": "Draw 3.\nDiscard",
+    "cost": 1,
+    "discard": true,
+    "cardType": 4,
+    "cardTier": 2,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 3,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
+,
+{
+    "cardName": "Lucky Day!",
+    "cardDescription": "Draw 4.\nDiscard",
+    "cost": 0,
+    "discard": true,
+    "cardType": 4,
+    "cardTier": 3,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 4,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "behaviourType": 7
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
 ]
 }

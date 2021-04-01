@@ -19,7 +19,7 @@ public class EnemyFunctions : Enemy
         enemy = new Enemy();
         jsonFile = Resources.Load(path) as TextAsset;
         enemy = JsonUtility.FromJson<Enemy>(jsonFile.text);
-
+        
         enemy.SetCurrentHealth(enemy.GetStartingHealth());
         enemy.SetBehaviour(selectedBehaviour);
         enemy.GetBehaviour().Init();
@@ -61,36 +61,30 @@ public class EnemyFunctions : Enemy
 
     public override void Heal(int heal)
     {
-        int healing = heal + enemy.GetStatusHeal();
-        if (healing >= 0)
-            enemy.SetCurrentHealth(enemy.GetCurrentHealth() + healing);
+        CombatManager.enemy.GetEnemy().SetCurrentHealth(CombatManager.enemy.GetEnemy().GetCurrentHealth() + heal);
 
-        if (enemy.GetCurrentHealth() >= enemy.GetStartingHealth())
-            enemy.SetCurrentHealth(enemy.GetStartingHealth());
+        if (CombatManager.enemy.GetEnemy().GetCurrentHealth() >= CombatManager.enemy.GetEnemy().GetStartingMaxHealth())
+            CombatManager.enemy.GetEnemy().SetCurrentHealth(CombatManager.enemy.GetEnemy().GetStartingMaxHealth());
 
-        CombatManager.enemyHealth.text = enemy.GetCurrentHealth() + " / " + enemy.GetStartingMaxHealth();
-        CombatManager.enemySlider.value = enemy.GetCurrentHealth();
+        CombatManager.enemyHealth.text = CombatManager.enemy.GetEnemy().GetCurrentHealth() + " / " + CombatManager.enemy.GetEnemy().GetStartingMaxHealth();
+        CombatManager.enemySlider.value = CombatManager.enemy.GetEnemy().GetCurrentHealth();
 
-        //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
+        Debug.Log("Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingMaxHealth());
     }
 
     public override void AddArmor(int armor)
     {
-        int def = armor + enemy.GetStatusDefense();
-        if (def >= 0)
-        {
-            enemy.SetCurrentArmor(enemy.GetCurrentArmor() + def);
-            CombatManager.enemyArmor.text = CombatManager.enemy.GetEnemy().GetCurrentArmor().ToString();
-        }
+        enemy.SetCurrentArmor(CombatManager.enemy.GetEnemy().GetCurrentArmor() + armor);
+        CombatManager.enemyArmor.text = CombatManager.enemy.GetEnemy().GetCurrentArmor().ToString();
 
         //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
     }
 
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
     {
-        enemy.SetStatusDamage(enemy.GetStatusDamage() + damageBuff);
-        enemy.SetStatusDefense(enemy.GetStatusDefense() + defenseBuff);
-        enemy.SetStatusHeal(enemy.GetStatusHeal() + healingBuff);
+        CombatManager.enemy.GetEnemy().SetStatusDamage(CombatManager.enemy.GetEnemy().GetStatusDamage() + damageBuff);
+        CombatManager.enemy.GetEnemy().SetStatusDefense(CombatManager.enemy.GetEnemy().GetStatusDefense() + defenseBuff);
+        CombatManager.enemy.GetEnemy().SetStatusHeal(CombatManager.enemy.GetEnemy().GetStatusHeal() + healingBuff);
         //Debug.Log("Damage Buff: " + enemy.GetStatusDamage() + "Defense Buff: " + enemy.GetStatusDefense() + "Healing Buff " + enemy.GetStatusHeal());
     }
 
@@ -101,12 +95,13 @@ public class EnemyFunctions : Enemy
         CombatManager.playerHUD.SetActive(false);
         CombatManager.combatHUD.SetActive(false);
         CombatManager.hand.gameObject.SetActive(false);
+        GameManager.combatManager.EmptyHand();
     }
     public Enemy GetEnemy() { return enemy; }
 
     public override void LoseHP(int hpLoss)
     {
-        enemy.SetCurrentHealth(enemy.GetCurrentHealth() - hpLoss);
+        CombatManager.enemy.GetEnemy().SetCurrentHealth(enemy.GetCurrentHealth() - hpLoss);
         CombatManager.enemyHealth.text = enemy.GetCurrentHealth() + " / " + enemy.GetStartingMaxHealth();
         CombatManager.enemySlider.value = enemy.GetCurrentHealth();
 

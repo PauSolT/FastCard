@@ -31,7 +31,7 @@ public class CreateCardTool : ScriptableWizard
 
     void OnWizardCreate()
     {
-        string filePath = "Assets/Resources/Jsons/CardData.json";
+        string filePath = "Assets/StreamingAssets/CardData.json";
 
         Card card = new Card() {
             cardName = cardName,

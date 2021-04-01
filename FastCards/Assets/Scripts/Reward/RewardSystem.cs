@@ -7,8 +7,8 @@ public class RewardSystem
     List<Card> rewardCards = new List<Card>();
     List<GameObject> rewardCardsGO = new List<GameObject>();
 
-    int commonPossibilities = 75;
-    int rarePossibilities = 75;
+    int commonPossibilities = 100;
+    int rarePossibilities = 45;
     int epicPossibilities = 5;
     //int legendaryPossibilities = 0;
 
@@ -23,8 +23,7 @@ public class RewardSystem
     public void GetRewards()
     {
         SelectCards();
-        GameManager.deck.canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
-        CombatManager.addCards.gameObject.SetActive(true);
+        GameManager.deck.rewardContent.transform.parent.parent.gameObject.SetActive(true);
     }
 
     void SelectCards()
@@ -80,7 +79,7 @@ public class RewardSystem
 
         foreach (Card card in rewardCards)
         {
-            GameObject newCard = GameManager.Instantiate(GameManager.deck.cardRewardPrefab, GameManager.deck.canvasDrawPile.transform);
+            GameObject newCard = GameManager.Instantiate(GameManager.deck.cardRewardPrefab, GameManager.deck.rewardContent.transform);
             newCard.GetComponent<Selectable>().card = card;
             newCard.name = card.cardName;
             GameManager.deck.SetCardTexts(newCard, card);
@@ -96,7 +95,7 @@ public class RewardSystem
 
     public void AddRewardCardsToPlayer()
     {
-        foreach (Selectable select in GameManager.deck.canvasDrawPile.transform.GetComponentsInChildren<Selectable>())
+        foreach (Selectable select in GameManager.deck.rewardContent.transform.GetComponentsInChildren<Selectable>())
         {
             if(select.selected)
             {

@@ -24,12 +24,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     public virtual void ChooseOption()
     { 
-        numRandom = Random.Range(0, options.Count - 1);
+        numRandom = Random.Range(0, options.Count);
 
         while (lastAction == numRandom
             || (CombatManager.enemy.GetEnemy().GetCurrentHealth() == CombatManager.enemy.GetEnemy().GetStartingMaxHealth() && action == EnemyAction.Heal))
         {   
-            numRandom = Random.Range(0, options.Count - 1);
+            numRandom = Random.Range(0, options.Count);
         }
 
         lastAction = numRandom;

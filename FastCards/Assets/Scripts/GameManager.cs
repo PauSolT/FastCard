@@ -36,14 +36,14 @@ public class GameManager : MonoBehaviour
         //Set HUD to player and enemy
         combatManager.SetStartingHUD();
         //Hide button of reward cards
-        CombatManager.addCards.gameObject.SetActive(false);
+        //CombatManager.addCards.gameObject.SetActive(false);
         //Hide viewport of reward cards
-        deck.canvasDrawPile.transform.parent.parent.gameObject.SetActive(false);
+        deck.rewardContent.transform.parent.parent.gameObject.SetActive(false);
         //Show HUD
         CombatManager.enemyHUD.SetActive(true);
-        CombatManager.playerHUD.SetActive(false);
-        CombatManager.combatHUD.SetActive(false);
-        CombatManager.hand.gameObject.SetActive(false);
+        CombatManager.playerHUD.SetActive(true);
+        CombatManager.combatHUD.SetActive(true);
+        CombatManager.hand.gameObject.SetActive(true);
     }
     void Awake()
     {

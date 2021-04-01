@@ -33,6 +33,7 @@ public class Deck : MonoBehaviour
     public GameObject cardRewardPrefab;
     public GameObject hand;
     public GameObject canvasDrawPile;
+    public GameObject rewardContent;
 
     static float waitDrawSeconds = 0.15f;
 
@@ -100,14 +101,29 @@ public class Deck : MonoBehaviour
                     cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1]);
                     break;
                 case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
                     cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2]);
                     break;
-                case 4:
-                    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3]);
-                    break;
-                case 5:
-                    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4]);
-                    break;
+                //case 3:
+                //    break;
+                //case 4:
+                //    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3]);
+                //    break;
+                //case 5:
+                //    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4]);
+                //    break;
+                //case 6:
+                //    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4], sumTotal[5]);
+                //    break;
+                //case 7:
+                //    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4], sumTotal[5], sumTotal[6]);
+                //    break;
+                //case 8:
+                //    cardGameObject[i].GetComponentsInChildren<Text>()[2].text = string.Format(card.cardDescription, sumTotal[0], sumTotal[1], sumTotal[2], sumTotal[3], sumTotal[4], sumTotal[5], sumTotal[6], sumTotal[7]);
+                //    break;
             }
 
             i++;
@@ -324,13 +340,15 @@ public class Deck : MonoBehaviour
 
     public void HandCardToPile(Player player, Card card)
     {
-        pileDeck.Add(player.GetHand()[player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode()))]);
+        pileDeck.Add(card);
+        //pileDeck.Add(player.GetHand()[player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode()))]);
         RemoveCardFromHand(player, card);
     }
 
     public void RemoveCardFromHand(Player player, Card card)
     {
-        player.GetHand().RemoveAt(player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode())));
+        player.GetHand().Remove(card);
+        //player.GetHand().RemoveAt(player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode())));
         player.SetCurrentHandSize(player.GetCurrentHandSize() - 1);
     }
 

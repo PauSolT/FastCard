@@ -36,6 +36,7 @@ public class CombatManager
     public static Text manaText;
     public static Text intentionText;
     public static Text endTurnInfo;
+    public static Text currentTurnInfo;
 
     //Buttons
     public static Button endTurnButton;
@@ -75,6 +76,9 @@ public class CombatManager
     public static int statusInflicted = 0;
     public static int cardsDrawn = 0;
 
+    //Turn
+    public static int currentTurn;
+
     public static int GetAttackCardsRound() { return attackCardsRound; }
     public static int GetDefendCardsRound() { return defendCardsRound; }
     public static int GetHealingCardsRound() { return healingCardsRound; }
@@ -90,6 +94,7 @@ public class CombatManager
     public static int GetHealingDone() { return healingDone; }
     public static int GetStatusInflicted() { return statusInflicted; }
     public static int GetCardsDrawn() { return cardsDrawn; }
+    public static int GetCurrentTurn() { return currentTurn; }
 
 
         
@@ -119,6 +124,7 @@ public class CombatManager
         timeSlider = GameObject.Find("Canvas/CombatHUD/TimeSlider").GetComponent<Slider>();
         comboSlider = GameObject.Find("Canvas/CombatHUD/ComboSlider").GetComponent<Slider>();
         comboText = GameObject.Find("Canvas/CombatHUD/ComboText").GetComponent<Text>();
+        currentTurnInfo = GameObject.Find("Canvas/CombatHUD/TurnText").GetComponent<Text>();
         manaText = GameObject.Find("Canvas/CombatHUD/ManaText").GetComponent<Text>();
         endTurnButton = GameObject.Find("Canvas/CombatHUD/EndTurnButton").GetComponent<Button>();
         endTurnInfo = GameObject.Find("Canvas/CombatHUD/EndTurnInfo").GetComponent<Text>();
@@ -131,9 +137,8 @@ public class CombatManager
         levelUpHUD = GameObject.Find("Canvas/LevelUpHUD");
         levelUpHUD.SetActive(false);
 
-        //Reward HUD
-        addCards = GameObject.Find("Canvas/RewardHUD/AddCards").GetComponent<Button>();
-        addCards.gameObject.SetActive(false);
+        //Get hand HUD
+        hand = GameObject.Find("Canvas/Hand").GetComponent<HorizontalLayoutGroup>();
 
         //Initialize variables checked in middle of combat
         LookUpTable.LoadTable();
@@ -153,13 +158,12 @@ public class CombatManager
         //Loads enemy file
         jsonFile = Resources.Load(path) as TextAsset;
         GameManager.combatManager = JsonUtility.FromJson<CombatManager>(jsonFile.text);
-        //Gets hand space to put cards
-        hand = GameObject.Find("Canvas/Hand").GetComponent<HorizontalLayoutGroup>();
         //make enemy selected enemy for all scripts
         enemy = combatEnemy;
         //Initialize enemy
         enemy.Init();
 
+        currentTurn = 0;
     }
 
     public void SetStartingHUD()
@@ -197,6 +201,8 @@ public class CombatManager
     void StartPlayerTurn()
     {
         playerTurn = true;
+        currentTurn++;
+        currentTurnInfo.text = "Turn: " + currentTurn;
         //Draws cards to hand
         GameManager.deck.StartCoroutine(Deck.DrawStartingHand(GameManager.player.GetPlayer()));
         //Sets times
@@ -253,6 +259,9 @@ public class CombatManager
             GameManager.deck.DestroyCard(GameManager.deck.hand.transform.GetChild(i).gameObject);
             GameManager.deck.cardsGO.RemoveAt(0);
         }
+
+        //Reset hand spacing -100 (original hand spacing -1150)
+        hand.spacing = -1050;
     }
 
     public void CombatInputs()

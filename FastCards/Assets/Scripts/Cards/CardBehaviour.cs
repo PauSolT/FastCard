@@ -235,6 +235,19 @@ public class CardBehaviour
         CombatManager.drawsDealtRound += totalValue;
         CombatManager.cardsDrawn += totalValue;
     }
+
+    //public void RandomBuff(bool self, int value = 0, LookUpTable.DelegateType del = 0)
+    //{
+    //    int totalValue = value + LookUpTable.lookUpTable[del]();
+
+    //    if (self)
+    //        GameManager.player.ApplyStatus(0, 0, totalValue);
+    //    else if (!self)
+    //        CombatManager.enemy.ApplyStatus(0, 0, totalValue);
+
+    //    CombatManager.statusDealtRound += totalValue;
+    //    CombatManager.statusInflicted += totalValue;
+    //}
 }
 
 [System.Serializable]

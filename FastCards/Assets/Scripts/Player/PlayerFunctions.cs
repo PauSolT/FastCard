@@ -90,7 +90,7 @@ public class PlayerFunctions : Player
         if (def >= 0)
         {
             player.SetCurrentArmor(player.GetCurrentArmor() + def);
-            CombatManager.playerArmor.text = GameManager.player.GetCurrentArmor().ToString();
+            CombatManager.playerArmor.text = player.GetCurrentArmor().ToString();
         }
 
         //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());

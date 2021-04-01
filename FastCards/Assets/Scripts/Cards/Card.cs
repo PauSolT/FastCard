@@ -46,8 +46,8 @@ public class Card
     [SerializeField]
     protected Action<PlayerFunctions> cardUse;
 
-    [SerializeField] public Color colorCard;
-    [SerializeField] public Color colorBgCard;
+    /*[SerializeField]*/public Color colorCard;
+    /*[SerializeField]*/public Color colorBgCard;
 
     //Virtual functions so childs use them
     public virtual void CardInit()
