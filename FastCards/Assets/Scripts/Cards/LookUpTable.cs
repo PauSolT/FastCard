@@ -32,7 +32,10 @@ public static class LookUpTable
         //19            20          21              22          23
 
         //Turn
-        currentTurn
+        currentTurn,
+
+        //Enemy Actions Related
+        enemyHealingCombat
     }
     public static int GetZero() { return 0; }
 
@@ -71,5 +74,6 @@ public static class LookUpTable
         lookUpTable.Add(DelegateType.statusCombat, CombatManager.GetStatusInflicted);
         lookUpTable.Add(DelegateType.drawCombat, CombatManager.GetCardsDrawn);
         lookUpTable.Add(DelegateType.currentTurn, CombatManager.GetCurrentTurn);
+        lookUpTable.Add(DelegateType.enemyHealingCombat, CombatManager.enemy.GetHealingCombat);
     }
 }

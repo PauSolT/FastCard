@@ -34,9 +34,9 @@ public class GameManager : MonoBehaviour
         //Initialize enemy
         combatManager.InitEnemy(enemies[currentEnemy]);
         //Set HUD to player and enemy
+        combatManager.ResetPlayerCombatVariables();
         combatManager.SetStartingHUD();
         //Hide button of reward cards
-        //CombatManager.addCards.gameObject.SetActive(false);
         //Hide viewport of reward cards
         deck.rewardContent.transform.parent.parent.gameObject.SetActive(false);
         //Show HUD

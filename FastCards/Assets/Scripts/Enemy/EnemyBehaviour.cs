@@ -8,7 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     int lastAction = -1;
 
-    public int numRandom;
+    public int numRandom = 0;
     public enum EnemyAction
     {
         Attack,
@@ -34,6 +34,16 @@ public class EnemyBehaviour : MonoBehaviour
 
         lastAction = numRandom;
         
+    }
+
+    public virtual void ConsecutiveOption()
+    {
+        numRandom++;
+        if (CombatManager.enemy.GetEnemy().GetCurrentHealth() == CombatManager.enemy.GetEnemy().GetStartingMaxHealth() && action == EnemyAction.Heal)
+            numRandom++;
+
+        if (numRandom > options.Count-1)
+            numRandom = 0;
     }
 
     public void ExecuteOption()

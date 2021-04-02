@@ -145,6 +145,9 @@ public class CardBehaviour
     {
         int totalValue = value + LookUpTable.lookUpTable[del]();
 
+        CombatManager.damageDealtRound += totalValue;
+        CombatManager.damageDealt += totalValue;
+
         if (self)
             GameManager.player.LoseHP(totalValue);
         else if (!self)

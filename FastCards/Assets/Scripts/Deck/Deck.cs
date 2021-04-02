@@ -43,7 +43,12 @@ public class Deck : MonoBehaviour
         foreach (Card card in GameManager.cardCollection.cards)
         {
             card.CardInit();
-            playerDeck.Add(card);  
+            //playerDeck.Add(card);  
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            playerDeck.Add(GameManager.cardCollection.cards[i]);
         }
         for (int i = 0; i < 2; i++)
         {

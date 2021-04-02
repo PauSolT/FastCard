@@ -93,7 +93,7 @@ public class PlayerFunctions : Player
             CombatManager.playerArmor.text = player.GetCurrentArmor().ToString();
         }
 
-        //Debug.Log("Armor: " + player.GetCurrentArmor() + "Health: " + player.GetCurrentHealth() + "/" + player.GetCurrentMaxHealth());
+        //Debug.Log("Armor: " + player.GetCurrentArmor());
     }
 
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
@@ -102,11 +102,15 @@ public class PlayerFunctions : Player
         player.SetStatusDefense(player.GetStatusDefense() + defenseBuff);
         player.SetStatusHeal(player.GetStatusHeal() + healingBuff);
         //Debug.Log("Damage Buff: " + player.GetStatusDamage() + "Defense Buff: " + player.GetStatusDefense() + "Healing Buff " + player.GetStatusHeal());
+
+        CombatManager.playerAttackText.text = player.GetStatusDamage().ToString();
+        CombatManager.playerArmorText.text = player.GetStatusDefense().ToString();
+        CombatManager.playerRecoveryText.text = player.GetStatusHeal().ToString();
     }
 
     public override void LoseHP(int hpLoss)
     {
-        player.SetCurrentHealth(player  .GetCurrentHealth() - hpLoss);
+        player.SetCurrentHealth(player.GetCurrentHealth() - hpLoss);
         CombatManager.playerHealth.text = player.GetCurrentHealth() + " / " + player.GetCurrentMaxHealth();
         CombatManager.playerSlider.value = player.GetCurrentHealth();
         if (player.GetCurrentHealth() <= 0)

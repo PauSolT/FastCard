@@ -38,6 +38,13 @@ public class CombatManager
     public static Text endTurnInfo;
     public static Text currentTurnInfo;
 
+    public static Text playerAttackText;
+    public static Text playerArmorText;
+    public static Text playerRecoveryText;
+    public static Text enemyAttackText;
+    public static Text enemyArmorText;
+    public static Text enemyRecoveryText;
+
     //Buttons
     public static Button endTurnButton;
     public static Button deckButton;
@@ -109,15 +116,21 @@ public class CombatManager
         playerSlider = GameObject.Find("Canvas/PlayerHUD/PlayerSlider").GetComponent<Slider>();
         playerHealth = GameObject.Find("Canvas/PlayerHUD/PlayerHealth").GetComponent<Text>();
         playerName = GameObject.Find("Canvas/PlayerHUD/PlayerName").GetComponent<Text>();
-        playerArmor = GameObject.Find("Canvas/PlayerHUD/PlayerArmor").GetComponent<Text>();
+        playerArmor = GameObject.Find("Canvas/PlayerHUD/PlayerDefense").GetComponent<Text>();
+        playerAttackText = GameObject.Find("Canvas/PlayerHUD/PlayerAttack").GetComponent<Text>();
+        playerArmorText = GameObject.Find("Canvas/PlayerHUD/PlayerArmor").GetComponent<Text>();
+        playerRecoveryText = GameObject.Find("Canvas/PlayerHUD/PlayerRecovery").GetComponent<Text>();
 
         //Enemy HUD
         enemyHUD = GameObject.Find("Canvas/EnemyHUD");
         enemySlider = GameObject.Find("Canvas/EnemyHUD/EnemySlider").GetComponent<Slider>();
         enemyHealth = GameObject.Find("Canvas/EnemyHUD/EnemyHealth").GetComponent<Text>();
-        enemyArmor = GameObject.Find("Canvas/EnemyHUD/EnemyArmor").GetComponent<Text>();
+        enemyArmor = GameObject.Find("Canvas/EnemyHUD/EnemyDefense").GetComponent<Text>();
         enemyName = GameObject.Find("Canvas/EnemyHUD/EnemyName").GetComponent<Text>();
         intentionText = GameObject.Find("Canvas/EnemyHUD/EnemyIntention").GetComponent<Text>();
+        enemyAttackText = GameObject.Find("Canvas/EnemyHUD/EnemyAttack").GetComponent<Text>();
+        enemyArmorText = GameObject.Find("Canvas/EnemyHUD/EnemyArmor").GetComponent<Text>();
+        enemyRecoveryText = GameObject.Find("Canvas/EnemyHUD/EnemyRecovery").GetComponent<Text>();
 
         //Combat HUD
         combatHUD = GameObject.Find("Canvas/CombatHUD");
@@ -166,6 +179,14 @@ public class CombatManager
         currentTurn = 0;
     }
 
+    public void ResetPlayerCombatVariables()
+    {
+        GameManager.player.GetPlayer().SetCurrentArmor(0);
+        GameManager.player.GetPlayer().SetStatusDamage(0);
+        GameManager.player.GetPlayer().SetStatusDefense(0);
+        GameManager.player.GetPlayer().SetStatusHeal(0);
+    }
+
     public void SetStartingHUD()
     {
         //Set HUD
@@ -179,6 +200,13 @@ public class CombatManager
         enemySlider.value = enemy.GetEnemy().GetCurrentHealth();
         playerName.text = GameManager.player.GetPlayer().GetName();
         enemyName.text = enemy.GetEnemy().GetName();
+        playerAttackText.text = GameManager.player.GetPlayer().GetStatusDamage().ToString();
+        playerArmorText.text = GameManager.player.GetPlayer().GetStatusDefense().ToString();
+        playerRecoveryText.text = GameManager.player.GetPlayer().GetStatusHeal().ToString();
+        enemyAttackText.text = enemy.GetEnemy().GetStatusDamage().ToString();
+        enemyArmorText.text = enemy.GetEnemy().GetStatusDefense().ToString();
+        enemyRecoveryText.text = enemy.GetEnemy().GetStatusHeal().ToString();
+
         comboText.text = "COMBO: " + combo.ToString();
 
         StartPlayerTurn();

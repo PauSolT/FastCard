@@ -13,6 +13,7 @@ public class EnemyFunctions : Enemy
     [SerializeField] string path = "Jsons/EnemyValues";
 
     [SerializeField]EnemyBehaviour selectedBehaviour = null;
+    int healingCombatDone = 0;
 
     public void Init()
     {
@@ -62,6 +63,7 @@ public class EnemyFunctions : Enemy
     public override void Heal(int heal)
     {
         CombatManager.enemy.GetEnemy().SetCurrentHealth(CombatManager.enemy.GetEnemy().GetCurrentHealth() + heal);
+        healingCombatDone += heal;
 
         if (CombatManager.enemy.GetEnemy().GetCurrentHealth() >= CombatManager.enemy.GetEnemy().GetStartingMaxHealth())
             CombatManager.enemy.GetEnemy().SetCurrentHealth(CombatManager.enemy.GetEnemy().GetStartingMaxHealth());
@@ -69,8 +71,10 @@ public class EnemyFunctions : Enemy
         CombatManager.enemyHealth.text = CombatManager.enemy.GetEnemy().GetCurrentHealth() + " / " + CombatManager.enemy.GetEnemy().GetStartingMaxHealth();
         CombatManager.enemySlider.value = CombatManager.enemy.GetEnemy().GetCurrentHealth();
 
-        Debug.Log("Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingMaxHealth());
+        //Debug.Log("Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingMaxHealth());
     }
+
+    public int GetHealingCombat() { return healingCombatDone; }
 
     public override void AddArmor(int armor)
     {
@@ -86,6 +90,10 @@ public class EnemyFunctions : Enemy
         CombatManager.enemy.GetEnemy().SetStatusDefense(CombatManager.enemy.GetEnemy().GetStatusDefense() + defenseBuff);
         CombatManager.enemy.GetEnemy().SetStatusHeal(CombatManager.enemy.GetEnemy().GetStatusHeal() + healingBuff);
         //Debug.Log("Damage Buff: " + enemy.GetStatusDamage() + "Defense Buff: " + enemy.GetStatusDefense() + "Healing Buff " + enemy.GetStatusHeal());
+
+        CombatManager.enemyAttackText.text = CombatManager.enemy.GetEnemy().GetStatusDamage().ToString();
+        CombatManager.enemyArmorText.text = CombatManager.enemy.GetEnemy().GetStatusDefense().ToString();
+        CombatManager.enemyRecoveryText.text = CombatManager.enemy.GetEnemy().GetStatusHeal().ToString();
     }
 
     public override void Die()

@@ -1,6 +1,6 @@
 {
-  "startingMaxHealth": 175,
-  "startingHealth": 3,
+  "startingMaxHealth": 40,
+  "startingHealth": 40,
   "startingArmor": 0,
-  "enemyName": "Default Enemy"
+  "enemyName": "Enemy 1"
 }

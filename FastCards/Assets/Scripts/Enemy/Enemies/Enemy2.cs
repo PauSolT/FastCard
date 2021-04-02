@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdvancedEnemy : EnemyBehaviour
+public class Enemy2 : EnemyBehaviour
 {
-    int attack = 15;
-    int attack2 = 35;
-    int defense = 20;
+    int buffDamage = 1;
+    int debuffArmor = 1;
+    int attack = 7;
 
     public override void Init()
     {
@@ -18,19 +18,19 @@ public class AdvancedEnemy : EnemyBehaviour
 
     public override void ChooseOption()
     {
-        base.ChooseOption();
+        base.ConsecutiveOption();
         switch (numRandom)
         {
             case 0:
-                CombatManager.intentionText.text = "Attack: " + (attack + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString();
+                CombatManager.intentionText.text = "Damage: " + (attack + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString();
                 action = EnemyAction.Attack;
                 break;
             case 1:
-                CombatManager.intentionText.text = "Attack: " + (attack + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString();
+                CombatManager.intentionText.text = "Attack: " + buffDamage.ToString();
                 action = EnemyAction.Attack;
                 break;
             case 2:
-                CombatManager.intentionText.text = "Defense: " + (defense + CombatManager.enemy.GetEnemy().GetStatusDefense()).ToString();
+                CombatManager.intentionText.text = "Armor debuff: " + debuffArmor.ToString();
                 action = EnemyAction.Defend;
                 break;
             default:
@@ -43,20 +43,12 @@ public class AdvancedEnemy : EnemyBehaviour
     }
     public override void SecondOption()
     {
-        EnemyAIFunctions.Attack(attack2);
+        EnemyAIFunctions.StatusDamage(buffDamage);
     }
 
     public override void ThirdOption()
     {
-        EnemyAIFunctions.Defend(defense);
-    }
-
-    public override void FourthOption()
-    {
-    }
-
-    public override void FifthOption()
-    {
+        EnemyAIFunctions.DebuffArmor(debuffArmor);
     }
 
     public override void StartingPassive()
