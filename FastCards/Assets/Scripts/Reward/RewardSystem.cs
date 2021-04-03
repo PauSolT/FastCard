@@ -10,11 +10,11 @@ public class RewardSystem
     int commonPossibilities = 100;
     int rarePossibilities = 45;
     int epicPossibilities = 5;
-    //int legendaryPossibilities = 0;
+    int legendaryPossibilities = 0;
 
     public static int numMaxRewards = 3;
 
-    int numRewardCards = 5;
+    int numRewardCards = 8;
 
     int maxPossibility = 150;
 
@@ -24,6 +24,21 @@ public class RewardSystem
     {
         SelectCards();
         GameManager.deck.rewardContent.transform.parent.parent.gameObject.SetActive(true);
+
+        if (commonPossibilities > 30) 
+        {
+            commonPossibilities -= 7;
+            rarePossibilities += 3;
+            epicPossibilities += 3;
+            legendaryPossibilities += 1;
+        }
+
+        if (commonPossibilities <= 30 && rarePossibilities <= 75 )
+        {
+            rarePossibilities -= 3;
+            epicPossibilities += 1;
+            legendaryPossibilities += 2;
+        }
     }
 
     void SelectCards()

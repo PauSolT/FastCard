@@ -22,6 +22,7 @@ public class EnemyFunctions : Enemy
         enemy = JsonUtility.FromJson<Enemy>(jsonFile.text);
         
         enemy.SetCurrentHealth(enemy.GetStartingHealth());
+        enemy.SetCurrentArmor(enemy.GetStartingArmor());
         enemy.SetBehaviour(selectedBehaviour);
         enemy.GetBehaviour().Init();
 
@@ -98,7 +99,16 @@ public class EnemyFunctions : Enemy
 
     public override void Die()
     {
-        GameManager.player.LevelUp();
+        GameManager.player.GetPlayer().SetCurrentLevel(GameManager.player.GetPlayer().GetCurrentLevel() + 1);
+        if (GameManager.player.GetPlayer().GetCurrentLevel() % 2 == 0)
+        {
+            GameManager.player.LevelUp();
+        } else
+        {
+            GameManager.rewardSystem.GetRewards();
+        }
+
+
         CombatManager.enemyHUD.SetActive(false);
         CombatManager.playerHUD.SetActive(false);
         CombatManager.combatHUD.SetActive(false);

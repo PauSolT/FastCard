@@ -72,53 +72,53 @@ public class CombatFunctions : MonoBehaviour
         GameManager.rewardSystem.AddRewardCardsToPlayer();
     }
 
-    public void SaveGame()
-    {
-        string path = Application.dataPath + "/SaveFile.json";
-        string startingText = "{\n \"player\": {\n ";
+    //public void SaveGame()
+    //{
+    //    string path = Application.dataPath + "/SaveFile.json";
+    //    string startingText = "{\n \"player\": {\n ";
 
-        if (!File.Exists(path))
-        {
-            File.WriteAllText(path, startingText);
-        } else
-        {
-            File.Delete(path);
-            File.WriteAllText(path, startingText);
-        }
-        string playerText = "\"currentMaxHealth\": " + GameManager.player.GetPlayer().GetCurrentMaxHealth() + ",\n" +
-                            "\"currentHealth\": " + GameManager.player.GetPlayer().GetCurrentHealth() + ",\n" +
-                             "\"currentMaxMana\": " + GameManager.player.GetPlayer().GetCurrentMaxMana() + ",\n" +
-                             "\"currentMaxHandSize\": " + GameManager.player.GetPlayer().GetCurrentMaxHandSize() + "\n},\n";
-
-
-
-        string playerDeck = "\"cards\": [\n";
-        int i = 0;
-
-        foreach (Card card in GameManager.deck.playerDeck)
-        {
-            playerDeck += JsonUtility.ToJson(card, true);
-
-            if (i != GameManager.deck.playerDeck.Count - 1)
-            {
-                playerDeck += ",\n";
-            }
-            i++;
-        }
-
-        playerDeck += "\n]";
+    //    if (!File.Exists(path))
+    //    {
+    //        File.WriteAllText(path, startingText);
+    //    } else
+    //    {
+    //        File.Delete(path);
+    //        File.WriteAllText(path, startingText);
+    //    }
+    //    string playerText = "\"currentMaxHealth\": " + GameManager.player.GetPlayer().GetCurrentMaxHealth() + ",\n" +
+    //                        "\"currentHealth\": " + GameManager.player.GetPlayer().GetCurrentHealth() + ",\n" +
+    //                         "\"currentMaxMana\": " + GameManager.player.GetPlayer().GetCurrentMaxMana() + ",\n" +
+    //                         "\"currentMaxHandSize\": " + GameManager.player.GetPlayer().GetCurrentMaxHandSize() + "\n},\n";
 
 
-        File.AppendAllText(path, playerText);
-        File.AppendAllText(path, playerDeck);
 
-        File.AppendAllText(path, "\n}");
+    //    string playerDeck = "\"cards\": [\n";
+    //    int i = 0;
+
+    //    foreach (Card card in GameManager.deck.playerDeck)
+    //    {
+    //        playerDeck += JsonUtility.ToJson(card, true);
+
+    //        if (i != GameManager.deck.playerDeck.Count - 1)
+    //        {
+    //            playerDeck += ",\n";
+    //        }
+    //        i++;
+    //    }
+
+    //    playerDeck += "\n]";
+
+
+    //    File.AppendAllText(path, playerText);
+    //    File.AppendAllText(path, playerDeck);
+
+    //    File.AppendAllText(path, "\n}");
        
-    }
+    //}
 
-    private void Start()
-    {
-        SaveGame();
-    }
+    //private void Start()
+    //{
+    //    SaveGame();
+    //}
 
 }

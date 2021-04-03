@@ -49,14 +49,14 @@ public class PlayerFunctions : Player
             if(damageHealth <= 0)
             {
                 player.SetCurrentArmor(player.GetCurrentArmor() - damage);
-                CombatManager.playerArmor.text = GameManager.player.GetCurrentArmor().ToString();
+                CombatManager.playerArmor.text = player.GetCurrentArmor().ToString();
 
             }
 
             else if(damageHealth > 0)
             {
                 player.SetCurrentArmor(0);
-                CombatManager.playerArmor.text = GameManager.player.GetCurrentArmor().ToString();
+                CombatManager.playerArmor.text = player.GetCurrentArmor().ToString();
                 LoseHP(damageHealth);
             }
         }
