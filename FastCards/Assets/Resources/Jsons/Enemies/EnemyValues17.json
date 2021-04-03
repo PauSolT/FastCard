@@ -1,0 +1,9 @@
+{
+  "startingMaxHealth": 300,
+  "startingHealth": 300,
+  "startingArmor": 0,
+  "statusDamage": 0,
+  "statusDefense": 0,
+  "statusHeal": 0,
+  "enemyName": "Elite 4"
+}

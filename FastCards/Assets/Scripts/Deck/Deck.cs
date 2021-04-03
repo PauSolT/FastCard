@@ -201,7 +201,7 @@ public class Deck : MonoBehaviour
         SetCardTexts(newCard, card);
         newCard.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
         newCard.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
-        cardsGO.Add(newCard);
+        //cardsGO.Add(newCard);
     }
 
     public void DestroyCard(Object go)
@@ -227,7 +227,7 @@ public class Deck : MonoBehaviour
         }
 
         //pileDeck.Clear();
-        Debug.Log("Pile deck to draw deck...");
+        //Debug.Log("Pile deck to draw deck...");
     }
 
     public void UsedCardToPile(Player player, Card card)
@@ -295,18 +295,27 @@ public class Deck : MonoBehaviour
 
         foreach (Card card in pileDeck)
         {
-            GameObject newCard = Instantiate(cardPrefab, canvasDrawPile.transform);
-            newCard.GetComponent<Draggable>().enabled = false;
-            newCard.name = card.cardName;
-            SetCardTexts(newCard, card);
-            cardPrefab.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
-            cardPrefab.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
-            cardsGO.Add(newCard);
+            DrawCardWoDraggable(card, canvasDrawPile);
         }
         foreach (Transform child in canvasDrawPile.transform)
         {
             pileDeckGO.Add(child.gameObject);
         }
+
+        //foreach (Card card in pileDeck)
+        //{
+        //    GameObject newCard = Instantiate(cardPrefab, canvasDrawPile.transform);
+        //    newCard.GetComponent<Draggable>().enabled = false;
+        //    newCard.name = card.cardName;
+        //    SetCardTexts(newCard, card);
+        //    cardPrefab.transform.GetChild(0).GetComponent<Image>().color = card.colorCard;
+        //    cardPrefab.transform.GetChild(1).GetComponent<Image>().color = card.colorBgCard;
+        //    cardsGO.Add(newCard);
+        //}
+        //foreach (Transform child in canvasDrawPile.transform)
+        //{
+        //    pileDeckGO.Add(child.gameObject);
+        //}
 
 
         UpdateCardDescription(pileDeck, pileDeckGO);

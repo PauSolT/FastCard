@@ -1,0 +1,9 @@
+{
+  "startingMaxHealth": 500,
+  "startingHealth": 500,
+  "startingArmor": 0,
+  "statusDamage": 0,
+  "statusDefense": 0,
+  "statusHeal": 0,
+  "enemyName": "Final Boss"
+}

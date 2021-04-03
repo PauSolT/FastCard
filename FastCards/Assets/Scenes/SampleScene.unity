@@ -2110,7 +2110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &738889982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4327,7 +4327,7 @@ MonoBehaviour:
     statusDefense: 0
     statusHeal: 0
     behaviour: {fileID: 0}
-    path: Jsons/EnemyValues0
+    path: Jsons/Enemies/EnemyValues0
     selectedBehaviour: {fileID: 8855917525165246769, guid: 3a03368101222604faf2767243a0d91d,
       type: 3}
   - enemyName: 
@@ -4340,8 +4340,242 @@ MonoBehaviour:
     statusDefense: 0
     statusHeal: 0
     behaviour: {fileID: 0}
-    path: Jsons/EnemyValues1
+    path: Jsons/Enemies/EnemyValues1
     selectedBehaviour: {fileID: 7259082910680081825, guid: 37c22b3a675c0bb49a5994bbd2a3cf88,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues2
+    selectedBehaviour: {fileID: -5720558801736104827, guid: 5b0e9aa130a810844b1b41e87b0eed98,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues3
+    selectedBehaviour: {fileID: 6915265291785319426, guid: a950c0587b77ee549ae45da35bb5bd98,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues4
+    selectedBehaviour: {fileID: -3019988464755495647, guid: 1d5f4852bd242c04fa05525c59b5096f,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues5
+    selectedBehaviour: {fileID: 3484162652680891502, guid: bd6fcd9ff0872e446a0bdeb56a889425,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues6
+    selectedBehaviour: {fileID: -6996171393445171160, guid: f81ed46b39cf6ba40ab5673154fa1c68,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues7
+    selectedBehaviour: {fileID: 7210139000335129220, guid: a599eeb8325fe664aab1e587f28a531f,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues8
+    selectedBehaviour: {fileID: -2615145312580773462, guid: f37a4b63a9963b94a9dbf65e6c94ba74,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues9
+    selectedBehaviour: {fileID: -6303717384177208201, guid: 32a422fc76a66e34290ccd6e70299cd2,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues10
+    selectedBehaviour: {fileID: -5901727170800778228, guid: 361a23ace5c52034f88e72f2bec0c66d,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues11
+    selectedBehaviour: {fileID: -5240102691517700232, guid: 3e592b568f6185a4e92b983a448d26f6,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues12
+    selectedBehaviour: {fileID: 6308571451930945414, guid: 4d1cb140bc523bb4680028b612dbfc66,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues13
+    selectedBehaviour: {fileID: 3689904426037417152, guid: 701d22a06b5d3004887c471636906a4b,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues14
+    selectedBehaviour: {fileID: -7177966808178153313, guid: ee0e6f73731a3eb4696fbe73c9e2d8dd,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues15
+    selectedBehaviour: {fileID: 732777744449317165, guid: 6db542b993d429c47abf0be78f918c5b,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues16
+    selectedBehaviour: {fileID: 2950688979473339275, guid: eff9027872dcdc745a753b038ac8b80c,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues17
+    selectedBehaviour: {fileID: 271732220490003357, guid: 9edafb48aabb0014698e28f5412b47d5,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues18
+    selectedBehaviour: {fileID: -4864945617004807195, guid: 90eaef5117b8adf4aa81e0f084ea4520,
+      type: 3}
+  - enemyName: 
+    startingMaxHealth: 0
+    startingHealth: 0
+    currentHealth: 0
+    startingArmor: 0
+    currentArmor: 0
+    statusDamage: 0
+    statusDefense: 0
+    statusHeal: 0
+    behaviour: {fileID: 0}
+    path: Jsons/Enemies/EnemyValues19
+    selectedBehaviour: {fileID: 9026828975967942065, guid: 9fad72483e239f5478af2be187df8104,
       type: 3}
   cardsCreated: []
   showCardsCreated: []

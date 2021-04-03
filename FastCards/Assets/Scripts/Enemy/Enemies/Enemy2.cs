@@ -18,7 +18,7 @@ public class Enemy2 : EnemyBehaviour
 
     public override void ChooseOption()
     {
-        base.ConsecutiveOption();
+        base.ChooseOption();
         switch (numRandom)
         {
             case 0:
@@ -27,11 +27,11 @@ public class Enemy2 : EnemyBehaviour
                 break;
             case 1:
                 CombatManager.intentionText.text = "Attack: " + buffDamage.ToString();
-                action = EnemyAction.Attack;
+                action = EnemyAction.Status;
                 break;
             case 2:
                 CombatManager.intentionText.text = "Armor debuff: " + debuffArmor.ToString();
-                action = EnemyAction.Defend;
+                action = EnemyAction.Status;
                 break;
             default:
                 break;
@@ -49,15 +49,5 @@ public class Enemy2 : EnemyBehaviour
     public override void ThirdOption()
     {
         EnemyAIFunctions.DebuffArmor(debuffArmor);
-    }
-
-    public override void StartingPassive()
-    {
-
-    }
-
-    public override void PassiveOption()
-    {
-
     }
 }

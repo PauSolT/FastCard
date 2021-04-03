@@ -1,0 +1,9 @@
+{
+  "startingMaxHealth": 144,
+  "startingHealth": 144,
+  "startingArmor": 44,
+  "statusDamage": 4,
+  "statusDefense": 4,
+  "statusHeal": 4,
+  "enemyName": "Enemy 11"
+}

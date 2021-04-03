@@ -10,7 +10,7 @@ public class EnemyFunctions : Enemy
     Enemy enemy;
 
     //Jsons/EnemyValues
-    [SerializeField] string path = "Jsons/EnemyValues";
+    [SerializeField] string path = "Jsons/Enemies/EnemyValues";
 
     [SerializeField]EnemyBehaviour selectedBehaviour = null;
     int healingCombatDone = 0;

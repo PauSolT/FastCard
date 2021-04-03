@@ -250,8 +250,10 @@ public class CombatManager
 
     public void BuildCombo()
     {
-        comboBuilder++;
-        combo += (int)comboMultiplier * comboBuilder;
+        if (combo == 0)
+            combo = 2;
+        else
+            combo++;
         comboText.text = "COMBO: " + combo.ToString();
     }
 

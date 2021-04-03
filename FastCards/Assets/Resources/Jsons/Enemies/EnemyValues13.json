@@ -1,0 +1,9 @@
+{
+  "startingMaxHealth": 300,
+  "startingHealth": 200,
+  "startingArmor": 75,
+  "statusDamage": 0,
+  "statusDefense": 0,
+  "statusHeal": 0,
+  "enemyName": "Elite 3"
+}
