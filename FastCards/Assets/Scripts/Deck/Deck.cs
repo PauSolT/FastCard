@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Deck : MonoBehaviour
 {
 
-    //string path = "Cards";
-
     public List<Card> playerDeck = new List<Card>();
 
     public List<Card> combatDeck;
@@ -65,7 +63,7 @@ public class Deck : MonoBehaviour
     public void StartCombat()
     {
         passives = new List<CardPassive>();
-        AllPasives.Init();
+        //AllPasives.Init();
         combatDeck = new List<Card>(playerDeck.Count);
         foreach (Card card in playerDeck)
         {

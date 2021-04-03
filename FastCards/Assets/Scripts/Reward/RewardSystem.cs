@@ -118,7 +118,7 @@ public class RewardSystem
             }
         }
 
-        for (byte i = 0; i < rewardCards.Count;)
+        for (int i = 0; i < rewardCards.Count;)
         {
             rewardCards.RemoveAt(0);
             GameManager.Destroy(rewardCardsGO[0]);
