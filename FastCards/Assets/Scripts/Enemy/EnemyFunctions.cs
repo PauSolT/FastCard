@@ -14,6 +14,7 @@ public class EnemyFunctions : Enemy
 
     [SerializeField]EnemyBehaviour selectedBehaviour = null;
     int healingCombatDone = 0;
+    bool alreadyDead = false;
 
     public void Init()
     {
@@ -57,7 +58,10 @@ public class EnemyFunctions : Enemy
         //If enemy dies
         if (enemy.GetCurrentHealth() <= 0)
         {
-            Die();  
+            if (!alreadyDead)
+            Die();
+
+            alreadyDead = true;
         }
     }
 
