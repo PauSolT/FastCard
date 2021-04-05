@@ -22,7 +22,7 @@
     },
     {
       "cardName": "Shield",
-      "cardDescription": "Add {0} armor",
+      "cardDescription": "Add {0} defense",
       "cost": 1,
       "discard": false,
       "cardType": 1,
@@ -1187,7 +1187,7 @@
             "conditionTypes": []
           },
           "value": 0,
-          "targetPlayer": true,
+          "targetPlayer": false,
           "valueDelegate": 3,
           "behaviourType": 0
         },
@@ -1197,7 +1197,7 @@
             "conditionTypes": []
           },
           "value": 0,
-          "targetPlayer": false,
+          "targetPlayer": true,
           "valueDelegate": 3,
           "behaviourType": 0
         }
@@ -1501,7 +1501,7 @@
     },
     {
       "cardName": "Hyper Shield",
-      "cardDescription": "Add {0} Armor",
+      "cardDescription": "Add {0} defense",
       "cost": 5,
       "discard": false,
       "cardType": 1,

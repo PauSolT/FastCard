@@ -108,7 +108,7 @@ public class EnemyFunctions : Enemy
             GameManager.rewardSystem.GetRewards();
         }
 
-
+        GameManager.combatManager.ResetPlayerCombatVariables();
         CombatManager.enemyHUD.SetActive(false);
         CombatManager.playerHUD.SetActive(false);
         CombatManager.combatHUD.SetActive(false);

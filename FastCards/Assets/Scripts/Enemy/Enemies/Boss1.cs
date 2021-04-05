@@ -24,7 +24,7 @@ public class Boss1 : EnemyBehaviour
         switch (numRandom)
         {
             case 0:
-                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDefense()).ToString() + " x 2";
+                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 2";
                 action = EnemyAction.Attack;
                 break;
             case 1:

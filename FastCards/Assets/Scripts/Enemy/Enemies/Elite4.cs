@@ -19,7 +19,7 @@ public class Elite4 : EnemyBehaviour
         switch (numRandom)
         {
             case 0:
-                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + "x " + (times + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn]()).ToString();
+                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn]() + " x " + (times + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn]()).ToString();
                 action = EnemyAction.Attack;
                 break;
             default:
