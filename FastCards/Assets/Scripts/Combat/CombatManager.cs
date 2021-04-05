@@ -251,7 +251,7 @@ public class CombatManager
     public void BuildCombo()
     {
         combo += 2;
-
+        currentComboSeconds += 0.5f;
         comboText.text = "COMBO: " + combo.ToString();
     }
 

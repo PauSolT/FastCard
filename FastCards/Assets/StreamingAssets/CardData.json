@@ -179,7 +179,7 @@
     },
     {
       "cardName": "Show Strength",
-      "cardDescription": "Deal {0} damage and add 1 Attack",
+      "cardDescription": "Deal {0} damage and add 1 Attack to yourself",
       "cost": 1,
       "discard": true,
       "cardType": 0,
@@ -263,7 +263,7 @@
     },
     {
       "cardName": "Cheap Shot",
-      "cardDescription": "Deal 8 damage and add -1 Armor",
+      "cardDescription": "Deal 8 damage and add -1 Plating to yourself",
       "cost": 1,
       "discard": false,
       "cardType": 0,
@@ -439,7 +439,7 @@
     },
     {
       "cardName": "Throwing Knife",
-      "cardDescription": "Deal {0} damage and add -1 Armor to the enemy",
+      "cardDescription": "Deal {0} damage and add -1 Plating to the enemy",
       "cost": 1,
       "discard": false,
       "cardType": 0,
@@ -597,7 +597,7 @@
     },
     {
       "cardName": "Repeat",
-      "cardDescription": "Deal all damage this turn to the enemy. (Self damage is counted towards damaging the enemy) ({0}).\nDiscard",
+      "cardDescription": "Deal all damage this turn to the enemy. (Self damage counts towards damaging the enemy) ({0}).\nDiscard",
       "cost": 2,
       "discard": true,
       "cardType": 0,
@@ -671,7 +671,7 @@
     },
     {
       "cardName": "All in",
-      "cardDescription": "Deal {0} damage and add -6 Attack",
+      "cardDescription": "Deal {0} damage and add -6 Attack to yourself",
       "cost": 3,
       "discard": false,
       "cardType": 0,
@@ -933,7 +933,7 @@
     },
     {
       "cardName": "Mini Shield",
-      "cardDescription": "Add {0} defense",
+      "cardDescription": "Add {0} Defense",
       "cost": 0,
       "discard": false,
       "cardType": 1,
@@ -965,7 +965,7 @@
     },
     {
       "cardName": "Evasion",
-      "cardDescription": "Add {0} defense 3 times.\nDiscard",
+      "cardDescription": "Add {0} Defense 3 times.\nDiscard",
       "cost": 0,
       "discard": true,
       "cardType": 1,
@@ -1017,7 +1017,7 @@
     },
     {
       "cardName": "Shield",
-      "cardDescription": "Add {0} defense",
+      "cardDescription": "Add {0} Defense",
       "cost": 1,
       "discard": false,
       "cardType": 1,
@@ -1049,7 +1049,7 @@
     },
     {
       "cardName": "Cover",
-      "cardDescription": "Add {0} defense 3 times.\nDiscard",
+      "cardDescription": "Add {0} Defense 3 times.\nDiscard",
       "cost": 1,
       "discard": true,
       "cardType": 1,
@@ -1101,7 +1101,7 @@
     },
     {
       "cardName": "Metal Armor",
-      "cardDescription": "Add 10 Armor.\nDiscard",
+      "cardDescription": "Add 10 Plating.\nDiscard",
       "cost": 3,
       "discard": true,
       "cardType": 0,
@@ -1133,7 +1133,7 @@
     },
     {
       "cardName": "Buff Up",
-      "cardDescription": "Add {0} defense and 1 Attack",
+      "cardDescription": "Add {0} Defense and 1 Attack to yourself",
       "cost": 1,
       "discard": false,
       "cardType": 1,
@@ -1175,7 +1175,7 @@
     },
     {
       "cardName": "Shields Down",
-      "cardDescription": "Destroy all your defense to deal it as damage. ({0})\nDiscard",
+      "cardDescription": "Destroy all your Defense to deal it as damage. ({0})\nDiscard",
       "cost": 2,
       "discard": true,
       "cardType": 1,
@@ -1217,7 +1217,7 @@
     },
     {
       "cardName": "Barricade",
-      "cardDescription": "Add {0} defense and -3 Armor.\nDiscard",
+      "cardDescription": "Add {0} defense and -3 Plating to yourself.\nDiscard",
       "cost": 2,
       "discard": true,
       "cardType": 1,
@@ -1259,7 +1259,7 @@
     },
     {
       "cardName": "Fortify",
-      "cardDescription": "Add {0} defense and -1 Armor",
+      "cardDescription": "Add {0} defense and -1 Plating to yourself",
       "cost": 2,
       "discard": false,
       "cardType": 1,
@@ -1301,7 +1301,7 @@
     },
     {
       "cardName": "Mega Shield",
-      "cardDescription": "Add {0} defense",
+      "cardDescription": "Add {0} Defense",
       "cost": 3,
       "discard": false,
       "cardType": 1,
@@ -1333,7 +1333,7 @@
     },
     {
       "cardName": "Reinforce",
-      "cardDescription": "Add {0} defense and 3 Armor",
+      "cardDescription": "Add {0} Defense and 3 Plating to yourself",
       "cost": 3,
       "discard": false,
       "cardType": 1,
@@ -1417,7 +1417,7 @@
     },
     {
       "cardName": "Ultra Shield",
-      "cardDescription": "Add {0} defense",
+      "cardDescription": "Add {0} Defense",
       "cost": 4,
       "discard": false,
       "cardType": 1,
@@ -1449,7 +1449,7 @@
     },
     {
       "cardName": "Shield & Heal",
-      "cardDescription": "Add {0} defense, 2 Armor and Heal {1}",
+      "cardDescription": "Add {0} Defense, 2 Plating and Heal {1}",
       "cost": 4,
       "discard": false,
       "cardType": 1,
@@ -1501,7 +1501,7 @@
     },
     {
       "cardName": "Hyper Shield",
-      "cardDescription": "Add {0} defense",
+      "cardDescription": "Add {0} Defense",
       "cost": 5,
       "discard": false,
       "cardType": 1,
@@ -1703,7 +1703,7 @@
     },
     {
       "cardName": "Healing Aura",
-      "cardDescription": "Heal {0}, add 4 Recovery and 4 Armor.\nDiscard",
+      "cardDescription": "Heal {0}, add 4 Recovery and 4 Plating.\nDiscard",
       "cost": 4,
       "discard": true,
       "cardType": 3,
@@ -2177,7 +2177,7 @@
     },
     {
       "cardName": "Planning",
-      "cardDescription": "For every card drawn this round add 1 Attack ({0})",
+      "cardDescription": "For every card drawn this round add 1 Attack to yourself ({0})",
       "cost": 2,
       "discard": false,
       "cardType": 2,
@@ -2209,7 +2209,7 @@
     },
     {
       "cardName": "Gear Up",
-      "cardDescription": "For every card drawn this round add 1 Armor ({0})",
+      "cardDescription": "For every card drawn this round add 1 Plating to yourself ({0})",
       "cost": 2,
       "discard": false,
       "cardType": 2,
@@ -2241,7 +2241,7 @@
     },
     {
       "cardName": "PLACEHOLDER",
-      "cardDescription": "Add 1 Attack",
+      "cardDescription": "Add 1 Attack to yourself",
       "cost": 1,
       "discard": false,
       "cardType": 2,
@@ -2273,7 +2273,7 @@
     },
     {
       "cardName": "PLACEHOLDER",
-      "cardDescription": "Add 1 Armor",
+      "cardDescription": "Add 1 Plating to yourself",
       "cost": 1,
       "discard": false,
       "cardType": 2,
@@ -2369,7 +2369,7 @@
     },
     {
       "cardName": "PLACEHOLDER",
-      "cardDescription": "Add -1 Armor to the enemy",
+      "cardDescription": "Add -1 Plating to the enemy",
       "cost": 2,
       "discard": false,
       "cardType": 2,
@@ -2467,7 +2467,7 @@
 ,
 {
     "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 3 Attack, 3 Armor and 3 Recovery",
+    "cardDescription": "Add 3 Attack, 3 Plating and 3 Recovery to yourself",
     "cost": 4,
     "discard": false,
     "cardType": 2,
@@ -2520,7 +2520,7 @@
 ,
 {
     "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 1 Attack, 1 Armor and 1 Recovery to yourself and -1 Attack, -1 Armor and -1 Recovery to the enemy.\nDiscard",
+    "cardDescription": "Add 1 Attack, 1 Plating and 1 Recovery to yourself and -1 Attack, -1 Plating and -1 Recovery to the enemy.\nDiscard",
     "cost": 1,
     "discard": true,
     "cardType": 2,
@@ -2722,7 +2722,7 @@
 ,
 {
     "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 2 Armor to yourself and -1 Armor to the enemy",
+    "cardDescription": "Add 2 Plating to yourself and -1 Armor to the enemy",
     "cost": 4,
     "discard": false,
     "cardType": 2,
@@ -2765,7 +2765,7 @@
 ,
 {
     "cardName": "Piercing Weapon",
-    "cardDescription": "Add 1 Attack to yourself and -2 Armor to the enemy.\nDiscard",
+    "cardDescription": "Add 1 Attack to yourself and -2 Plating to the enemy.\nDiscard",
     "cost": 0,
     "discard": true,
     "cardType": 2,
@@ -2841,7 +2841,7 @@
 ,
 {
     "cardName": "Gather Intel",
-    "cardDescription": "Draw 3 and add -1 Armor",
+    "cardDescription": "Draw 3 and add -1 Plating to yourself",
     "cost": 2,
     "discard": false,
     "cardType": 4,
