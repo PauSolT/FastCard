@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public void NextEnemy()
     {
         //Add the cardsm picked by the player to the player deck
-        rewardSystem.AddRewardCardsToPlayer();
+        combatFunctions.AddRewards();
         //Next enemy
         currentEnemy++;
         //Initialize enemy

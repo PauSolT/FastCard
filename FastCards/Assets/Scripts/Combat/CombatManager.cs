@@ -246,6 +246,7 @@ public class CombatManager
         enemy.DoOption();
         //Values reset
         ResetCombatRoundValues();
+        GameManager.player.ArmorResetTurn(Mathf.CeilToInt(LookUpTable.lookUpTable[LookUpTable.DelegateType.playerCurrentArmor]() / 2));
     }
 
     public void BuildCombo()

@@ -22,7 +22,7 @@ public class RewardSystem
 
     public void GetRewards()
     {
-        SelectCards();
+        SelectRewardCards();
         GameManager.deck.rewardContent.transform.parent.parent.gameObject.SetActive(true);
 
         if (commonPossibilities > 30) 
@@ -41,7 +41,7 @@ public class RewardSystem
         }
     }
 
-    void SelectCards()
+    void SelectRewardCards()
     {
         int randNum;
         int randCard;
@@ -106,7 +106,6 @@ public class RewardSystem
         GameManager.combatManager.ResetCombo();
         GameManager.deck.UpdateCardDescription(rewardCards, rewardCardsGO);
     }
-
 
     public void AddRewardCardsToPlayer()
     {

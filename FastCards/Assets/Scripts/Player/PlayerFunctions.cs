@@ -96,6 +96,12 @@ public class PlayerFunctions : Player
         //Debug.Log("Armor: " + player.GetCurrentArmor());
     }
 
+    public void ArmorResetTurn(int armor)
+    {
+        player.SetCurrentArmor(player.GetCurrentArmor() - armor);
+        CombatManager.playerArmor.text = player.GetCurrentArmor().ToString();
+    }
+
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
     {
         player.SetStatusDamage(player.GetStatusDamage() + damageBuff);
