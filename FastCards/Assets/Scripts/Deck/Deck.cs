@@ -16,13 +16,10 @@ public class Deck : MonoBehaviour
     [Header("Exhaust")]
     public List<Card> unusableDeck;
 
-    public static List<CardPassive> passives;
-
     [Header("Wtachable lists")]
     public List<Card> seePlayerHand;    
     public List<Card> seeDrawDeck;
     public List<Card> seePileDeck;
-    public List<CardPassive> seePassive;
 
     public static Deck instance;
 
@@ -41,14 +38,11 @@ public class Deck : MonoBehaviour
         foreach (Card card in GameManager.cardCollection.cards)
         {
             card.CardInit();
-            //playerDeck.Add(card);  
         }
-        AllPasives.Init();
 
         for (int i = 0; i < 3; i++)
         {
             playerDeck.Add(GameManager.cardCollection.cards[i]);
-            playerDeck.Add(GameManager.cardCollection.cards[77]);
         }
         for (int i = 0; i < 2; i++)
         {
@@ -64,8 +58,7 @@ public class Deck : MonoBehaviour
     //Initialize deck when starting combat
     public void StartCombat()
     {
-        passives = new List<CardPassive>();
-        //AllPasives.Init();
+        AllPasives.Init();
         combatDeck = new List<Card>(playerDeck.Count);
         foreach (Card card in playerDeck)
         {

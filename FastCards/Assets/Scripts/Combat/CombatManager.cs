@@ -314,7 +314,6 @@ public class CombatManager
         GameManager.deck.seePlayerHand = GameManager.player.GetPlayer().GetHand();
         GameManager.deck.seeDrawDeck = Deck.drawDeck;
         GameManager.deck.seePileDeck = Deck.pileDeck;
-        GameManager.deck.seePassive = Deck.passives;
 
         timeSlider.maxValue = turnSeconds;
         currentTurnSeconds -= Time.deltaTime;
