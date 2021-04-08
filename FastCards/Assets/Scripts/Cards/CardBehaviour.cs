@@ -12,6 +12,7 @@ public class CardBehaviour
     public bool targetPlayer = true;
     [SerializeField]public LookUpTable.DelegateType valueDelegate;
     int sumtotal = 0;
+    [SerializeField] public AllPasives.PassiveName selectPassive;
 
     [System.Serializable] public enum BehaviourType
     {
@@ -22,12 +23,14 @@ public class CardBehaviour
         BuffAttack,
         BuffDefense,
         BuffHealing,
-        Draw
+        Draw,
+        Passive
     }
 
     [SerializeField] public BehaviourType behaviourType;
 
     [SerializeField] public System.Action<bool, int, LookUpTable.DelegateType> behaviorUse;
+    [SerializeField] public System.Action passiveBehaviour;
 
     public void Init()
     {
@@ -57,11 +60,15 @@ public class CardBehaviour
             case BehaviourType.Draw:
                 behaviorUse += DrawCard;
                 break;
+            case BehaviourType.Passive:
+                passiveBehaviour += PassiveCard;
+                break;
         }
     }
 
     public int CheckDamageBehaviour()
     {
+        
         switch (behaviourType)
         {
             case BehaviourType.Attack:
@@ -93,35 +100,43 @@ public class CardBehaviour
     }
     public void Execute()
     {
-        if (condition.CheckCondition())
-            behaviorUse.Invoke(targetPlayer, value, valueDelegate);
-
-        switch (behaviourType)
+        if (behaviourType != BehaviourType.Passive)
         {
-            case BehaviourType.Attack:
-                CombatManager.attackCardsRound++;
-                break;
-            case BehaviourType.Defense:
-                CombatManager.defendCardsRound++;
-                break;
-            case BehaviourType.Heal:
-                CombatManager.healingCardsRound++;
-                break;
-            case BehaviourType.TakeHp:
-                break;
-            case BehaviourType.BuffAttack:
-                CombatManager.statusCardsRound++;
-                break;
-            case BehaviourType.BuffDefense:
-                CombatManager.statusCardsRound++;
-                break;
-            case BehaviourType.BuffHealing:
-                CombatManager.statusCardsRound++;
-                break;
-            case BehaviourType.Draw:
-                CombatManager.cardsDrawn++;
-                break;
+            if (condition.CheckCondition())
+                behaviorUse.Invoke(targetPlayer, value, valueDelegate);
+
+            switch (behaviourType)
+            {
+                case BehaviourType.Attack:
+                    CombatManager.attackCardsRound++;
+                    break;
+                case BehaviourType.Defense:
+                    CombatManager.defendCardsRound++;
+                    break;
+                case BehaviourType.Heal:
+                    CombatManager.healingCardsRound++;
+                    break;
+                case BehaviourType.TakeHp:
+                    break;
+                case BehaviourType.BuffAttack:
+                    CombatManager.statusCardsRound++;
+                    break;
+                case BehaviourType.BuffDefense:
+                    CombatManager.statusCardsRound++;
+                    break;
+                case BehaviourType.BuffHealing:
+                    CombatManager.statusCardsRound++;
+                    break;
+                case BehaviourType.Draw:
+                    CombatManager.cardsDrawn++;
+                    break;
+            }
+        } else if (behaviourType == BehaviourType.Passive)
+        {
+            if (condition.CheckCondition())
+                passiveBehaviour.Invoke();
         }
+        
     }
 
     public void AttackCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
@@ -237,6 +252,11 @@ public class CardBehaviour
 
         CombatManager.drawsDealtRound += totalValue;
         CombatManager.cardsDrawn += totalValue;
+    }
+
+    public void PassiveCard()
+    {
+        GameManager.combatManager.passivesInPlay.Add(selectPassive);
     }
 
     //public void RandomBuff(bool self, int value = 0, LookUpTable.DelegateType del = 0)

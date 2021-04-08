@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
                 cardCollection = JsonUtility.FromJson<CardCollection>(json);
             }
         }
-        
+
         
         //foreach (Card card in cardCollection.cards)
         //{

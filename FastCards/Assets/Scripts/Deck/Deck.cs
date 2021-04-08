@@ -43,10 +43,12 @@ public class Deck : MonoBehaviour
             card.CardInit();
             //playerDeck.Add(card);  
         }
+        AllPasives.Init();
 
         for (int i = 0; i < 3; i++)
         {
             playerDeck.Add(GameManager.cardCollection.cards[i]);
+            playerDeck.Add(GameManager.cardCollection.cards[77]);
         }
         for (int i = 0; i < 2; i++)
         {
@@ -231,11 +233,11 @@ public class Deck : MonoBehaviour
     public void UsedCardToPile(Player player, Card card)
     {
         //Apply Passives
-        foreach (CardPassive cardp in passives)
-        {
-            if(!card.passivesApplied.Contains(cardp))
-                cardp.PassiveCard(card);
-        }
+        //foreach (CardPassive cardp in passives)
+        //{
+        //    if(!card.passivesApplied.Contains(cardp))
+        //        cardp.PassiveCard(card);
+        //}
 
         //Use card
         card.CardUse();

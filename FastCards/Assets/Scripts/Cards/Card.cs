@@ -39,8 +39,6 @@ public class Card
     [SerializeField] public CardType cardType;
     [SerializeField] public CardTier cardTier;
 
-    [SerializeField] public List <CardPassive> passivesApplied = new List<CardPassive>();
-
     [SerializeField] public List<CardBehaviour> cardBehaviours = new List<CardBehaviour>();
     //Events
     [SerializeField]

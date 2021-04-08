@@ -103,7 +103,7 @@ public class CombatManager
     public static int GetCardsDrawn() { return cardsDrawn; }
     public static int GetCurrentTurn() { return currentTurn; }
 
-
+    public List<AllPasives.PassiveName> passivesInPlay = new List<AllPasives.PassiveName>();
         
     TextAsset jsonFile;
     string path = "Jsons/CombatValues";
@@ -247,6 +247,8 @@ public class CombatManager
         //Values reset
         ResetCombatRoundValues();
         GameManager.player.ArmorResetTurn(Mathf.CeilToInt(LookUpTable.lookUpTable[LookUpTable.DelegateType.playerCurrentArmor]() / 2));
+
+        OnStartTurn();
     }
 
     public void BuildCombo()
@@ -291,6 +293,14 @@ public class CombatManager
 
         //Reset hand spacing -100 (original hand spacing -1150)
         hand.spacing = -1050;
+    }
+
+    void OnStartTurn()
+    {
+        foreach (AllPasives.PassiveName passive in passivesInPlay)
+        {
+            AllPasives.passives[passive].Invoke();
+        }
     }
 
     public void CombatInputs()

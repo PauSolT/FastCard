@@ -72,6 +72,9 @@ public class CreateCardTool : ScriptableWizard
                 case CardBehaviour.BehaviourType.Draw:
                     card.cardBehaviours[i].behaviorUse += cardBehaviour[i].DrawCard;
                     break;
+                case CardBehaviour.BehaviourType.Passive:
+                    card.cardBehaviours[i].passiveBehaviour += cardBehaviour[i].PassiveCard;
+                    break;
             }
         }
 

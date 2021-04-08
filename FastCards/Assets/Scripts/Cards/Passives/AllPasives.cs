@@ -7,14 +7,23 @@ public class AllPasives
     //Do a public static MAP with all de passives
     public enum PassiveName
     {
+        NoPassive,
         Buff0Attacks,
+        Get1AttackPR,
     }
 
-    public static Dictionary<PassiveName, System.Action<Card>> passives = new Dictionary<PassiveName, System.Action<Card>>();
+    public static Dictionary<PassiveName, System.Action> passives = new Dictionary<PassiveName, System.Action>();
 
     public static void Init()
     {
-        passives.Add(PassiveName.Buff0Attacks, Buff0CostAttacks);
+        //passives.Add(PassiveName.Buff0Attacks, Buff0CostAttacks);
+        passives.Add(PassiveName.NoPassive, NoPassive);
+        passives.Add(PassiveName.Get1AttackPR, Get1AttackPR);
+    }
+
+    private static void NoPassive()
+    {
+
     }
 
     private static void Buff0CostAttacks(Card card)
@@ -32,6 +41,11 @@ public class AllPasives
                 }
             }
         }
+    }
+
+    private static void Get1AttackPR()
+    {
+        GameManager.player.ApplyStatus(1, 0, 0);
     }
 
 }

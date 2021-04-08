@@ -3013,5 +3013,39 @@
         "a": 0.0
     }
 }
+,
+{
+    "cardName": "get1",
+    "cardDescription": "Get 1 Attack per turn",
+    "cost": 2,
+    "discard": false,
+    "cardType": 5,
+    "cardTier": 0,
+    "cardBehaviours": [
+        {
+            "condition": {
+                "deleagtePairs": [],
+                "conditionTypes": []
+            },
+            "value": 0,
+            "targetPlayer": false,
+            "valueDelegate": 0,
+            "selectPassive": 2,
+            "behaviourType": 8
+        }
+    ],
+    "colorCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "colorBgCard": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    }
+}
 ]
 }
