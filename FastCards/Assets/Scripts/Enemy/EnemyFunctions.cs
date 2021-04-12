@@ -47,6 +47,7 @@ public class EnemyFunctions : Enemy
             {
                 enemy.SetCurrentArmor(0);
                 CombatManager.enemyArmor.text = enemy.GetCurrentArmor().ToString();
+                CombatManager.TakeDefenseHUD();
                 LoseHP(damageHealth);
             }
         }
@@ -86,9 +87,17 @@ public class EnemyFunctions : Enemy
         enemy.SetCurrentArmor(CombatManager.enemy.GetEnemy().GetCurrentArmor() + armor);
         CombatManager.enemyArmor.text = CombatManager.enemy.GetEnemy().GetCurrentArmor().ToString();
 
-        //Debug.Log("Armor: " + enemy.GetCurrentArmor() + "Health: " + enemy.GetCurrentHealth() + "/" + enemy.GetStartingHealth());
+        Debug.Log("Armor: " + enemy.GetCurrentArmor());
+
+        CombatManager.AddDefenseHUD();
     }
 
+    public void ArmorResetTurn(int armor)
+    {
+        enemy.SetCurrentArmor(enemy.GetCurrentArmor() - armor);
+        CombatManager.enemyArmor.text = enemy.GetCurrentArmor().ToString();
+        //Debug.Log("Armor: " + enemy.GetCurrentArmor());
+    }
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
     {
         CombatManager.enemy.GetEnemy().SetStatusDamage(CombatManager.enemy.GetEnemy().GetStatusDamage() + damageBuff);
@@ -99,6 +108,8 @@ public class EnemyFunctions : Enemy
         CombatManager.enemyAttackText.text = CombatManager.enemy.GetEnemy().GetStatusDamage().ToString();
         CombatManager.enemyArmorText.text = CombatManager.enemy.GetEnemy().GetStatusDefense().ToString();
         CombatManager.enemyRecoveryText.text = CombatManager.enemy.GetEnemy().GetStatusHeal().ToString();
+
+        CombatManager.ModsHUD();
     }
 
     public override void Die()

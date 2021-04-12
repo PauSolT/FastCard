@@ -57,6 +57,7 @@ public class PlayerFunctions : Player
             {
                 player.SetCurrentArmor(0);
                 CombatManager.playerArmor.text = player.GetCurrentArmor().ToString();
+                CombatManager.TakeDefenseHUD();
                 LoseHP(damageHealth);
             }
         }
@@ -91,6 +92,7 @@ public class PlayerFunctions : Player
         {
             player.SetCurrentArmor(player.GetCurrentArmor() + def);
             CombatManager.playerArmor.text = player.GetCurrentArmor().ToString();
+            CombatManager.AddDefenseHUD();
         }
 
         //Debug.Log("Armor: " + player.GetCurrentArmor());
@@ -112,6 +114,8 @@ public class PlayerFunctions : Player
         CombatManager.playerAttackText.text = player.GetStatusDamage().ToString();
         CombatManager.playerArmorText.text = player.GetStatusDefense().ToString();
         CombatManager.playerRecoveryText.text = player.GetStatusHeal().ToString();
+
+        CombatManager.ModsHUD();
     }
 
     public override void LoseHP(int hpLoss)

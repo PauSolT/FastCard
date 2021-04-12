@@ -45,6 +45,10 @@ public class CombatManager
     public static Text enemyArmorText;
     public static Text enemyRecoveryText;
 
+    //Images
+    public static Image playerSliderImage;
+    public static Image enemySliderImage;
+
     //Buttons
     public static Button endTurnButton;
     public static Button deckButton;
@@ -120,6 +124,7 @@ public class CombatManager
         playerAttackText = GameObject.Find("Canvas/PlayerHUD/PlayerAttack").GetComponent<Text>();
         playerArmorText = GameObject.Find("Canvas/PlayerHUD/PlayerArmor").GetComponent<Text>();
         playerRecoveryText = GameObject.Find("Canvas/PlayerHUD/PlayerRecovery").GetComponent<Text>();
+        playerSliderImage = GameObject.Find("Canvas/PlayerHUD/PlayerSlider/FillArea/Fill").GetComponent<Image>();
 
         //Enemy HUD
         enemyHUD = GameObject.Find("Canvas/EnemyHUD");
@@ -131,6 +136,8 @@ public class CombatManager
         enemyAttackText = GameObject.Find("Canvas/EnemyHUD/EnemyAttack").GetComponent<Text>();
         enemyArmorText = GameObject.Find("Canvas/EnemyHUD/EnemyArmor").GetComponent<Text>();
         enemyRecoveryText = GameObject.Find("Canvas/EnemyHUD/EnemyRecovery").GetComponent<Text>();
+        enemySliderImage = GameObject.Find("Canvas/EnemyHUD/EnemySlider/FillArea/Fill").GetComponent<Image>();
+
 
         //Combat HUD
         combatHUD = GameObject.Find("Canvas/CombatHUD");
@@ -207,6 +214,10 @@ public class CombatManager
         enemyArmorText.text = enemy.GetEnemy().GetStatusDefense().ToString();
         enemyRecoveryText.text = enemy.GetEnemy().GetStatusHeal().ToString();
 
+        //Hide unnecesary HUD
+        ModsHUD();
+        DefenseHUD();
+
         comboText.text = "COMBO: " + combo.ToString();
 
         StartPlayerTurn();
@@ -218,12 +229,16 @@ public class CombatManager
         //Resize hand space
         hand.spacing = -1150;
 
-        playerTurn = false;
+        enemy.ArmorResetTurn(enemy.GetEnemy().GetCurrentArmor() / 2);
         //Sets times to 0
         currentTurnSeconds = 0f;
         currentComboSeconds = 0f;
         //Sets combo to 0
         ResetCombo();
+        playerTurn = false;
+
+        enemy.ExecuteOption();
+        StartPlayerTurn();
     }
 
     void StartPlayerTurn()
@@ -246,7 +261,7 @@ public class CombatManager
         enemy.DoOption();
         //Values reset
         ResetCombatRoundValues();
-        GameManager.player.ArmorResetTurn(Mathf.CeilToInt(LookUpTable.lookUpTable[LookUpTable.DelegateType.playerCurrentArmor]() / 2));
+        GameManager.player.ArmorResetTurn(Mathf.RoundToInt(LookUpTable.lookUpTable[LookUpTable.DelegateType.playerCurrentArmor]() / 2));
 
         OnStartTurn();
     }
@@ -265,7 +280,7 @@ public class CombatManager
         comboText.text = "COMBO: " + combo.ToString();
     }
 
-    void ResetCombatRoundValues()
+    private void ResetCombatRoundValues()
     {
         attackCardsRound = 0;
         defendCardsRound = 0;
@@ -277,6 +292,68 @@ public class CombatManager
         healingDealtRound = 0;
         statusDealtRound = 0;
         drawsDealtRound = 0;
+    }
+
+    public static void ModsHUD()
+    {
+        if (GameManager.player.GetPlayer().GetStatusDamage() == 0)
+            playerAttackText.gameObject.SetActive(false);
+        else if (GameManager.player.GetPlayer().GetStatusDamage() != 0)
+            playerAttackText.gameObject.SetActive(true);
+        if (GameManager.player.GetPlayer().GetStatusDefense() == 0)
+            playerArmorText.gameObject.SetActive(false);
+        else if (GameManager.player.GetPlayer().GetStatusDefense() != 0)
+            playerArmorText.gameObject.SetActive(true);
+        if (GameManager.player.GetPlayer().GetStatusHeal() == 0)
+            playerRecoveryText.gameObject.SetActive(false);
+        else if (GameManager.player.GetPlayer().GetStatusHeal() == 0)
+            playerRecoveryText.gameObject.SetActive(true);
+        if (enemy.GetEnemy().GetStatusDamage() == 0)
+            enemyAttackText.gameObject.SetActive(false);
+        else if (enemy.GetEnemy().GetStatusDamage() != 0)
+            enemyAttackText.gameObject.SetActive(true);
+        if (enemy.GetEnemy().GetStatusDefense() == 0)
+            enemyArmorText.gameObject.SetActive(false);
+        else if (enemy.GetEnemy().GetStatusDefense() != 0)
+            enemyArmorText.gameObject.SetActive(true);
+        if (enemy.GetEnemy().GetStatusHeal() == 0)
+            enemyRecoveryText.gameObject.SetActive(false);
+        else if (enemy.GetEnemy().GetStatusHeal() != 0)
+            enemyRecoveryText.gameObject.SetActive(true);
+    }
+
+    public static void DefenseHUD()
+    {
+        AddDefenseHUD();
+        TakeDefenseHUD();
+    }
+
+    public static void AddDefenseHUD()
+    {
+        if (GameManager.player.GetPlayer().GetCurrentArmor() != 0)
+        {
+            playerArmor.gameObject.SetActive(true);
+            playerSliderImage.color = new Color(0f, 0.572549f, 1f, 1f);
+        }
+        if (enemy.GetEnemy().GetCurrentArmor() != 0)
+        {
+            enemyArmor.gameObject.SetActive(true);
+            enemySliderImage.color = new Color(0f, 0.572549f, 1f, 1f);
+        }
+    }
+
+    public static void TakeDefenseHUD()
+    {
+        if (GameManager.player.GetPlayer().GetCurrentArmor() == 0)
+        {
+            playerArmor.gameObject.SetActive(false);
+            playerSliderImage.color = new Color(0f, 0.7921569f, 0.01176471f, 1f);
+        }
+        if (enemy.GetEnemy().GetCurrentArmor() == 0)
+        {
+            enemyArmor.gameObject.SetActive(false);
+            enemySliderImage.color = new Color(0f, 0.7921569f, 0.01176471f, 1f);
+        }
     }
 
     public void EmptyHand()
@@ -323,7 +400,7 @@ public class CombatManager
         currentComboSeconds -= Time.deltaTime;
         comboSlider.value = currentComboSeconds;
 
-        if (currentTurnSeconds <= 0f)
+        if (currentTurnSeconds <= 0f && playerTurn)
             EndPlayerTurn();
 
         if (currentComboSeconds <= 0f)
@@ -338,11 +415,11 @@ public class CombatManager
             EndPlayerTurn();
         }
 
-        if (!playerTurn)
-        {
-            enemy.ExecuteOption();
-            StartPlayerTurn();
-        }
+        //if (!playerTurn)
+        //{
+        //    enemy.ExecuteOption();
+        //    StartPlayerTurn();
+        //}
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

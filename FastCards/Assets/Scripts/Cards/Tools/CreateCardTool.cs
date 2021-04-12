@@ -19,6 +19,9 @@ public class CreateCardTool : ScriptableWizard
     public Card.CardType type;
     public Card.CardTier tier;
 
+    Color colorCard;
+    Color colorBackground;
+
     public CardBehaviour[] cardBehaviour;
 
     [MenuItem("Tools/Create Card")]
@@ -33,6 +36,46 @@ public class CreateCardTool : ScriptableWizard
     {
         string filePath = "Assets/StreamingAssets/CardData.json";
 
+        switch (type)
+        {
+            case Card.CardType.Attack:
+                colorBackground = new Color(0.8078431f, 0.1254902f, 0.1607843f, 1.0f);
+                break;
+            case Card.CardType.Defense:
+                colorBackground = new Color(0.1254902f, 0.678621f, 0.8078431f, 1.0f);
+                break;
+            case Card.CardType.Heal:
+                colorBackground = new Color(0.1792898f, 0.745283f, 0.2996411f, 1.0f);
+                break;
+            case Card.CardType.Status:
+                colorBackground = new Color(0.8867924f, 0.4497346f, 0.1882343f, 1.0f);
+                break;
+            case Card.CardType.Draw:
+                colorBackground = new Color(0.5943396f, 0.5943396f, 0.5943396f, 1.0f);
+                break;
+            case Card.CardType.Passive:
+                colorBackground = new Color(0.7710036f, 0.4123353f, 0.7735849f, 1.0f);
+                break;
+        }
+        
+        switch (tier)
+        {
+            case Card.CardTier.Common:
+                colorCard = new Color(0.7710036f, 0.4123353f, 0.7735849f, 1.0f);
+                break;
+            case Card.CardTier.Rare:
+                colorCard = new Color(0.05598078f, 0.4471672f, 0.6981132f, 1.0f);
+                break;
+            case Card.CardTier.Epic:
+                colorCard = new Color(0.7138336f, 0.164204f, 0.7735849f, 1.0f);
+                break;
+            case Card.CardTier.Legendary:
+                colorCard = new Color(0.8392157f, 0.1568318f, 0.1215686f, 1.0f);
+                break;
+        }
+                                             
+
+
         Card card = new Card() {
             cardName = cardName,
             cardDescription = cardDescription,
@@ -40,6 +83,8 @@ public class CreateCardTool : ScriptableWizard
             cardTier = tier,
             cost = cost,
             discard = discard,
+            colorBgCard = colorBackground,
+            colorCard = colorCard
         };
 
         for (int i = 0; i < cardBehaviour.Length; i++)

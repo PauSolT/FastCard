@@ -35,10 +35,13 @@ public class Deck : MonoBehaviour
     //Initialize deck
     public void Init()
     {
+        AllPasives.Init();
+
         foreach (Card card in GameManager.cardCollection.cards)
         {
             card.CardInit();
         }
+
 
         for (int i = 0; i < 3; i++)
         {
@@ -58,7 +61,7 @@ public class Deck : MonoBehaviour
     //Initialize deck when starting combat
     public void StartCombat()
     {
-        AllPasives.Init();
+
         combatDeck = new List<Card>(playerDeck.Count);
         foreach (Card card in playerDeck)
         {
@@ -341,7 +344,8 @@ public class Deck : MonoBehaviour
     //Card destination
     public void OneTimeCard(Player player, Card card)
     {
-        unusableDeck.Add(player.GetHand()[player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode()))]);
+        unusableDeck.Add(card);
+        //unusableDeck.Add(player.GetHand()[player.GetHand().IndexOf(player.GetHand().Find(x => x.GetHashCode() == card.GetHashCode()))]);
         RemoveCardFromHand(player, card);
     }
 
