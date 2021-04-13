@@ -20,22 +20,8 @@ public class Enemy11 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ConsecutiveOption();
-        switch (numRandom)
-        {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 4";
-                action = EnemyAction.Attack;
-                break;
-            case 4:
-                CombatManager.intentionText.text = "Attack: " + buff.ToString();
-                action = EnemyAction.Status;
-                break;
-            default:
-                break;
-        }
+        UpdateIntention();
+        
     }
     public override void FirstOption()
     {
@@ -62,6 +48,26 @@ public class Enemy11 : EnemyBehaviour
     public override void FifthOption()
     {
         EnemyAIFunctions.StatusDamage(buff);
+    }
+
+    public override void UpdateIntention()
+    {
+        switch (numRandom)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 4";
+                action = EnemyAction.Attack;
+                break;
+            case 4:
+                CombatManager.intentionText.text = "Attack: " + buff.ToString();
+                action = EnemyAction.Status;
+                break;
+            default:
+                break;
+        }
     }
 
 }

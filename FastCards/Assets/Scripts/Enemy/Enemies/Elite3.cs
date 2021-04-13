@@ -20,23 +20,7 @@ public class Elite3 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ConsecutiveOption();
-        switch (numRandom)
-        {
-            case 0:
-                CombatManager.intentionText.text = "Heal: " + (heal + CombatManager.enemy.GetEnemy().GetStatusHeal()).ToString() + "x 5";
-                action = EnemyAction.Heal;
-                break;
-            case 1:
-                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + "x 5";
-                action = EnemyAction.Attack;
-                break;
-            case 2:
-                CombatManager.intentionText.text = "Recovery debuff to self: " + debuff.ToString() + "\n Attack: " + buff.ToString();
-                action = EnemyAction.Status;
-                break;
-            default:
-                break;
-        }
+        UpdateIntention();
     }
     public override void FirstOption()
     {
@@ -57,5 +41,26 @@ public class Elite3 : EnemyBehaviour
     {
         EnemyAIFunctions.StatusHealing(-debuff);
         EnemyAIFunctions.StatusDamage(buff);
+    }
+
+    public override void UpdateIntention()
+    {
+        switch (numRandom)
+        {
+            case 0:
+                CombatManager.intentionText.text = "Heal: " + (heal + CombatManager.enemy.GetEnemy().GetStatusHeal()).ToString() + "x 5";
+                action = EnemyAction.Heal;
+                break;
+            case 1:
+                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + "x 5";
+                action = EnemyAction.Attack;
+                break;
+            case 2:
+                CombatManager.intentionText.text = "Recovery debuff to self: " + debuff.ToString() + "\n Attack: " + buff.ToString();
+                action = EnemyAction.Status;
+                break;
+            default:
+                break;
+        }
     }
 }

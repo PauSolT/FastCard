@@ -111,4 +111,9 @@ public class EnemyBehaviour : MonoBehaviour
     {
 
     }
+
+    public virtual void UpdateIntention()
+    {
+
+    }
 }

@@ -69,6 +69,8 @@ public class Card
         }
 
         GameManager.deck.UpdateCardDescription(GameManager.player.GetPlayer().GetHand(), GameManager.deck.cardsGO);
+        CombatManager.enemy.GetEnemy().GetBehaviour().UpdateIntention();
+
     }
 
 

@@ -29,27 +29,8 @@ public class Boss2 : EnemyBehaviour
         if (debuffApplied && numRandom ==0)
             numRandom++;
 
-        switch (numRandom)
-        {
-            case 0:
-                CombatManager.intentionText.text = "Attack debuff: " + debuff.ToString() + "\n Armor debuff: " + debuff2.ToString() + "\n Recovery debuff: " + debuff3.ToString();
-                action = EnemyAction.Status;
-                break;
-            case 1:
-                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString();
-                action = EnemyAction.Attack;
-                break;
-            case 2:
-                CombatManager.intentionText.text = "Damage: " + (damage2 + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 15";
-                action = EnemyAction.Attack;
-                break;
-            case 3:
-                CombatManager.intentionText.text = "Attack: " + buff.ToString();
-                action = EnemyAction.Status;
-                break;
-            default:
-                break;
-        }
+        UpdateIntention();
+        
     }
     public override void FirstOption()
     {
@@ -74,6 +55,31 @@ public class Boss2 : EnemyBehaviour
     public override void FourthOption()
     {
         EnemyAIFunctions.StatusDamage(buff);
+    }
+
+    public override void UpdateIntention()
+    {
+        switch (numRandom)
+        {
+            case 0:
+                CombatManager.intentionText.text = "Attack debuff: " + debuff.ToString() + "\n Armor debuff: " + debuff2.ToString() + "\n Recovery debuff: " + debuff3.ToString();
+                action = EnemyAction.Status;
+                break;
+            case 1:
+                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString();
+                action = EnemyAction.Attack;
+                break;
+            case 2:
+                CombatManager.intentionText.text = "Damage: " + (damage2 + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 15";
+                action = EnemyAction.Attack;
+                break;
+            case 3:
+                CombatManager.intentionText.text = "Attack: " + buff.ToString();
+                action = EnemyAction.Status;
+                break;
+            default:
+                break;
+        }
     }
 
 }

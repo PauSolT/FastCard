@@ -17,6 +17,19 @@ public class Enemy3 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ConsecutiveOption();
+        UpdateIntention();
+    }
+    public override void FirstOption()
+    {
+        EnemyAIFunctions.Defend(defense);
+    }
+    public override void SecondOption()
+    {
+        EnemyAIFunctions.Attack(damage + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn]());
+    }
+
+    public override void UpdateIntention()
+    {
         switch (numRandom)
         {
             case 0:
@@ -30,13 +43,5 @@ public class Enemy3 : EnemyBehaviour
             default:
                 break;
         }
-    }
-    public override void FirstOption()
-    {
-        EnemyAIFunctions.Defend(defense);
-    }
-    public override void SecondOption()
-    {
-        EnemyAIFunctions.Attack(damage + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn]());
     }
 }

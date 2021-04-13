@@ -20,23 +20,7 @@ public class Enemy13 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ChooseOption();
-        switch (numRandom)
-        {
-            case 0:
-                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 3";
-                action = EnemyAction.Attack;
-                break;
-            case 1:
-                CombatManager.intentionText.text = "Defense: " + (defense + CombatManager.enemy.GetEnemy().GetStatusDefense()).ToString();
-                action = EnemyAction.Defend;
-                break;
-            case 2:
-                CombatManager.intentionText.text = "Attack: " + buff.ToString() + "\n" + "Attack debuff: " + debuff.ToString();
-                action = EnemyAction.Status;
-                break;
-            default:
-                break;
-        }
+        UpdateIntention();
     }
     public override void FirstOption()
     {
@@ -54,5 +38,26 @@ public class Enemy13 : EnemyBehaviour
     {
         EnemyAIFunctions.StatusDamage(buff);
         EnemyAIFunctions.DebuffDamage(debuff);
+    }
+
+    public override void UpdateIntention()
+    {
+        switch (numRandom)
+        {
+            case 0:
+                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 3";
+                action = EnemyAction.Attack;
+                break;
+            case 1:
+                CombatManager.intentionText.text = "Defense: " + (defense + CombatManager.enemy.GetEnemy().GetStatusDefense()).ToString();
+                action = EnemyAction.Defend;
+                break;
+            case 2:
+                CombatManager.intentionText.text = "Attack: " + buff.ToString() + "\n" + "Attack debuff: " + debuff.ToString();
+                action = EnemyAction.Status;
+                break;
+            default:
+                break;
+        }
     }
 }

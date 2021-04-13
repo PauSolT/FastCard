@@ -19,6 +19,24 @@ public class Elite1 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ConsecutiveOption();
+        UpdateIntention();
+        
+    }
+    public override void FirstOption()
+    {
+        EnemyAIFunctions.Attack(damage1);
+    }
+    public override void SecondOption()
+    {
+        EnemyAIFunctions.Attack(damage2);
+    }
+    public override void ThirdOption()
+    {
+        EnemyAIFunctions.DebuffArmor(debuff);
+    }
+
+    public override void UpdateIntention()
+    {
         switch (numRandom)
         {
             case 0:
@@ -36,17 +54,5 @@ public class Elite1 : EnemyBehaviour
             default:
                 break;
         }
-    }
-    public override void FirstOption()
-    {
-        EnemyAIFunctions.Attack(damage1);
-    }
-    public override void SecondOption()
-    {
-        EnemyAIFunctions.Attack(damage2);
-    }
-    public override void ThirdOption()
-    {
-        EnemyAIFunctions.DebuffArmor(debuff);
     }
 }

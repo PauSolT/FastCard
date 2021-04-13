@@ -21,6 +21,26 @@ public class Boss1 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ConsecutiveOption();
+        UpdateIntention();
+    }
+    public override void FirstOption()
+    {
+        EnemyAIFunctions.Attack(damage);
+    }
+    public override void SecondOption()
+    {
+        EnemyAIFunctions.Attack(damage);
+        EnemyAIFunctions.StatusDamage(buff);
+    }
+
+    public override void ThirdOption()
+    {
+        EnemyAIFunctions.Attack(damage);
+        EnemyAIFunctions.StatusDamage(buff2);
+    }
+
+    public override void UpdateIntention()
+    {
         switch (numRandom)
         {
             case 0:
@@ -38,21 +58,6 @@ public class Boss1 : EnemyBehaviour
             default:
                 break;
         }
-    }
-    public override void FirstOption()
-    {
-        EnemyAIFunctions.Attack(damage);
-    }
-    public override void SecondOption()
-    {
-        EnemyAIFunctions.Attack(damage);
-        EnemyAIFunctions.StatusDamage(buff);
-    }
-
-    public override void ThirdOption()
-    {
-        EnemyAIFunctions.Attack(damage);
-        EnemyAIFunctions.StatusDamage(buff2);
     }
 
 }

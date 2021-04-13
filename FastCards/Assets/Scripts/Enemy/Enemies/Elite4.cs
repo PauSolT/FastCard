@@ -16,6 +16,19 @@ public class Elite4 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ConsecutiveOption();
+        UpdateIntention();
+        
+    }
+    public override void FirstOption()
+    {
+        for (int i = 0; i < times + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn](); i++)
+        {
+            EnemyAIFunctions.Attack(damage + CombatManager.enemy.GetEnemy().GetStatusDamage() + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn]());
+        }
+    }
+
+    public override void UpdateIntention()
+    {
         switch (numRandom)
         {
             case 0:
@@ -24,13 +37,6 @@ public class Elite4 : EnemyBehaviour
                 break;
             default:
                 break;
-        }
-    }
-    public override void FirstOption()
-    {
-        for (int i = 0; i < times + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn](); i++)
-        {
-            EnemyAIFunctions.Attack(damage + CombatManager.enemy.GetEnemy().GetStatusDamage() + LookUpTable.lookUpTable[LookUpTable.DelegateType.currentTurn]());
         }
     }
 }

@@ -22,24 +22,7 @@ public class Enemy8 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ChooseOption();
-        switch (numRandom)
-        {
-            case 0:
-                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 2";
-                action = EnemyAction.Attack;
-                break;
-            case 1:
-                CombatManager.intentionText.text = "Defense: " + (defense + CombatManager.enemy.GetEnemy().GetStatusDefense()).ToString() +"\n"
-                    + "Heal: " + (heal + CombatManager.enemy.GetEnemy().GetStatusHeal()).ToString();
-                action = EnemyAction.Multiple;
-                break;
-            case 2:
-                CombatManager.intentionText.text = "Attack: " + buff.ToString() + "\n Armor: " + buff2.ToString() + "\n Recovery: " + buff3.ToString();
-                action = EnemyAction.Status;
-                break;
-            default:
-                break;
-        }
+        UpdateIntention();
     }
     public override void FirstOption()
     {
@@ -57,6 +40,28 @@ public class Enemy8 : EnemyBehaviour
         EnemyAIFunctions.StatusDamage(buff);
         EnemyAIFunctions.StatusArmor(buff2);
         EnemyAIFunctions.StatusHealing(buff3);
+    }
+
+    public override void UpdateIntention()
+    {
+        switch (numRandom)
+        {
+            case 0:
+                CombatManager.intentionText.text = "Damage: " + (damage + CombatManager.enemy.GetEnemy().GetStatusDamage()).ToString() + " x 2";
+                action = EnemyAction.Attack;
+                break;
+            case 1:
+                CombatManager.intentionText.text = "Defense: " + (defense + CombatManager.enemy.GetEnemy().GetStatusDefense()).ToString() + "\n"
+                    + "Heal: " + (heal + CombatManager.enemy.GetEnemy().GetStatusHeal()).ToString();
+                action = EnemyAction.Multiple;
+                break;
+            case 2:
+                CombatManager.intentionText.text = "Attack: " + buff.ToString() + "\n Armor: " + buff2.ToString() + "\n Recovery: " + buff3.ToString();
+                action = EnemyAction.Status;
+                break;
+            default:
+                break;
+        }
     }
 
 }

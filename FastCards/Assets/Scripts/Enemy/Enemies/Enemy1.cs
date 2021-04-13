@@ -18,6 +18,21 @@ public class Enemy1 : EnemyBehaviour
     public override void ChooseOption()
     {
         base.ChooseOption();
+        UpdateIntention();
+    }
+
+    public override void FirstOption()
+    {
+        EnemyAIFunctions.Attack(attack);
+    }
+    public override void SecondOption()
+    {
+        EnemyAIFunctions.Defend(defense);
+        EnemyAIFunctions.StatusDamage(buffattack);
+    }
+
+    public override void UpdateIntention()
+    {
         switch (numRandom)
         {
             case 0:
@@ -33,13 +48,5 @@ public class Enemy1 : EnemyBehaviour
                 break;
         }
     }
-    public override void FirstOption()
-    {
-        EnemyAIFunctions.Attack(attack);
-    }
-    public override void SecondOption()
-    {
-        EnemyAIFunctions.Defend(defense);
-        EnemyAIFunctions.StatusDamage(buffattack);
-    }
+
 }
