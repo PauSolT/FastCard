@@ -92,12 +92,6 @@ public class EnemyFunctions : Enemy
         CombatManager.AddDefenseHUD();
     }
 
-    public void ArmorResetTurn(int armor)
-    {
-        enemy.SetCurrentArmor(enemy.GetCurrentArmor() - armor);
-        CombatManager.enemyArmor.text = enemy.GetCurrentArmor().ToString();
-        //Debug.Log("Armor: " + enemy.GetCurrentArmor());
-    }
     public override void ApplyStatus(int damageBuff, int defenseBuff, int healingBuff)
     {
         CombatManager.enemy.GetEnemy().SetStatusDamage(CombatManager.enemy.GetEnemy().GetStatusDamage() + damageBuff);

@@ -269,6 +269,10 @@ public class Deck : MonoBehaviour
 
         CombatManager.deckButton.gameObject.SetActive(false);
         CombatManager.hideDeckButton.gameObject.SetActive(true);
+        CombatManager.pileButton.gameObject.SetActive(false);
+        CombatManager.hand.gameObject.SetActive(false);
+        CombatManager.endTurnButton.gameObject.SetActive(false);
+        CombatManager.manaText.gameObject.SetActive(false);
     }
 
     public void HideDrawPile()
@@ -282,6 +286,10 @@ public class Deck : MonoBehaviour
         
         CombatManager.deckButton.gameObject.SetActive(true);
         CombatManager.hideDeckButton.gameObject.SetActive(false);
+        CombatManager.pileButton.gameObject.SetActive(true);
+        CombatManager.hand.gameObject.SetActive(true);
+        CombatManager.endTurnButton.gameObject.SetActive(true);
+        CombatManager.manaText.gameObject.SetActive(true);
     }
 
     public void SeePileDeck()
@@ -319,6 +327,10 @@ public class Deck : MonoBehaviour
         canvasDrawPile.transform.parent.parent.gameObject.SetActive(true);
         CombatManager.hidePileButton.gameObject.SetActive(true);
         CombatManager.pileButton.gameObject.SetActive(false);
+        CombatManager.deckButton.gameObject.SetActive(false);
+        CombatManager.hand.gameObject.SetActive(false);
+        CombatManager.endTurnButton.gameObject.SetActive(false);
+        CombatManager.manaText.gameObject.SetActive(false);
     }
 
     public void HidePileDeck()
@@ -331,6 +343,10 @@ public class Deck : MonoBehaviour
         }
         CombatManager.hidePileButton.gameObject.SetActive(false);
         CombatManager.pileButton.gameObject.SetActive(true);
+        CombatManager.deckButton.gameObject.SetActive(true);
+        CombatManager.hand.gameObject.SetActive(true);
+        CombatManager.endTurnButton.gameObject.SetActive(true);
+        CombatManager.manaText.gameObject.SetActive(true);
     }
 
     public void SetCardTexts(GameObject go, Card card)

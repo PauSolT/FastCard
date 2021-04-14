@@ -229,7 +229,6 @@ public class CombatManager
         //Resize hand space
         hand.spacing = -1150;
 
-        enemy.ArmorResetTurn(enemy.GetEnemy().GetCurrentArmor() / 2);
         //Sets times to 0
         currentTurnSeconds = 0f;
         currentComboSeconds = 0f;
@@ -261,7 +260,6 @@ public class CombatManager
         enemy.DoOption();
         //Values reset
         ResetCombatRoundValues();
-        GameManager.player.ArmorResetTurn(Mathf.RoundToInt(LookUpTable.lookUpTable[LookUpTable.DelegateType.playerCurrentArmor]() / 2));
 
         OnStartTurn();
     }

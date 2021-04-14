@@ -9,9 +9,15 @@ public class CardBehaviour
     [SerializeField] public Condition condition = new Condition();
 
     public int value = 0;
+    int sumtotal = 0;
+
+    int firstDebuff = 50 + (GameManager.currentEnemy * 2);
+    int secondDebuff = 100 + (GameManager.currentEnemy * 2);
+    int thirdDebuff = 200 + (GameManager.currentEnemy * 2);
+    int fourthDebuff = 300 + (GameManager.currentEnemy * 2);
+
     public bool targetPlayer = true;
     [SerializeField]public LookUpTable.DelegateType valueDelegate;
-    int sumtotal = 0;
     [SerializeField] public AllPasives.PassiveName selectPassive;
 
     [System.Serializable] public enum BehaviourType
@@ -76,6 +82,24 @@ public class CardBehaviour
                 break;
             case BehaviourType.Defense:
                 sumtotal = value + LookUpTable.lookUpTable[valueDelegate]() + GameManager.player.GetPlayer().GetStatusDefense() + GameManager.combatManager.combo;
+
+                if (GameManager.player.GetPlayer().GetCurrentArmor() >= firstDebuff && GameManager.player.GetPlayer().GetCurrentArmor() < secondDebuff)
+                {
+                    sumtotal = Mathf.RoundToInt(sumtotal * 0.75f);
+                } 
+                else if (GameManager.player.GetPlayer().GetCurrentArmor() >= secondDebuff && GameManager.player.GetPlayer().GetCurrentArmor() < thirdDebuff)
+                {
+                    sumtotal = Mathf.RoundToInt(sumtotal * 0.5f);
+                }
+                else if (GameManager.player.GetPlayer().GetCurrentArmor() >= thirdDebuff && GameManager.player.GetPlayer().GetCurrentArmor() < fourthDebuff)
+                {
+                    sumtotal = Mathf.RoundToInt(sumtotal * 0.25f);
+                }
+                else if (GameManager.player.GetPlayer().GetCurrentArmor() >= fourthDebuff)
+                {
+                    sumtotal = Mathf.RoundToInt(sumtotal * 0.1f);
+                }
+
                 break;
             case BehaviourType.Heal:
                 sumtotal = value + LookUpTable.lookUpTable[valueDelegate]() + GameManager.player.GetPlayer().GetStatusHeal() + GameManager.combatManager.combo;
@@ -173,6 +197,24 @@ public class CardBehaviour
     public void DefenseCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
     {
         int totalValue = value + LookUpTable.lookUpTable[del]() + GameManager.combatManager.combo;
+
+        if (GameManager.player.GetPlayer().GetCurrentArmor() >= firstDebuff && GameManager.player.GetPlayer().GetCurrentArmor() < secondDebuff)
+        {
+            totalValue = Mathf.RoundToInt(totalValue * 0.75f);
+        }
+        else if (GameManager.player.GetPlayer().GetCurrentArmor() >= secondDebuff && GameManager.player.GetPlayer().GetCurrentArmor() < thirdDebuff)
+        {
+            totalValue = Mathf.RoundToInt(totalValue * 0.5f);
+        }
+        else if (GameManager.player.GetPlayer().GetCurrentArmor() >= thirdDebuff && GameManager.player.GetPlayer().GetCurrentArmor() < fourthDebuff)
+        {
+            totalValue = Mathf.RoundToInt(totalValue * 0.25f);
+        }
+        else if (GameManager.player.GetPlayer().GetCurrentArmor() >= fourthDebuff)
+        {
+            totalValue = Mathf.RoundToInt(totalValue * 0.1f);
+        }
+
 
         if (self)
         {
