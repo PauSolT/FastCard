@@ -168,7 +168,7 @@ public class PlayerFunctions : Player
 
     public override void IncreaseComboMultiplier()
     {
-        GameManager.combatManager.comboMultiplier += 1;
+        GameManager.combatManager.comboBuilder += 1;
         //Debug.Log("Increased Combo multiplir to: " + GameManager.combatManager.comboMultiplier);
     }
 

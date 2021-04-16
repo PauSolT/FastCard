@@ -29,6 +29,7 @@ public class Card
     }
 
     //Essentials
+    [SerializeField] public int id;
     [SerializeField] public string cardName = null;
     [SerializeField] public string cardDescription = null;
 

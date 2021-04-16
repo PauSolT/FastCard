@@ -1,6 +1,7 @@
 {
   "cards": [
     {
+      "id": 0,
       "cardName": "Laser",
       "cardDescription": "Deal {0} damage",
       "cost": 1,
@@ -33,6 +34,7 @@
       }
     },
     {
+      "id": 1,
       "cardName": "Shield",
       "cardDescription": "Add {0} defense",
       "cost": 1,
@@ -65,6 +67,7 @@
       }
     },
     {
+      "id": 2,
       "cardName": "Heal",
       "cardDescription": "Heal for {0}",
       "cost": 1,
@@ -98,6 +101,7 @@
       }
     },
     {
+      "id": 3,
       "cardName": "Beam",
       "cardDescription": "Deal {0} damage",
       "cost": 0,
@@ -130,6 +134,7 @@
       }
     },
     {
+      "id": 4,
       "cardName": "Bloody Beam",
       "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
       "cost": 0,
@@ -172,6 +177,7 @@
       }
     },
     {
+      "id": 5,
       "cardName": "Double Beam",
       "cardDescription": "Deal {0} damage 2 times",
       "cost": 1,
@@ -214,6 +220,7 @@
       }
     },
     {
+      "id": 6,
       "cardName": "Show Strength",
       "cardDescription": "Deal {0} damage and add 1 Attack to yourself",
       "cost": 1,
@@ -256,6 +263,7 @@
       }
     },
     {
+      "id": 7,
       "cardName": "Bloody Shot",
       "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
       "cost": 1,
@@ -298,6 +306,7 @@
       }
     },
     {
+      "id": 8,
       "cardName": "Cheap Shot",
       "cardDescription": "Deal 8 damage and add -1 Plating to yourself",
       "cost": 1,
@@ -340,6 +349,7 @@
       }
     },
     {
+      "id": 9,
       "cardName": "Triforce+1",
       "cardDescription": "Deal {0} damage, add {1} Defense, Heal {2} and Draw 1",
       "cost": 3,
@@ -402,6 +412,7 @@
       }
     },
     {
+      "id": 10,
       "cardName": "Barrage",
       "cardDescription": "Deal {0} damage 5 times.\nDiscard",
       "cost": 1,
@@ -474,6 +485,7 @@
       }
     },
     {
+      "id": 11,
       "cardName": "Throwing Knife",
       "cardDescription": "Deal {0} damage and add -1 Plating to the enemy",
       "cost": 1,
@@ -516,6 +528,7 @@
       }
     },
     {
+      "id": 12,
       "cardName": "Super Laser",
       "cardDescription": "Deal {0} damage",
       "cost": 2,
@@ -548,6 +561,7 @@
       }
     },
     {
+      "id": 13,
       "cardName": "Shoot, Reload",
       "cardDescription": "Deal {0} damage, Draw 1",
       "cost": 2,
@@ -590,6 +604,7 @@
       }
     },
     {
+      "id": 14,
       "cardName": "Double Tap",
       "cardDescription": "Deal {0} damage 2 times.\nDiscard",
       "cost": 2,
@@ -632,6 +647,7 @@
       }
     },
     {
+      "id": 15,
       "cardName": "Repeat",
       "cardDescription": "Deal all damage this turn to the enemy. (Self damage counts towards damaging the enemy) ({0}).\nDiscard",
       "cost": 2,
@@ -664,6 +680,7 @@
       }
     },
     {
+      "id": 16,
       "cardName": "Bloody Knife",
       "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
       "cost": 2,
@@ -706,6 +723,7 @@
       }
     },
     {
+      "id": 17,
       "cardName": "All in",
       "cardDescription": "Deal {0} damage and add -6 Attack to yourself",
       "cost": 3,
@@ -748,6 +766,7 @@
       }
     },
     {
+      "id": 18,
       "cardName": "Mega Laser",
       "cardDescription": "Deal {0} damage",
       "cost": 3,
@@ -780,6 +799,7 @@
       }
     },
     {
+      "id": 19,
       "cardName": "Bloody Barrage",
       "cardDescription": "Deal {0} damage to yourself to deal {1} damage 5 times.\nDiscard",
       "cost": 3,
@@ -862,6 +882,7 @@
       }
     },
     {
+      "id": 20,
       "cardName": "Bloody Laser",
       "cardDescription": "Deal {0} damage to yourself to deal {1} damage",
       "cost": 4,
@@ -904,6 +925,7 @@
       }
     },
     {
+      "id": 21,
       "cardName": "Ultra Laser",
       "cardDescription": "Deal {0} damage",
       "cost": 4,
@@ -936,6 +958,7 @@
       }
     },
     {
+      "id": 22,
       "cardName": "Hyper Laser",
       "cardDescription": "Deal {0} damage",
       "cost": 5,
@@ -968,6 +991,7 @@
       }
     },
     {
+      "id": 23,
       "cardName": "Mini Shield",
       "cardDescription": "Add {0} Defense",
       "cost": 0,
@@ -1000,6 +1024,7 @@
       }
     },
     {
+      "id": 24,
       "cardName": "Evasion",
       "cardDescription": "Add {0} Defense 3 times.\nDiscard",
       "cost": 0,
@@ -1052,6 +1077,7 @@
       }
     },
     {
+      "id": 25,
       "cardName": "Shield",
       "cardDescription": "Add {0} Defense",
       "cost": 1,
@@ -1084,6 +1110,7 @@
       }
     },
     {
+      "id": 26,
       "cardName": "Cover",
       "cardDescription": "Add {0} Defense 3 times.\nDiscard",
       "cost": 1,
@@ -1136,6 +1163,7 @@
       }
     },
     {
+      "id": 27,
       "cardName": "Metal Armor",
       "cardDescription": "Add 10 Plating.\nDiscard",
       "cost": 3,
@@ -1168,6 +1196,7 @@
       }
     },
     {
+      "id": 28,
       "cardName": "Buff Up",
       "cardDescription": "Add {0} Defense and 1 Attack to yourself",
       "cost": 1,
@@ -1210,6 +1239,7 @@
       }
     },
     {
+      "id": 29,
       "cardName": "Shields Down",
       "cardDescription": "Destroy all your Defense to deal it as damage. ({0})\nDiscard",
       "cost": 2,
@@ -1252,6 +1282,7 @@
       }
     },
     {
+      "id": 30,
       "cardName": "Barricade",
       "cardDescription": "Add {0} defense and -3 Plating to yourself.\nDiscard",
       "cost": 2,
@@ -1294,6 +1325,7 @@
       }
     },
     {
+      "id": 31,
       "cardName": "Fortify",
       "cardDescription": "Add {0} defense and -1 Plating to yourself",
       "cost": 2,
@@ -1336,6 +1368,7 @@
       }
     },
     {
+      "id": 32,
       "cardName": "Mega Shield",
       "cardDescription": "Add {0} Defense",
       "cost": 3,
@@ -1368,6 +1401,7 @@
       }
     },
     {
+      "id": 33,
       "cardName": "Reinforce",
       "cardDescription": "Add {0} Defense and 3 Plating to yourself",
       "cost": 3,
@@ -1410,6 +1444,7 @@
       }
     },
     {
+      "id": 34,
       "cardName": "Duck & Cover",
       "cardDescription": "Add {0} defense and Draw 2",
       "cost": 3,
@@ -1452,6 +1487,7 @@
       }
     },
     {
+      "id": 35,
       "cardName": "Ultra Shield",
       "cardDescription": "Add {0} Defense",
       "cost": 4,
@@ -1484,6 +1520,7 @@
       }
     },
     {
+      "id": 36,
       "cardName": "Shield & Heal",
       "cardDescription": "Add {0} Defense, 2 Plating and Heal {1}",
       "cost": 4,
@@ -1536,6 +1573,7 @@
       }
     },
     {
+      "id": 37,
       "cardName": "Hyper Shield",
       "cardDescription": "Add {0} Defense",
       "cost": 5,
@@ -1568,6 +1606,7 @@
       }
     },
     {
+      "id": 38,
       "cardName": "Mini Heal",
       "cardDescription": "Heal {0}",
       "cost": 0,
@@ -1600,6 +1639,7 @@
       }
     },
     {
+      "id": 39,
       "cardName": "Heal",
       "cardDescription": "Heal {0}",
       "cost": 1,
@@ -1632,6 +1672,7 @@
       }
     },
     {
+      "id": 40,
       "cardName": "Blessing",
       "cardDescription": "Heal {0}.\nDiscard",
       "cost": 0,
@@ -1664,6 +1705,7 @@
       }
     },
     {
+      "id": 41,
       "cardName": "Super Heal",
       "cardDescription": "Heal {0}",
       "cost": 2,
@@ -1696,6 +1738,7 @@
       }
     },
     {
+      "id": 42,
       "cardName": "Patch Up",
       "cardDescription": "Heal {0} and add 2 Recovery",
       "cost": 3,
@@ -1738,6 +1781,7 @@
       }
     },
     {
+      "id": 43,
       "cardName": "Healing Aura",
       "cardDescription": "Heal {0}, add 4 Recovery and 4 Plating.\nDiscard",
       "cost": 4,
@@ -1790,6 +1834,7 @@
       }
     },
     {
+      "id": 44,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Heal {0}.\nDiscard",
       "cost": 1,
@@ -1822,6 +1867,7 @@
       }
     },
     {
+      "id": 45,
       "cardName": "Mega Heal",
       "cardDescription": "Heal {0}",
       "cost": 3,
@@ -1854,6 +1900,7 @@
       }
     },
     {
+      "id": 46,
       "cardName": "Splash Potion",
       "cardDescription": "Heal {0} and the enemy {1}",
       "cost": 2,
@@ -1896,6 +1943,7 @@
       }
     },
     {
+      "id": 47,
       "cardName": "Leech",
       "cardDescription": "Heal as much damage as you dealt this round (self damage counts towards healing) ({0}).\nDiscard",
       "cost": 5,
@@ -1928,6 +1976,7 @@
       }
     },
     {
+      "id": 48,
       "cardName": "Ultra Heal",
       "cardDescription": "Heal {0}",
       "cost": 4,
@@ -1960,6 +2009,7 @@
       }
     },
     {
+      "id": 49,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Heal {0} and add -1 Recovery to the enemy",
       "cost": 1,
@@ -2002,6 +2052,7 @@
       }
     },
     {
+      "id": 50,
       "cardName": "Hyper Heal",
       "cardDescription": "Heal {0}",
       "cost": 5,
@@ -2034,6 +2085,7 @@
       }
     },
     {
+      "id": 51,
       "cardName": "PLACEHOLDERE",
       "cardDescription": "Heal {0} 5 times.\nDiscard",
       "cost": 4,
@@ -2106,6 +2158,7 @@
       }
     },
     {
+      "id": 52,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Deal as much damage as you healed yourself this round ({0})",
       "cost": 3,
@@ -2138,6 +2191,7 @@
       }
     },
     {
+      "id": 53,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Heal 1 for every card drawn this round ({0})",
       "cost": 2,
@@ -2170,6 +2224,7 @@
       }
     },
     {
+      "id": 54,
       "cardName": "Healing Shot",
       "cardDescription": "Deal {0} damage to yourself to add 5 Recovery.\nDiscard",
       "cost": 1,
@@ -2212,6 +2267,7 @@
       }
     },
     {
+      "id": 55,
       "cardName": "Planning",
       "cardDescription": "For every card drawn this round add 1 Attack to yourself ({0})",
       "cost": 2,
@@ -2244,6 +2300,7 @@
       }
     },
     {
+      "id": 56,
       "cardName": "Gear Up",
       "cardDescription": "For every card drawn this round add 1 Plating to yourself ({0})",
       "cost": 2,
@@ -2276,6 +2333,7 @@
       }
     },
     {
+      "id": 57,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Add 1 Attack to yourself",
       "cost": 1,
@@ -2308,6 +2366,7 @@
       }
     },
     {
+      "id": 58,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Add 1 Plating to yourself",
       "cost": 1,
@@ -2340,6 +2399,7 @@
       }
     },
     {
+      "id": 59,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Add 1 Recovery",
       "cost": 2,
@@ -2372,6 +2432,7 @@
       }
     },
     {
+      "id": 60,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Add -1 Attack to the enemy",
       "cost": 2,
@@ -2404,6 +2465,7 @@
       }
     },
     {
+      "id": 61,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Add -1 Plating to the enemy",
       "cost": 2,
@@ -2436,6 +2498,7 @@
       }
     },
     {
+      "id": 62,
       "cardName": "PLACEHOLDER",
       "cardDescription": "Add -1 Recovery to the enemy",
       "cost": 2,
@@ -2451,7 +2514,7 @@
           "value": -1,
           "targetPlayer": false,
           "valueDelegate": 0,
-          "behaviourType": 6 
+          "behaviourType": 6
         }
       ],
       "colorCard": {
@@ -2468,620 +2531,635 @@
       }
     }
   ,
-{
-    "cardName": "Intimidate",
-    "cardDescription": "Add -3 Attack to the enemy.\nDiscard",
-    "cost": 3,
-    "discard": true,
-    "cardType": 2,
-    "cardTier": 2,
-    "cardBehaviours": [
+    {
+      "id": 63,
+      "cardName": "Intimidate",
+      "cardDescription": "Add -3 Attack to the enemy.\nDiscard",
+      "cost": 3,
+      "discard": true,
+      "cardType": 2,
+      "cardTier": 2,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -3,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 4
         }
-    ],
-  "colorCard": {
-    "r": 0.7138336,
-    "g": 0.1642044,
-    "b": 0.7735849,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.7138336,
+        "g": 0.1642044,
+        "b": 0.7735849,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 3 Attack, 3 Plating and 3 Recovery to yourself",
-    "cost": 4,
-    "discard": false,
-    "cardType": 2,
-    "cardTier": 3,
-    "cardBehaviours": [
+    {
+      "id": 64,
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 3 Attack, 3 Plating and 3 Recovery to yourself",
+      "cost": 4,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 3,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 3,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 3,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 3,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 6
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
         }
-    ],
-  "colorCard": {
-    "r": 0.8392157,
-    "g": 0.1568318,
-    "b": 0.1215686,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.8392157,
+        "g": 0.1568318,
+        "b": 0.1215686,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 1 Attack, 1 Plating and 1 Recovery to yourself and -1 Attack, -1 Plating and -1 Recovery to the enemy.\nDiscard",
-    "cost": 1,
-    "discard": true,
-    "cardType": 2,
-    "cardTier": 3,
-    "cardBehaviours": [
+    {
+      "id": 65,
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 1 Attack, 1 Plating and 1 Recovery to yourself and -1 Attack, -1 Plating and -1 Recovery to the enemy.\nDiscard",
+      "cost": 1,
+      "discard": true,
+      "cardType": 2,
+      "cardTier": 3,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 6
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 4
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 5
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 6
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 6
         }
-    ],
-  "colorCard": {
-    "r": 0.8392157,
-    "g": 0.1568318,
-    "b": 0.1215686,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.8392157,
+        "g": 0.1568318,
+        "b": 0.1215686,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 2 Recovery to yourself and 1 Attack to the enemy",
-    "cost": 2,
-    "discard": false,
-    "cardType": 2,
-    "cardTier": 1,
-    "cardBehaviours": [
+    {
+      "id": 66,
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 2 Recovery to yourself and 1 Attack to the enemy",
+      "cost": 2,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 2,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 6
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 6
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 4
         }
-    ],
-  "colorCard": {
-    "r": 0.05598078,
-    "g": 0.4471672,
-    "b": 0.6981132,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.05598078,
+        "g": 0.4471672,
+        "b": 0.6981132,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "Voodoo Doll",
-    "cardDescription": "Add -6 Recovery to the enemy.\nDiscard",
-    "cost": 5,
-    "discard": true,
-    "cardType": 2,
-    "cardTier": 2,
-    "cardBehaviours": [
+    {
+      "id": 67,
+      "cardName": "Voodoo Doll",
+      "cardDescription": "Add -6 Recovery to the enemy.\nDiscard",
+      "cost": 5,
+      "discard": true,
+      "cardType": 2,
+      "cardTier": 2,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -6,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 6
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -6,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 6
         }
-    ],
-  "colorCard": {
-    "r": 0.7138336,
-    "g": 0.1642044,
-    "b": 0.7735849,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.7138336,
+        "g": 0.1642044,
+        "b": 0.7735849,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 2 Attack to yourself and -1 Attack to the enemy",
-    "cost": 4,
-    "discard": false,
-    "cardType": 2,
-    "cardTier": 1,
-    "cardBehaviours": [
+    {
+      "id": 68,
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 2 Attack to yourself and -1 Attack to the enemy",
+      "cost": 4,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 2,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 4
         }
-    ],
-  "colorCard": {
-    "r": 0.05598078,
-    "g": 0.4471672,
-    "b": 0.6981132,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.05598078,
+        "g": 0.4471672,
+        "b": 0.6981132,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "PLACEHOLDER",
-    "cardDescription": "Add 2 Plating to yourself and -1 Armor to the enemy",
-    "cost": 4,
-    "discard": false,
-    "cardType": 2,
-    "cardTier": 1,
-    "cardBehaviours": [
+    {
+      "id": 69,
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Add 2 Plating to yourself and -1 Armor to the enemy",
+      "cost": 4,
+      "discard": false,
+      "cardType": 2,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 2,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 5
         }
-    ],
-  "colorCard": {
-    "r": 0.05598078,
-    "g": 0.4471672,
-    "b": 0.6981132,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.05598078,
+        "g": 0.4471672,
+        "b": 0.6981132,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "Piercing Weapon",
-    "cardDescription": "Add 1 Attack to yourself and -2 Plating to the enemy.\nDiscard",
-    "cost": 0,
-    "discard": true,
-    "cardType": 2,
-    "cardTier": 2,
-    "cardBehaviours": [
+    {
+      "id": 70,
+      "cardName": "Piercing Weapon",
+      "cardDescription": "Add 1 Attack to yourself and -2 Plating to the enemy.\nDiscard",
+      "cost": 0,
+      "discard": true,
+      "cardType": 2,
+      "cardTier": 2,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 4
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 4
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -2,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -2,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 5
         }
-    ],
-  "colorCard": {
-    "r": 0.7138336,
-    "g": 0.1642044,
-    "b": 0.7735849,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.8867924,
-    "g": 0.4497346,
-    "b": 0.1882343,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.7138336,
+        "g": 0.1642044,
+        "b": 0.7735849,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.8867924,
+        "g": 0.4497346,
+        "b": 0.1882343,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "Draw",
-    "cardDescription": "Draw 1",
-    "cost": 1,
-    "discard": false,
-    "cardType": 4,
-    "cardTier": 0,
-    "cardBehaviours": [
+    {
+      "id": 71,
+      "cardName": "Draw",
+      "cardDescription": "Draw 1",
+      "cost": 1,
+      "discard": false,
+      "cardType": 4,
+      "cardTier": 0,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 1,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 7
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 1,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
         }
-    ],
-  "colorCard": {
-    "r": 0.1831613,
-    "g": 0.7924528,
-    "b": 0.210603,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.5943396,
-    "g": 0.5943396,
-    "b": 0.5943396,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.1831613,
+        "g": 0.7924528,
+        "b": 0.210603,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.5943396,
+        "g": 0.5943396,
+        "b": 0.5943396,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "Gather Intel",
-    "cardDescription": "Draw 3 and add -1 Plating to yourself",
-    "cost": 2,
-    "discard": false,
-    "cardType": 4,
-    "cardTier": 1,
-    "cardBehaviours": [
+    {
+      "id": 72,
+      "cardName": "Gather Intel",
+      "cardDescription": "Draw 3 and add -1 Plating to yourself",
+      "cost": 2,
+      "discard": false,
+      "cardType": 4,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 3,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 7
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
         },
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": -1,
-            "targetPlayer": true,
-            "valueDelegate": 0,
-            "behaviourType": 5
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": -1,
+          "targetPlayer": true,
+          "valueDelegate": 0,
+          "behaviourType": 5
         }
-    ],
-  "colorCard": {
-    "r": 0.05598078,
-    "g": 0.4471672,
-    "b": 0.6981132,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.5943396,
-    "g": 0.5943396,
-    "b": 0.5943396,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.05598078,
+        "g": 0.4471672,
+        "b": 0.6981132,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.5943396,
+        "g": 0.5943396,
+        "b": 0.5943396,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "Super Draw",
-    "cardDescription": "Draw 2",
-    "cost": 2,
-    "discard": false,
-    "cardType": 4,
-    "cardTier": 0,
-    "cardBehaviours": [
+    {
+      "id": 73,
+      "cardName": "Super Draw",
+      "cardDescription": "Draw 2",
+      "cost": 2,
+      "discard": false,
+      "cardType": 4,
+      "cardTier": 0,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 2,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 7
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 2,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
         }
-    ],
-  "colorCard": {
-    "r": 0.1831613,
-    "g": 0.7924528,
-    "b": 0.210603,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.5943396,
-    "g": 0.5943396,
-    "b": 0.5943396,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.1831613,
+        "g": 0.7924528,
+        "b": 0.210603,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.5943396,
+        "g": 0.5943396,
+        "b": 0.5943396,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "Mega Draw",
-    "cardDescription": "Draw 3",
-    "cost": 3,
-    "discard": false,
-    "cardType": 4,
-    "cardTier": 1,
-    "cardBehaviours": [
+    {
+      "id": 74,
+      "cardName": "Mega Draw",
+      "cardDescription": "Draw 3",
+      "cost": 3,
+      "discard": false,
+      "cardType": 4,
+      "cardTier": 1,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 3,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 7
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
         }
-    ],
-  "colorCard": {
-    "r": 0.05598078,
-    "g": 0.4471672,
-    "b": 0.6981132,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.5943396,
-    "g": 0.5943396,
-    "b": 0.5943396,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.05598078,
+        "g": 0.4471672,
+        "b": 0.6981132,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.5943396,
+        "g": 0.5943396,
+        "b": 0.5943396,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "PLACEHOLDER",
-    "cardDescription": "Draw 3.\nDiscard",
-    "cost": 1,
-    "discard": true,
-    "cardType": 4,
-    "cardTier": 2,
-    "cardBehaviours": [
+    {
+      "id": 75,
+      "cardName": "PLACEHOLDER",
+      "cardDescription": "Draw 3.\nDiscard",
+      "cost": 1,
+      "discard": true,
+      "cardType": 4,
+      "cardTier": 2,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 3,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 7
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 3,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
         }
-    ],
-  "colorCard": {
-    "r": 0.7138336,
-    "g": 0.1642044,
-    "b": 0.7735849,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.5943396,
-    "g": 0.5943396,
-    "b": 0.5943396,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.7138336,
+        "g": 0.1642044,
+        "b": 0.7735849,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.5943396,
+        "g": 0.5943396,
+        "b": 0.5943396,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "Lucky Day!",
-    "cardDescription": "Draw 4.\nDiscard",
-    "cost": 0,
-    "discard": true,
-    "cardType": 4,
-    "cardTier": 3,
-    "cardBehaviours": [
+    {
+      "id": 76,
+      "cardName": "Lucky Day!",
+      "cardDescription": "Draw 4.\nDiscard",
+      "cost": 0,
+      "discard": true,
+      "cardType": 4,
+      "cardTier": 3,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 4,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "behaviourType": 7
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 4,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "behaviourType": 7
         }
-    ],
-  "colorCard": {
-    "r": 0.8392157,
-    "g": 0.1568318,
-    "b": 0.1215686,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.5943396,
-    "g": 0.5943396,
-    "b": 0.5943396,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.8392157,
+        "g": 0.1568318,
+        "b": 0.1215686,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.5943396,
+        "g": 0.5943396,
+        "b": 0.5943396,
+        "a": 1.0
+      }
+    }
 ,
-{
-    "cardName": "get1",
-    "cardDescription": "Get 1 Attack per turn",
-    "cost": 2,
-    "discard": false,
-    "cardType": 5,
-    "cardTier": 0,
-    "cardBehaviours": [
+    {
+      "id": 77,
+      "cardName": "get1",
+      "cardDescription": "Get 1 Attack per turn",
+      "cost": 2,
+      "discard": false,
+      "cardType": 5,
+      "cardTier": 0,
+      "cardBehaviours": [
         {
-            "condition": {
-                "deleagtePairs": [],
-                "conditionTypes": []
-            },
-            "value": 0,
-            "targetPlayer": false,
-            "valueDelegate": 0,
-            "selectPassive": 2,
-            "behaviourType": 8
+          "condition": {
+            "deleagtePairs": [],
+            "conditionTypes": []
+          },
+          "value": 0,
+          "targetPlayer": false,
+          "valueDelegate": 0,
+          "selectPassive": 2,
+          "behaviourType": 8
         }
-    ],
-  "colorCard": {
-    "r": 0.1831613,
-    "g": 0.7924528,
-    "b": 0.210603,
-    "a": 1.0
-  },
-  "colorBgCard": {
-    "r": 0.7710036,
-    "g": 0.4123353,
-    "b": 0.7735849,
-    "a": 1.0
-  }
-}
+      ],
+      "colorCard": {
+        "r": 0.1831613,
+        "g": 0.7924528,
+        "b": 0.210603,
+        "a": 1.0
+      },
+      "colorBgCard": {
+        "r": 0.7710036,
+        "g": 0.4123353,
+        "b": 0.7735849,
+        "a": 1.0
+      }
+    }
 ]
 }

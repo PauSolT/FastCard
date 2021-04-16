@@ -10,6 +10,7 @@ using System.Collections.Generic;
 #if UNITY_EDITOR
 public class CreateCardTool : ScriptableWizard
 {
+    public int id;
     public string cardName;
     [TextArea]
     public string cardDescription;
