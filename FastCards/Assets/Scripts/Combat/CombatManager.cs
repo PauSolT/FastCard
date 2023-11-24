@@ -8,6 +8,7 @@ public class CombatManager
 
     public static EnemyFunctions enemy;
     public bool playerTurn;
+    public bool comboStarted;
     public int combo = 0;
     public int comboBuilder = 0;
     public float comboMultiplier = 0; 
@@ -243,17 +244,15 @@ public class CombatManager
     void StartPlayerTurn()
     {
         playerTurn = true;
+        comboStarted = false;
         currentTurn++;
         currentTurnInfo.text = "Turn: " + currentTurn;
         //Draws cards to hand
         GameManager.deck.StartCoroutine(Deck.DrawStartingHand(GameManager.player.GetPlayer()));
         //Sets times
         GameManager.combatManager.currentTurnSeconds = GameManager.combatManager.turnSeconds;
-        GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
         //Refills mana
         GameManager.player.RefillMana();
-        //Shows combo HUD
-        GameManager.combatFunctions.ShowCombo();
         //enables hand so cards can reposicion
         hand.enabled = true;
         //Enemy tells option
@@ -262,6 +261,13 @@ public class CombatManager
         ResetCombatRoundValues();
 
         OnStartTurn();
+    }
+
+    public void StartCombo()
+    {
+        GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
+        GameManager.combatFunctions.ShowCombo();
+        comboStarted = true;
     }
 
     public void BuildCombo()

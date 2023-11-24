@@ -64,8 +64,15 @@ public class Card
             c.Execute();
         }
 
-        if (GameManager.combatManager.currentComboSeconds > 0f)
+        if (GameManager.combatManager.currentComboSeconds > 0f && 
+            GameManager.combatManager.comboStarted)
         {
+            GameManager.combatManager.BuildCombo();
+        }
+
+        if (!GameManager.combatManager.comboStarted)
+        {
+            GameManager.combatManager.StartCombo();
             GameManager.combatManager.BuildCombo();
         }
 
