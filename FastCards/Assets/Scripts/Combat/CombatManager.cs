@@ -111,7 +111,7 @@ public class CombatManager
     public List<AllPasives.PassiveName> passivesInPlay = new List<AllPasives.PassiveName>();
         
     TextAsset jsonFile;
-    string path = "Jsons/CombatValues";
+    readonly string path = "Jsons/CombatValues";
 
     public void InitCombat()
     {
@@ -166,9 +166,9 @@ public class CombatManager
 
         //Initializes cards
         GameManager.InitCards();
-        GameManager.rewardCards.Init();
+        GameManager.rewardCards.InitRewardCards();
         //Initializes deck
-        GameManager.deck.Init();
+        GameManager.deck.InitDeck();
         //Prepares deck for combat
         GameManager.deck.StartCombat();
 
@@ -186,7 +186,8 @@ public class CombatManager
 
         currentTurn = 0;
     }
-
+    
+    //Reset player combat values to 0
     public void ResetPlayerCombatVariables()
     {
         GameManager.player.GetPlayer().SetCurrentArmor(0);
@@ -263,6 +264,7 @@ public class CombatManager
         OnStartTurn();
     }
 
+    //Combo related
     public void StartCombo()
     {
         GameManager.combatManager.currentComboSeconds = GameManager.combatManager.comboSeconds;
@@ -298,28 +300,36 @@ public class CombatManager
         drawsDealtRound = 0;
     }
 
+    //HUD for buffs and debuffs
     public static void ModsHUD()
     {
+        //Player 
         if (GameManager.player.GetPlayer().GetStatusDamage() == 0)
             playerAttackText.gameObject.SetActive(false);
         else if (GameManager.player.GetPlayer().GetStatusDamage() != 0)
             playerAttackText.gameObject.SetActive(true);
+
         if (GameManager.player.GetPlayer().GetStatusDefense() == 0)
             playerArmorText.gameObject.SetActive(false);
         else if (GameManager.player.GetPlayer().GetStatusDefense() != 0)
             playerArmorText.gameObject.SetActive(true);
+
         if (GameManager.player.GetPlayer().GetStatusHeal() == 0)
             playerRecoveryText.gameObject.SetActive(false);
         else if (GameManager.player.GetPlayer().GetStatusHeal() == 0)
             playerRecoveryText.gameObject.SetActive(true);
+
+        //Enemy
         if (enemy.GetEnemy().GetStatusDamage() == 0)
             enemyAttackText.gameObject.SetActive(false);
         else if (enemy.GetEnemy().GetStatusDamage() != 0)
             enemyAttackText.gameObject.SetActive(true);
+
         if (enemy.GetEnemy().GetStatusDefense() == 0)
             enemyArmorText.gameObject.SetActive(false);
         else if (enemy.GetEnemy().GetStatusDefense() != 0)
             enemyArmorText.gameObject.SetActive(true);
+
         if (enemy.GetEnemy().GetStatusHeal() == 0)
             enemyRecoveryText.gameObject.SetActive(false);
         else if (enemy.GetEnemy().GetStatusHeal() != 0)
@@ -392,10 +402,12 @@ public class CombatManager
             return;
         }
 
+        //Deck related
         GameManager.deck.seePlayerHand = GameManager.player.GetPlayer().GetHand();
         GameManager.deck.seeDrawDeck = Deck.drawDeck;
         GameManager.deck.seePileDeck = Deck.pileDeck;
 
+        //Time related
         timeSlider.maxValue = turnSeconds;
         currentTurnSeconds -= Time.deltaTime;
         timeSlider.value = currentTurnSeconds;
@@ -404,6 +416,7 @@ public class CombatManager
         currentComboSeconds -= Time.deltaTime;
         comboSlider.value = currentComboSeconds;
 
+        //End plaeyr turn
         if (currentTurnSeconds <= 0f && playerTurn)
             EndPlayerTurn();
 
@@ -419,12 +432,7 @@ public class CombatManager
             EndPlayerTurn();
         }
 
-        //if (!playerTurn)
-        //{
-        //    enemy.ExecuteOption();
-        //    StartPlayerTurn();
-        //}
-
+        //Cheats
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             GameManager.player.IncreaseCurrentMaxHealth();

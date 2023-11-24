@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
+
+//Component of cards when they're at player hand
 
 [RequireComponent(typeof(RectTransform))]
 public class Draggable : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
@@ -11,13 +10,13 @@ public class Draggable : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerE
     private RectTransform rectTransform;
     private Vector2 startingPosition;
 
+    //Height of card on screen
     private int unitsToShowCard = (int)(Screen.height * 0.23f);
 
     private int siblingIndex;
 
     private bool cardUsed = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();

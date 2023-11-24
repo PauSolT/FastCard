@@ -56,7 +56,7 @@ public class RewardCards
     public List<Card> legendaryPassive = new List<Card>();
 
 
-    public void Init()
+    public void InitRewardCards()
     {
         FillAttackCards();
         FillDefenseCards();

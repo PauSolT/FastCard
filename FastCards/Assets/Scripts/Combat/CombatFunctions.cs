@@ -5,6 +5,7 @@ using System.IO;
 
 public class CombatFunctions : MonoBehaviour
 {
+    //HUD
     public void ShowEndTurnInfo()
     {
         CombatManager.endTurnInfo.gameObject.SetActive(true);
@@ -27,12 +28,18 @@ public class CombatFunctions : MonoBehaviour
         CombatManager.comboText.gameObject.SetActive(false);
     }
 
+    void HideLevelUp()
+    {
+        CombatManager.levelUpHUD.SetActive(false);
+    }
+
+    //End player turn
     public void EndTurn()
     {
         GameManager.combatManager.EndPlayerTurn();
     }
 
-
+    //Rewards when player levels up
     public void IncreaseMaxHealthButton()
     {
         GameManager.player.IncreaseCurrentMaxHealth();
@@ -62,11 +69,7 @@ public class CombatFunctions : MonoBehaviour
         
     }
 
-    void HideLevelUp()
-    {
-        CombatManager.levelUpHUD.SetActive(false);
-    }
-
+    //Add selected reward cards to player's deck
     public void AddRewards()
     {
         GameManager.rewardSystem.AddRewardCardsToPlayer();

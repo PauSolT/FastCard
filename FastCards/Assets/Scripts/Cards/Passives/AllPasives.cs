@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 public class AllPasives 
 {
@@ -9,16 +7,17 @@ public class AllPasives
     {
         NoPassive,
         Buff0Attacks,
-        Get1AttackPR,
+        Get1AttackPerRound,
     }
 
     public static Dictionary<PassiveName, System.Action> passives = new Dictionary<PassiveName, System.Action>();
 
-    public static void Init()
+    //Init MAP with passives
+    public static void InitPassives()
     {
         //passives.Add(PassiveName.Buff0Attacks, Buff0CostAttacks);
         passives.Add(PassiveName.NoPassive, NoPassive);
-        passives.Add(PassiveName.Get1AttackPR, Get1AttackPR);
+        passives.Add(PassiveName.Get1AttackPerRound, Get1AttackPerRound);
     }
 
     private static void NoPassive()
@@ -43,7 +42,7 @@ public class AllPasives
         }
     }
 
-    private static void Get1AttackPR()
+    private static void Get1AttackPerRound()
     {
         GameManager.player.ApplyStatus(1, 0, 0);
     }

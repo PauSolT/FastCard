@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Stats to use when creating cards for their behaviours
+
 [System.Serializable]
 public static class LookUpTable
 {

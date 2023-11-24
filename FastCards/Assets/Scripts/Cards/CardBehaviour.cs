@@ -6,18 +6,25 @@ using UnityEditor;
 [System.Serializable]
 public class CardBehaviour
 {
+    //Conditions of a card to do it's behaviour
     [SerializeField] public Condition condition = new Condition();
 
+    //Value of the behaviour (X damage, X heal, X defense...)
     public int value = 0;
     int sumtotal = 0;
 
-    int firstDebuff = 50 + (GameManager.currentEnemy * 2);
-    int secondDebuff = 100 + (GameManager.currentEnemy * 2);
-    int thirdDebuff = 200 + (GameManager.currentEnemy * 2);
-    int fourthDebuff = 300 + (GameManager.currentEnemy * 2);
+    //Debuffs for when the player gets too much defense
+    readonly int firstDebuff = 50 + (GameManager.currentEnemy * 2);
+    readonly int secondDebuff = 100 + (GameManager.currentEnemy * 2);
+    readonly int thirdDebuff = 200 + (GameManager.currentEnemy * 2);
+    readonly int fourthDebuff = 300 + (GameManager.currentEnemy * 2);
 
+    //If the card targets the player or the enemy
     public bool targetPlayer = true;
-    [SerializeField]public LookUpTable.DelegateType valueDelegate;
+    
+    //If the card depends on a value
+    [SerializeField] public LookUpTable.DelegateType valueDelegate;
+    //Card passives
     [SerializeField] public AllPasives.PassiveName selectPassive;
 
     [System.Serializable] public enum BehaviourType
@@ -35,10 +42,11 @@ public class CardBehaviour
 
     [SerializeField] public BehaviourType behaviourType;
 
+    //List of card behaviours
     [SerializeField] public System.Action<bool, int, LookUpTable.DelegateType> behaviorUse;
     [SerializeField] public System.Action passiveBehaviour;
 
-    public void Init()
+    public void InitCardBehaviour()
     {
         switch (behaviourType)
         {
@@ -122,7 +130,7 @@ public class CardBehaviour
         }
         return sumtotal;
     }
-    public void Execute()
+    public void ExecuteCardBehaviour()
     {
         if (behaviourType != BehaviourType.Passive)
         {
@@ -162,6 +170,8 @@ public class CardBehaviour
         }
         
     }
+
+    //Behaviours
 
     public void AttackCard(bool self, int value = 0, LookUpTable.DelegateType del = 0)
     {
@@ -328,6 +338,7 @@ public class Condition
         different
     }
 
+    //The two values to compare
     [System.Serializable] public struct DeleagtePair
     {
         [SerializeField] public LookUpTable.DelegateType delegate1;
@@ -337,10 +348,11 @@ public class Condition
     [SerializeField] public DeleagtePair[] deleagtePairs;
 
     //[SerializeField] public Dictionary<LookUpTable.DelegateType, LookUpTable.DelegateType> conditionPairs;
+    //Types of condition
     [SerializeField] public ConditionTypes[] conditionTypes;
 
 
-    void Init()
+    public void InitCondition()
     {
         
     }

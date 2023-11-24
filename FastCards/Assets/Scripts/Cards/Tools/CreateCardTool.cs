@@ -1,15 +1,13 @@
-﻿// Creates a simple wizard that lets you create a Light GameObject
-// or if the user clicks in "Apply", it will set the color of the currently
-// object selected to red
-
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using System.IO;
-using System.Collections.Generic;
+
+//Tool to create cards
 
 #if UNITY_EDITOR
 public class CreateCardTool : ScriptableWizard
 {
+    //Members of a card
     public int id;
     public string cardName;
     [TextArea]
@@ -32,6 +30,8 @@ public class CreateCardTool : ScriptableWizard
         //If you don't want to use the secondary button simply leave it out:
         //ScriptableWizard.DisplayWizard<WizardCreateLight>("Create Light", "Create");
     }
+
+    //Creation of a card
 
     void OnWizardCreate()
     {

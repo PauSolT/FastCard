@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Enemy functionality
 public static class EnemyAIFunctions 
 {
     public static void Attack(int value)

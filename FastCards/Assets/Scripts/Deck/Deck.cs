@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
-
     public List<Card> playerDeck = new List<Card>();
 
     public List<Card> combatDeck;
@@ -30,12 +29,12 @@ public class Deck : MonoBehaviour
     public GameObject canvasDrawPile;
     public GameObject rewardContent;
 
-    static float waitDrawSeconds = 0.15f;
+    static readonly float waitDrawSeconds = 0.15f;
 
     //Initialize deck
-    public void Init()
+    public void InitDeck()
     {
-        AllPasives.Init();
+        AllPasives.InitPassives();
 
         foreach (Card card in GameManager.cardCollection.cards)
         {
@@ -77,7 +76,7 @@ public class Deck : MonoBehaviour
 
         Shuffle(drawDeck);
 
-        DrawStartingHand(GameManager.player.GetPlayer());
+        //DrawStartingHand(GameManager.player.GetPlayer());
 
     }
 
@@ -189,7 +188,7 @@ public class Deck : MonoBehaviour
         cardsGO.Add(newCard);
     }
 
-    public void DrawCardWoDraggable(Card card, GameObject parent)
+    public void DrawCardWithoutDraggable(Card card, GameObject parent)
     {
         GameObject newCard = Instantiate(cardPrefab, parent.transform);
         newCard.GetComponent<Draggable>().enabled = false;
@@ -255,7 +254,7 @@ public class Deck : MonoBehaviour
 
         foreach (Card card in drawDeck)
         {
-            DrawCardWoDraggable(card, canvasDrawPile);
+            DrawCardWithoutDraggable(card, canvasDrawPile);
         }
         foreach (Transform child in canvasDrawPile.transform)
         {
@@ -299,7 +298,7 @@ public class Deck : MonoBehaviour
 
         foreach (Card card in pileDeck)
         {
-            DrawCardWoDraggable(card, canvasDrawPile);
+            DrawCardWithoutDraggable(card, canvasDrawPile);
         }
         foreach (Transform child in canvasDrawPile.transform)
         {

@@ -49,39 +49,44 @@ public class Card
     [SerializeField] public Color colorBgCard;
 
     //Virtual functions so childs use them
+    //Init card behaviours
     public virtual void CardInit()
     {
         foreach(CardBehaviour cb in cardBehaviours)
         {
-            cb.Init();
+            cb.InitCardBehaviour();
         }
     }
 
     public virtual void CardUse()
     {
+        //Card functionality
         foreach (CardBehaviour c in cardBehaviours)
         {
-            c.Execute();
+            c.ExecuteCardBehaviour();
         }
 
+        //Build up combo
         if (GameManager.combatManager.currentComboSeconds > 0f && 
             GameManager.combatManager.comboStarted)
         {
             GameManager.combatManager.BuildCombo();
         }
 
+        //Start combo
         if (!GameManager.combatManager.comboStarted)
         {
             GameManager.combatManager.StartCombo();
             GameManager.combatManager.BuildCombo();
         }
-
+        //Put used card on used card deck
         GameManager.deck.UpdateCardDescription(GameManager.player.GetPlayer().GetHand(), GameManager.deck.cardsGO);
+        //If enemy has a trigger, update their intentions
         CombatManager.enemy.GetEnemy().GetBehaviour().UpdateIntention();
 
     }
 
-
+    
     protected void OneTimeUse()
     {
 
